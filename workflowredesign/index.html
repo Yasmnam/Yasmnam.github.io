@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning the workflow builder canvas — Yasaman Aminian</title>
+<meta name="description" content="Case study: rebuilding ARKK's modal-based workflow editor as a full-screen canvas with a structured activity configuration drawer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body>
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="/#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+  </div>
+  <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <a class="cs-back" href="/#work">← Back to case studies</a>
+
+  <header class="cs-head">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <span class="kicker">Case study five — Workflow design</span>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Redesigning the workflow builder canvas, activity configuration and testing experience</span></span></h1>
+    <p class="dateline"><b>ARKK, 2024–2025</b> — Enterprise data platform</p>
+    <p class="cs-role">Lead product designer — 4 initiatives, 15+ design review cycles. Platform: web app (desktop). Deliverables: handoff specs, component library.</p>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-section">
+      <h2>Context</h2>
+      <p class="lede">ARKK's enterprise data platform ran its workflow builder through a modal-based editor: a flat, vertical activity configuration stack layered on top of a canvas with limited visibility.</p>
+      <p>Across four initiatives and more than fifteen design review cycles, the editor moved to a full-screen canvas built on Foblex Flow — a third-party Angular library — with a structured activity configuration drawer and new workflow testing capabilities.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>The problem</h2>
+      <p class="lede">A modal-based editor that couldn't scale.</p>
+      <ol class="cs-numbered">
+        <li><span>The modal overlay sat on top of the canvas, obscuring the flow map underneath it.</span></li>
+        <li><span>Activities had no grouping or ordering, which made complex configurations hard to navigate.</span></li>
+        <li><span>The canvas was missing baseline controls — zoom, pan, multi-select.</span></li>
+        <li><span>There was no keyboard navigation, and no undo or redo.</span></li>
+      </ol>
+      <div class="cs-figure-pending">Figure — the legacy modal-based editor<br>(source screenshot to be supplied)</div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Foblex Flow — capability audit</h2>
+      <p>The engineering team chose Foblex Flow, a third-party Angular library, as the foundation for the new canvas. Mapping every interaction it supported out of the box against the project's functional requirements split the design scope in two: what the library already handled, and what needed custom design and code.</p>
+      <h3>Out of the box</h3>
+      <ol class="cs-numbered">
+        <li><span>Node dragging and repositioning.</span></li>
+        <li><span>Single-node selection.</span></li>
+        <li><span>Basic viewport controls — zoom, pan, minimap.</span></li>
+        <li><span>Fixed top and bottom connection ports.</span></li>
+        <li><span>Auto-routed connector lines.</span></li>
+      </ol>
+      <h3>Needed custom design</h3>
+      <ol class="cs-numbered">
+        <li><span>Node states for status, error and publish.</span></li>
+        <li><span>Connection styling that reflected selection state.</span></li>
+        <li><span>Multi-select, grouping and collapsible nodes.</span></li>
+        <li><span>Search and filter across activities.</span></li>
+        <li><span>A contextual canvas toolbar.</span></li>
+        <li><span>The activity configuration drawer itself.</span></li>
+      </ol>
+      <p>The audit shaped the entire scope of the redesign — separating what Foblex Flow could reliably do from what needed governance-level design and custom UI built on top of it.</p>
+      <div class="cs-figure-pending">Figure — capability audit diagram over the canvas<br>(source screenshot to be supplied)</div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Process</h2>
+      <ol class="cs-numbered">
+        <li><strong>Library audit.</strong> <span>Mapped Foblex Flow's out-of-the-box capabilities early, to focus exploration on the genuine gaps.</span></li>
+        <li><strong>Layout exploration.</strong> <span>Compared modal, wizard and drawer patterns for the activity configuration surface.</span></li>
+        <li><strong>Review cycles.</strong> <span>More than fifteen review cycles across four initiatives, converging the scope at each stage.</span></li>
+        <li><strong>Handoff specs.</strong> <span>Delivered per-initiative handoff pages with use cases, UI annotations and component specs.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <h2>Initiative one — workflow canvas redesign</h2>
+      <p class="lede">Rebuilt the editor as a full-screen canvas.</p>
+      <ol class="cs-numbered">
+        <li><strong>Activity nodes.</strong> <span>Custom node designs carrying status, error and publish states.</span></li>
+        <li><strong>Connections.</strong> <span>Status-coded connection styling, with contextual highlighting on selection.</span></li>
+        <li><strong>Canvas toolbar.</strong> <span>Search, zoom, grouping and fit-to-viewport controls, added to the canvas itself.</span></li>
+        <li><strong>Page layout.</strong> <span>Explored several layout concepts before settling on a full-screen canvas with a configurable side panel.</span></li>
+      </ol>
+      <figure class="cs-figure">
+        <img src="/public/images/workflowredesign/canvas-tree.png" alt="The redesigned workflow canvas, showing activity nodes connected in a tree — one branching into two child activities, including 'Publish VAT Data' — with a workflow testing panel docked at the bottom." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The rebuilt canvas: activities as connected nodes, testing docked below.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Initiative two — activity configuration drawer</h2>
+      <p class="lede">Three layout patterns, one structural rebuild.</p>
+      <ol class="cs-numbered">
+        <li><strong>Tabbed layout.</strong> <span>Kept fields off-screen until needed, but gave nested fields nowhere to go.</span></li>
+        <li><strong>Accordion layout.</strong> <span>Scaled well and kept sections visible collapsed, but made long sections feel overwhelming.</span></li>
+        <li><strong>Drill-down menu.</strong> <span>Kept the main view uncluttered, but took too many clicks to reach related fields.</span></li>
+      </ol>
+      <div class="cs-quote">
+        <p>Structured drawer with header, body and footer — the existing flat stack redesigned into a header for name and description, a scrollable body for settings and configuration, and a footer for contextual actions. Built to extend to future activity types and services.</p>
+        <cite>Design solution</cite>
+      </div>
+      <figure class="cs-figure">
+        <img src="/public/images/workflowredesign/runtime-settings-drawer.png" alt="The redesigned activity configuration drawer, open on its Runtime Settings tab, showing ordering and description fields, default-versus-custom access controls, an assignee field, and view-access options." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The drawer's Runtime Settings tab: ordering, description and user access, structured into clear sections.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Key design decisions</h2>
+      <ol class="cs-numbered">
+        <li><strong>Full-screen canvas.</strong> <span>Replaced the constrained modal editor with a canvas that had room for the full complexity of a workflow.</span></li>
+        <li><strong>Structured drawer redesign.</strong> <span>Reshaped a flat, scrolling configuration stack into clearly separated sections.</span></li>
+        <li><strong>Activity-first over canvas-first.</strong> <span>Chose the orientation that matched how users already thought about their workflows, over the one that mirrored the canvas structure.</span></li>
+      </ol>
+      <figure class="cs-figure">
+        <img src="/public/images/workflowredesign/workflow-testing-drawer.png" alt="The canvas with the activity drawer open alongside a workflow testing panel, showing test entity, test period and testing notes fields for validating an activity before it is published." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Canvas, drawer and workflow testing, working together on one screen.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Outcome</h2>
+      <div class="cs-stats">
+        <div><span class="num">4</span><span class="lab">page layout concepts explored</span></div>
+        <div><span class="num">6</span><span class="lab">configuration patterns evaluated</span></div>
+        <div><span class="num">15+</span><span class="lab">design review cycles</span></div>
+        <div><span class="num">4</span><span class="lab">initiative handoffs delivered</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-next" aria-label="Next case studies">
+    <span class="lab">Next case studies</span>
+    <a href="/drawerredesign">
+      <h3>Redesigning the patient drawer into a modular service system</h3>
+      <span class="jump">Read →</span>
+    </a>
+    <a href="/mml">
+      <h3>Redesigning a historical archive for the digital age</h3>
+      <span class="jump">Read →</span>
+    </a>
+  </nav>
+
+</div>
+
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>

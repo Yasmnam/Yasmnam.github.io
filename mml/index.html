@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning a historical archive for the digital age — Yasaman Aminian</title>
+<meta name="description" content="Case study: the Marx Memorial Library website redesign — navigation, accessibility and content discovery for a historical archive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body>
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="/#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+  </div>
+  <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <a class="cs-back" href="/#work">← Back to case studies</a>
+
+  <header class="cs-head">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <span class="kicker">Case study four — Archive UX</span>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Redesigning a historical archive for the digital age</span></span></h1>
+    <p class="dateline"><b>MARX MEMORIAL LIBRARY, 2024</b> — London</p>
+    <p class="tools">Figma / FigJam</p>
+    <p class="cs-role">UX designer on a mixed team of two graphic designers and three UX designers — led core UX work on information architecture, user flows and the website redesign.</p>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-section">
+      <h2>Context &amp; my role</h2>
+      <p class="lede">The Marx Memorial Library asked the team to modernise its brand and digital experience. On-site observations showed rich content but a hard-to-navigate experience, both physically and digitally — visual inconsistencies, unclear wayfinding and scattered tools made it difficult for visitors and remote researchers to engage.</p>
+    </section>
+
+    <div class="cs-quote">
+      <p>"How might we transform the Marx Memorial Library's static and hard-to-navigate website into an engaging, research-focused platform that makes discovery intuitive, supports deep research workflows, and broadens access beyond the physical library?"</p>
+      <cite>Problem statement</cite>
+    </div>
+
+    <section class="cs-section">
+      <h2>Insight &amp; strategy</h2>
+      <p><strong>Insight —</strong> the existing design leaned "museum-like": visually rich, but not optimised for deep, searchable collections.</p>
+      <p><strong>Strategy —</strong> rebuild the information architecture first — sitemap, taxonomy — then layer a modular interface and research-centric features such as personalisation and contribution tools on top.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Process</h2>
+      <ol class="cs-numbered">
+        <li><strong>Research &amp; discovery.</strong> <span>Visited the library, analysed the existing website and branding, and benchmarked against similar archives to understand user needs, pain points and opportunities.</span></li>
+        <li><strong>Define &amp; synthesise.</strong> <span>Created personas and clarified core user goals, shaping the project vision and guiding design decisions.</span></li>
+        <li><strong>Ideation and sitemapping.</strong> <span>Reorganised content into a clear, intuitive sitemap and navigation structure to improve findability and support research workflows.</span></li>
+        <li><strong>Wireframing &amp; user flows.</strong> <span>Sketched low-fidelity wireframes and mapped user journeys to test layout ideas and validate task flows early.</span></li>
+        <li><strong>UI design &amp; branding.</strong> <span>Developed a modern visual language aligned with the new brand identity, designed modular components, and built consistent layouts.</span></li>
+        <li><strong>Prototype &amp; iterate.</strong> <span>Created interactive prototypes, refined based on feedback, and improved clarity, hierarchy and visual coherence across pages.</span></li>
+      </ol>
+      <p style="margin-top:1.8rem">Three core objectives guided every design decision: enhancing the research experience, optimising website structure and navigation ease, and accessibility and personalisation.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Research &amp; discovery</h2>
+      <ol class="cs-numbered">
+        <li><span>Users struggled to find and access materials due to poor navigation and unclear structure.</span></li>
+        <li><span>The website felt outdated and failed to reflect the richness of the archive.</span></li>
+        <li><span>Researchers needed tools for deeper exploration, saving and contributing content.</span></li>
+        <li><span>Remote users lacked meaningful ways to engage with the library's resources.</span></li>
+      </ol>
+      <figure class="cs-figure">
+        <img src="/public/images/mml/target-audience.png" alt="Target audience research board for a postgraduate history student persona, listing her needs, primary and secondary audiences, needs and expectations, frustrations, hobbies, goals, and the resulting design actions and strategy." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Target audience development, from needs and frustrations to design strategy.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Wireframing &amp; user flows</h2>
+      <p>Low-fidelity wireframes for the homepage, collections, archives, about and support pages set out layout and hierarchy before any visual design began, so structural decisions could be tested independently of styling.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/mml/wireframes.png" alt="Grey low-fidelity wireframes for five pages of the redesigned site: a homepage, a collections page, an archives page with a content grid, an about-us page, and a support-us page." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Low-fidelity wireframes across the site's core pages.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>UI design &amp; branding</h2>
+      <p>The branding team focused on visual identity — logo, typography, colour and templates — while the UX team, where this contribution sat, restructured the website, proposed new user flows and improved access to resources. Poppins was chosen as the typeface to align with the target audience's preferences, paired with a set of muted colours for a modern, approachable tone.</p>
+      <p>A cohesive visual identity — clean typography, a muted yet contemporary palette, and modular components that could scale across the site — turned the archive into a more dynamic, user-friendly platform inviting exploration, learning and community engagement.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Special pages &amp; features</h2>
+      <p>A profile page lets users save favourites, continue past research, and discover suggested resources based on their interests — turning the archive into a more personal, engaging research tool. A "Scan &amp; Add" feature lets visitors contribute directly to the digital archive by scanning books or documents on their mobile device, supporting the library's digitisation efforts while making visitors active participants in growing the collection.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/mml/profile-page.png" alt="Redesigned Marx Memorial Library profile page in the new dark rebrand, showing a member's photo and bio, edit and log-out controls, and a suggested-resources shelf of two book covers with author and page count." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The profile page: saved research and suggested resources, in the new rebrand.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Solution &amp; delivery</h2>
+      <p>The final brand and print collateral carried the new identity across formats — a style and component library kept the digital design consistent, scalable, and easy to hand over to developers.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/mml/brochures.png" alt="Three tri-fold brochure covers for the Marx Memorial Library rebrand in green, blue and dark red, each opening to spreads on social history resources, research and reference, and upcoming events." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Branding and print collateral: social history, research and reference, and events, each in its own colourway.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Next time, I would…</h2>
+      <ol class="cs-numbered">
+        <li><strong>Push for stronger collaboration on consistency.</strong> <span>Work more closely with the graphic design team from the beginning, so brand identity and visual language stay fully consistent across the entire experience.</span></li>
+        <li><strong>Push beyond the obvious boundaries.</strong> <span>Explore more innovative interaction patterns and bolder design directions to challenge conventional structures and deliver a more distinctive experience.</span></li>
+        <li><strong>Bring in testing and users sooner.</strong> <span>Test iteratively from earlier in the process to validate ideas and refine decisions based on real feedback.</span></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <nav class="cs-next" aria-label="Next case studies">
+    <span class="lab">Next case studies</span>
+    <a href="/drawerredesign">
+      <h3>Redesigning the patient drawer into a modular service system</h3>
+      <span class="jump">Read →</span>
+    </a>
+    <a href="/patienthistory">
+      <h3>Design in three acts — the patient history feature</h3>
+      <span class="jump">Read →</span>
+    </a>
+  </nav>
+
+</div>
+
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>

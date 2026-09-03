@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning the patient drawer — Yasaman Aminian</title>
+<meta name="description" content="Case study: turning apodienste's patient drawer into a modular service system for pharmacists and call-centre teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body>
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="/#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+  </div>
+  <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <a class="cs-back" href="/#work">← Back to case studies</a>
+
+  <header class="cs-head">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <span class="kicker">Case study one — Design systems</span>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Redesigning the patient drawer into a modular service system</span></span></h1>
+    <p class="dateline"><b>APODIENSTE, 2024</b> — PharmaBits</p>
+    <p class="tools">Figma / FigJam / Notion / Figma Make / Maze</p>
+    <p class="cs-role">Product designer — discovery and research, concept iteration, stakeholder co-creation, usability testing, and design system contribution. Design lead: Moein Fakhravar. Team: product design lead, engineers, stakeholders. March 2024 to design handoff (July 2024) to release (September 2024).</p>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-section">
+      <h2>Context</h2>
+      <p class="lede">apodienste helps pharmacies manage services such as polymedication analysis, blood pressure monitoring and inhalation training. The platform was originally built to help call centres handle patient appointments, but the pharmacists who carried out the services found it hard to use.</p>
+      <p>The gap between who the system was designed for and who actually depended on it in-session made a redesign necessary — one that served both call centres and pharmacies.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Challenges</h2>
+      <ol class="cs-numbered">
+        <li><strong>Confusing mental model.</strong> <span>Pharmacists struggled to relate to the concept of "cases" and couldn't see why patient documents and case documents lived in different places within the drawer.</span></li>
+        <li><strong>High cognitive load.</strong> <span>The system surfaced too much information, much of it irrelevant, which overwhelmed pharmacists during service delivery.</span></li>
+        <li><strong>Rigid and unscalable.</strong> <span>Every new service required structural UI changes, making the system difficult to extend.</span></li>
+        <li><strong>Manual navigation burden.</strong> <span>Pharmacists had to search for documents themselves rather than being guided through a clear service path — a poor fit for a fast-paced, business-driven environment.</span></li>
+      </ol>
+    </section>
+
+    <div class="cs-quote">
+      <p>"How might we improve the pharmacy service workflow in a scalable and intuitive way that accommodates the needs of multiple user groups — such as call centre agents and pharmacists — while ensuring efficiency, clarity and ease of use across different service types?"</p>
+      <cite>Problem statement</cite>
+    </div>
+
+    <section class="cs-section">
+      <h2>Constraints</h2>
+      <ol class="cs-numbered">
+        <li><span>Direct access to users, especially pharmacists, was limited — large-scale interviews and continuous feedback loops were difficult to run.</span></li>
+        <li><span>This was a unique, comprehensive feature with no existing industry pattern to benchmark against.</span></li>
+        <li><span>Existing users already knew the old design, so the new solution had to minimise the onboarding curve.</span></li>
+        <li><span>The design had to work within the existing backend structure, allowing only minimal changes.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <h2>Before and after</h2>
+      <p>The original drawer treated each patient as a flat list of "cases" — a term pharmacists never fully adopted. The redesign broke each service into its own module with a visible progress state, so a pharmacist could see, at a glance, what still needed doing.</p>
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/drawerredesign/before.png" alt="The original patient drawer: a single case card listing appointments, a status pill, and a flat comment thread, with no visible breakdown of individual services." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Before — the drawer as a single, undifferentiated case.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/drawerredesign/after.png" alt="The redesigned drawer: separate service modules for polymedication, blood pressure and inhalation training, each with its own step tracker and actions." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>After — services as independent modules, each with its own progress steps.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Research insights</h2>
+      <p class="lede">Different roles, different needs.</p>
+      <p>Call centre, analyst and pharmacist each worked in a distinct environment with different objectives and time pressures. A single linear workflow didn't fit all three.</p>
+      <div class="cs-quote">
+        <p>"How can I see what the pharmacist has done? I don't even know when or how a service gets closed."</p>
+        <cite>Call-centre user</cite>
+      </div>
+      <div class="cs-quote">
+        <p>"How can I be sure that the patient has actually been contacted and still wants the service, so I can start the analysis?"</p>
+        <cite>Analyst</cite>
+      </div>
+      <div class="cs-quote">
+        <p>"I can't tell where to find the right documents for each patient — and I'm not even sure what a 'case' is supposed to mean here."</p>
+        <cite>Pharmacist</cite>
+      </div>
+      <p>Pharmacists needed a guided, step-based flow for in-session tasks and document signing. Call centre users needed clarity and feedback after creating services and appointments. Analysts needed a structured overview to prepare medication data before sessions. And across all three, the existing "case" model added confusion without adding clarity.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/drawerredesign/flowchart.png" alt="Flowchart mapping a pharmacy service from initial call-centre contact through polymedication and inhalation branches to the final signed receipt and agreement." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The service flow mapped end to end, from first contact to signed receipt.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Iteration</h2>
+      <p class="lede">Four concepts, each rejected for a specific reason.</p>
+      <ol class="cs-numbered">
+        <li><strong>pDL-based case.</strong> <span>Tied each case to a single service, such as blood pressure or medication review. Feedback: the case concept wasn't understandable, and the user couldn't tell in advance whether blood pressure or inhalation was needed for a given patient.</span></li>
+        <li><strong>Documentation modal.</strong> <span>Separated documentation into its own window to simplify signing and uploading. Feedback: cases and documents are related and shouldn't be split apart — this read as a temporary fix, not an expandable solution.</span></li>
+        <li><strong>Separating the documentation tab.</strong> <span>Defined service steps and optimised documentation by case state. Feedback: cognitive load was very high, especially after a number of services had accumulated, and the approach didn't scale.</span></li>
+        <li><strong>Service modules.</strong> <span>Treated appointments, documents and comments as independent modules within one interface. Feedback: the layout felt unstructured and lacked workflow hierarchy — the modular idea needed clearer grouping and guidance.</span></li>
+      </ol>
+      <p>The shift came from treating each step — appointment, documentation, signing, comments — as a modular building block rather than a fixed section. That reframing became the foundation of the final design: one unified drawer where any step could be completed or revisited without losing context.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/drawerredesign/design-decision.png" alt="The final drawer design showing two service modules — polymedication and blood pressure measurement — each with a linear checklist of agreements, procedures and receipts, plus document and service archive buttons." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The final design: each service as a self-contained module with its own checklist.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Usability testing</h2>
+      <p>Once the modular design reached a stable version, scenario-based usability tests with pharmacists and call-centre users evaluated how intuitive the new flow felt in practice — creating a service, setting an appointment, reviewing documentation, completing a patient session.</p>
+      <ol class="cs-numbered">
+        <li><strong>High task success.</strong> <span>Participants completed 80% of core tasks successfully on their first attempt, with minimal guidance.</span></li>
+        <li><strong>Positive first impressions.</strong> <span>Users described the modular layout as "clear," "modern," and "much easier to follow."</span></li>
+        <li><strong>Archive discoverability.</strong> <span>Several users struggled to find and understand the document and service archives — a sign that labelling and grouping needed to be clearer.</span></li>
+        <li><strong>Appointment flow.</strong> <span>Users were unsure whether appointments were saved or linked to the correct service.</span></li>
+        <li><strong>Progress clarity.</strong> <span>The progress indicator needed stronger visual contrast and clearer step descriptions.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <h2>Handoff and onboarding</h2>
+      <p>Over four grooming sessions, the team refined interaction details, API dependencies and system behaviour with engineering. The design was handed off across two sprints, with Figma specifications, component documentation and a rollout roadmap.</p>
+      <p>To support adoption, the team produced a Notion-based onboarding guide covering the full service workflow, and a Synthesia video tutorial walking pharmacists and call-centre users through real scenarios.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Outcome</h2>
+      <div class="cs-stats">
+        <div><span class="num">30%</span><span class="lab">faster task completion during patient sessions</span></div>
+        <div><span class="num">↓</span><span class="lab">reduction in process-related support tickets</span></div>
+        <div><span class="num">∞</span><span class="lab">new services addable as independent modules, without major UI or backend change</span></div>
+      </div>
+      <p style="margin-top:1.6rem">Pilot pharmacies described the new flow as "logical," "well-organized," and "finally practical for daily use."</p>
+    </section>
+
+  </main>
+
+  <nav class="cs-next" aria-label="Next case studies">
+    <span class="lab">Next case studies</span>
+    <a href="/patienthistory">
+      <h3>Design in three acts — the patient history feature</h3>
+      <span class="jump">Read →</span>
+    </a>
+    <a href="/mml">
+      <h3>Redesigning a historical archive for the digital age</h3>
+      <span class="jump">Read →</span>
+    </a>
+  </nav>
+
+</div>
+
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>

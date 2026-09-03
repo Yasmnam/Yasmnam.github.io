@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turning ambient data into emotional predictability — Yasaman Aminian</title>
+<meta name="description" content="Case study: SenseCast, a sensory data visualisation platform helping people feel emotionally prepared before entering public spaces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body>
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="/#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+  </div>
+  <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <a class="cs-back" href="/#work">← Back to case studies</a>
+
+  <header class="cs-head">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <span class="kicker">Case study three — Sensory data</span>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Turning ambient data into emotional predictability</span></span></h1>
+    <p class="dateline"><b>SENSECAST, 2025</b> — Self-directed</p>
+    <p class="tools">TouchDesigner / Figma / Figma Make / FigJam</p>
+    <p class="cs-role">Self-directed project — research, visual language, TouchDesigner prototyping, and UI design across mobile, public screen and wearable concepts.</p>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-section">
+      <h2>Problem</h2>
+      <p class="lede">Public environments are unpredictable — noise, light and crowd levels change constantly. For people with sensory sensitivities or anxiety, that unpredictability can be overwhelming and lead to avoidance.</p>
+      <p>Existing solutions, such as occupancy apps and weather forecasts, address the practical layer but fail to address the emotional layer of spatial experience.</p>
+    </section>
+
+    <div class="cs-quote">
+      <p>"How might we visualise sensory conditions in a way that reduces emotional discomfort and builds trust before people enter a space?"</p>
+      <cite>Problem statement</cite>
+    </div>
+
+    <section class="cs-section">
+      <h2>Process</h2>
+      <ol class="cs-numbered">
+        <li><strong>Research &amp; discovery.</strong> <span>Investigated how unpredictable public spaces affect people with sensory sensitivities, through surveys, interviews and psychological studies.</span></li>
+        <li><strong>Concept development.</strong> <span>Developed personas and user journeys, and framed the core challenge: translating ambient data into emotional previews.</span></li>
+        <li><strong>Ideation &amp; visual language.</strong> <span>Explored how shape, colour and motion influence emotion, and defined a calming, human-centred visual style.</span></li>
+        <li><strong>Design &amp; prototyping.</strong> <span>Created wireframes and interactive prototypes for mobile, public screens and wearables, focused on intuitive user flows.</span></li>
+        <li><strong>Technical exploration.</strong> <span>Built audio-reactive visualisations in TouchDesigner and used AI tools to accelerate iteration and mock-up creation.</span></li>
+        <li><strong>Testing &amp; delivery.</strong> <span>Delivered a cohesive brand identity, functional prototypes, and a real-time visualisation concept demonstrating the full user experience.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <h2>Research — grounding in human needs</h2>
+      <p>Surveys and interviews explored how people perceive and navigate public spaces. Psychological studies investigated how shapes, colours and sensory inputs affect emotional response. Benchmarking against weather apps and ambient interfaces showed how soft, uncertain data can still be presented clearly.</p>
+      <div class="cs-quote">
+        <p>A calm and emotionally supportive interface emerges from the thoughtful combination of sensory science and visual design. Rounded shapes, organic forms and soft colour transitions turn complex sensory information into an accessible, reassuring experience — a principle that became central to SenseCast's visual language.</p>
+        <cite>Key insight</cite>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Concept development</h2>
+      <p>Role-based personas and user journeys mapped needs and behaviours. Key sensory inputs — sound, light, crowd density, colour and social cues — were identified, and an impact–feasibility matrix prioritised the most meaningful data. The concept settled on transforming ambient data into emotional previews that support comfort and predictability.</p>
+      <p class="lede">Design concept: a predictive "emotional weather forecast" for spaces, visualised through soft, fluid graphics that represent sensory conditions at a glance.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/wireframes.png" alt="Low-fidelity wireframe flow for the SenseCast app: a destinations list, an upcoming-destinations screen, and an add-destination screen with a draggable map pin and confirm button." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Wireframing the core flow: browsing destinations, then adding and confirming a new one.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Design &amp; prototyping</h2>
+      <h3>Sensory visual explorations</h3>
+      <p>TouchDesigner translated sensory data into dynamic visuals — audio-reactive elements, fluid forms and particle systems standing in for sound, light and crowd density. The learning curve with the tool expanded technical range and deepened an understanding of how data can drive emotional, atmospheric design.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/audioreactive-texture.png" alt="Glowing turquoise and blue fluid texture generated in TouchDesigner, resembling luminous ink or coral suspended in dark water, exploring an audio-reactive visual language for ambient data." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Audio-reactive texture study, exploring the visual language later applied to the interface.</figcaption>
+      </figure>
+      <h3>Vibecoding &amp; creative process</h3>
+      <p>Vibecoding — working conversationally with an AI coding assistant — sped up iteration and acted as a creative partner, generating new visual directions and strengthening the ability to combine computational logic with emotional storytelling.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/vibecoding.png" alt="Screenshot of an AI-assisted coding tool building the SenseCast mobile interface: a chat panel describing sensor network and accessibility improvements alongside a live preview of the mood-tracker screen." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Vibecoding the interface: an AI coding assistant and a live preview, side by side.</figcaption>
+      </figure>
+      <h3>UI design</h3>
+      <p>High-fidelity interfaces for mobile, public screens and a wearable extension used soft gradients, organic shapes and a calming colour palette, translating complex sensory data into clear, emotionally supportive experiences.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/mobile-ui.png" alt="High-fidelity mobile screen showing a destination's live conditions: an optimal status prediction, sound level, crowd density, lighting, air quality readings, and environmental temperature and humidity." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>High-fidelity mobile prototype — live sensory conditions for a destination.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Testing &amp; future steps</h2>
+      <p>Peer review sessions gathered reactions to colour and texture treatments across a set of simulated destinations, testing which visual moods read as calm, safe or overwhelming, and to whom.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/peer-review.png" alt="Six phone-lock-screen mockups in different colour treatments — orange, blue, red, purple, lavender and teal — each annotated with sticky-note reviewer comments describing how crowded, calm or overwhelming that colour and texture combination felt." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Peer review: reactions to colour and texture across six simulated conditions.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Next time, I would…</h2>
+      <ol class="cs-numbered">
+        <li><strong>Place more emphasis on testing.</strong> <span>Deeper, more frequent user testing throughout the process would have given stronger insight into how people emotionally respond to the visuals and interactions.</span></li>
+        <li><strong>Address accessibility in the visual design.</strong> <span>The glassmorphism style achieved a calm, soothing aesthetic, but its accessibility limitations needed more thorough attention — particularly given a target audience that is sensitive and requires clear, inclusive design.</span></li>
+        <li><strong>Improve the showcase experience.</strong> <span>The projection concept communicated the idea well, but the presentation and setup could have been refined further for a more impactful showcase.</span></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <nav class="cs-next" aria-label="Next case studies">
+    <span class="lab">Next case studies</span>
+    <a href="/mml">
+      <h3>Redesigning a historical archive for the digital age</h3>
+      <span class="jump">Read →</span>
+    </a>
+    <a href="/drawerredesign">
+      <h3>Redesigning the patient drawer into a modular service system</h3>
+      <span class="jump">Read →</span>
+    </a>
+  </nav>
+
+</div>
+
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>

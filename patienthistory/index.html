@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design in three acts — Yasaman Aminian</title>
+<meta name="description" content="Case study: turning apodienste's patient history comment thread into actionable, searchable, documented workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body>
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="/#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+  </div>
+  <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <a class="cs-back" href="/#work">← Back to case studies</a>
+
+  <header class="cs-head">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <span class="kicker">Case study two — Product design</span>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Design in three acts: the patient history feature</span></span></h1>
+    <p class="dateline"><b>APODIENSTE, 2024</b> — PharmaBits</p>
+    <p class="tools">Figma / FigJam / Notion / Maze</p>
+    <p class="cs-role">Product designer, end-to-end contributor — partnered with the product design lead across discovery, information architecture, interaction design, research and delivery.</p>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-section">
+      <h2>Context</h2>
+      <p class="lede">apodienste helps pharmacies deliver these services at scale. Early on, all communication lived in a single free-text comment box. Operators had to scroll, copy and retype notes to turn them into next steps, and context was frequently lost between calls.</p>
+    </section>
+
+    <div class="cs-quote">
+      <p>"How might we make teammate communication actionable, searchable and reliably documented across multi-call workflows, without increasing cognitive load or documentation overhead?"</p>
+      <cite>Problem statement</cite>
+    </div>
+
+    <section class="cs-section">
+      <h2>Constraints</h2>
+      <ol class="cs-numbered">
+        <li><span>Live production product — changes had to ship incrementally.</span></li>
+        <li><span>Auditability and legal retention requirements, covering agreements and receipts.</span></li>
+        <li><span>Roles with different "work speeds" — operators versus pharmacists and analysts.</span></li>
+      </ol>
+    </section>
+
+    <div class="cs-quote">
+      <p>"We have to use the comment section to track and record what has been done before for the patient, but it quickly becomes cluttered and hard to follow the important information."</p>
+      <cite>Lorina, call-centre operator</cite>
+    </div>
+
+    <section class="cs-section">
+      <h2>Act one — actionable mentions</h2>
+      <p class="lede">Goal: transform unstructured comments into traceable work.</p>
+      <h3>Discovery</h3>
+      <p>Session replays and interviews showed operators using the comment box both to talk to teammates and to carry out actions. Notes were short and fragmented, and important items got buried.</p>
+      <h3>Define</h3>
+      <p>Users needed a place to log events, actions and medical information — then remove resolved items from view. The key need: a lightweight way to turn something someone said into something the system could act on.</p>
+      <h3>Develop</h3>
+      <p>Introduced @mentions that bind to actions — people, cases, services — and a resolve mechanism to clear completed items from the stream.</p>
+      <h3>Deliver &amp; impact</h3>
+      <p>Shipped mentions and resolving for comments, giving call-centre operators a comprehensive workflow and producing a notable drop in missed cases and lost information.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/mentions-outcome.png" alt="Annotated screenshot of the apodienste mentions feature: a dedicated Mentions tab in the sidebar, resolved/unresolved list separation, an @mention inserted into a comment, and a mark-as-resolved control." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Actionable mentions, shipped: a dedicated tab, resolved/unresolved separation, and inline @mentions.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/swimlane.png" alt="Swimlane diagram of the mention-and-resolve flow: clicking @ to mention a colleague, selecting a user, then opening the mention menu, the unresolved tab, the patient's drawer, and marking the mention resolved." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The mention-and-resolve flow, end to end.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Act two — the action panel</h2>
+      <p class="lede">Goal: eliminate the back-and-forth between comments and action modals.</p>
+      <h3>Discovery</h3>
+      <p>Microsoft Clarity recordings showed operators repeatedly bouncing between an action modal and the comment section to check "what happened last."</p>
+      <h3>Define</h3>
+      <p>The pain point was time cost, cognitive load and distraction from the main flow. The design challenge was to keep context visible while acting.</p>
+      <h3>Develop</h3>
+      <p>Co-created with development and product through Crazy-8s, the team added an action panel that surfaces the latest case and patient actions alongside the current task, and lets operators trigger common actions without leaving context.</p>
+      <h3>Validate and iterate</h3>
+      <p>Pre-launch usability tests found users enthusiastic, and they helped distinguish "high-frequency" from "rare or risky" actions. A thematic analysis of comments — interviews, clustering, AI-assisted categorisation — produced an action taxonomy; a survey on the categorisation showed roughly 86% accuracy for the AI-assisted grouping.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/thematic-analysis.png" alt="Table from the thematic analysis of operator comments, listing action categories, specific actions such as patient status changes and MediCheck updates, their implications, and outcome sentiment." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Thematic analysis of comments, sorted into an action taxonomy by category and sentiment.</figcaption>
+      </figure>
+      <h3>Deliver</h3>
+      <p>Shipped the action panel and aligned the interface around the new action taxonomy.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Act three — guided action modals</h2>
+      <p class="lede">Goal: guide operators through the exact actions they take before and after calls, without returning to comments.</p>
+      <h3>Discovery</h3>
+      <p>After act two, bouncing between screens reduced, but many users still scrolled to comments to leave or update notes during and after calls.</p>
+      <h3>Define</h3>
+      <p>The team mapped the precise actions operators take before and after call notes. These matched the themes from the thematic analysis, which meant the team could design for the actions directly, rather than for comments.</p>
+      <h3>Develop</h3>
+      <p>Introduced guided action modals that keep users in context: clear primary actions (changing case status, scheduling an event, adding a service), contextual confirmations and next-step prompts, and system notifications for downstream stakeholders. The original comment use-cases were migrated into main actions, so operators no longer needed comments for operational steps.</p>
+      <h3>Deliver &amp; impact</h3>
+      <p>Usability tests showed operators realised they no longer needed to navigate to the comment section to complete work. Business-critical actions were prioritised first, with the rest sequenced into the delivery queue.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/task-analysis.png" alt="Task analysis diagram comparing the pre- and post-solution flow for scheduling a home visit appointment and reviewing historical context, broken into numbered sub-steps for each." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Task analysis: the same job, before and after guided action modals.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-section">
+      <h2>Takeaways</h2>
+      <ol class="cs-numbered">
+        <li><strong>Action-centric flows.</strong> <span>Design operations first and let context be captured implicitly, to reduce errors and wrap-up time.</span></li>
+        <li><strong>Evidence before pixels.</strong> <span>Treat comments and behaviours as research signals — synthesise, qualitatively and with light quantitative analysis, before solutioning.</span></li>
+        <li><strong>Measure and iterate.</strong> <span>Instrument key events, ship incrementally, and refine with accessibility and resilience guardrails.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <h2>Outcome</h2>
+      <div class="cs-stats">
+        <div><span class="num">30%</span><span class="lab">decrease in the number of clicks</span></div>
+        <div><span class="num">50%</span><span class="lab">decrease in task completion time</span></div>
+        <div><span class="num">↓</span><span class="lab">unnecessary navigation, streamlined workflows</span></div>
+      </div>
+      <p style="margin-top:1.6rem">Operators reported improved focus on tasks, with less time spent context-switching between comments and action modals.</p>
+    </section>
+
+  </main>
+
+  <nav class="cs-next" aria-label="Next case studies">
+    <span class="lab">Next case studies</span>
+    <a href="/sensecast">
+      <h3>Turning ambient data into emotional predictability</h3>
+      <span class="jump">Read →</span>
+    </a>
+    <a href="/mml">
+      <h3>Redesigning a historical archive for the digital age</h3>
+      <span class="jump">Read →</span>
+    </a>
+  </nav>
+
+</div>
+
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasaman Aminian — Product Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="/src/scripts/main.js" defer></script>
+  <script>
+function imgFallback(img){
+  var local = img.getAttribute('data-fallback');
+  if(local && img.src.indexOf(local) === -1){ img.src = local; return; }
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+  </script>
+</head>
+<body class="home">
+
+<div class="np-halftone" aria-hidden="true"></div>
+<div class="np-ghost" aria-hidden="true"></div>
+<div class="np-fibre" aria-hidden="true"></div>
+<div class="np-mottle" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+
+<div class="paper">
+
+<nav class="topbar" aria-label="Primary">
+  <a class="tb-name" href="#main">Yasaman Aminian</a>
+  <div class="tb-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+  </div>
+  <a class="tb-cta" href="#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+</nav>
+
+  <header class="masthead">
+    <div class="rule-heavy"></div>
+    <div class="rule-light"></div>
+    <h1 class="reveal-target"><span class="reveal-line"><span>Product Design Portfolio</span></span></h1>
+    <div class="rule-light"></div>
+    <div class="rule-heavy" style="margin-top:3px"></div>
+
+    <div class="edition">
+      <span>UX design</span>
+      <span>Service design</span>
+      <span>UI design</span>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Location</dt><dd>United Kingdom</dd></div>
+      <div><dt>Status</dt><dd>Available</dd></div>
+    </dl>
+  </header>
+
+  <main id="main">
+
+    <section class="lead-article">
+      <h2 class="reveal-target">
+          <span class="reveal-line"><span>Thinking in systems,</span></span>
+          <span class="reveal-line"><span><em>fascinated by design.</em></span></span>
+        </h2>
+      <div class="lead-side">
+        <p>I create trust and reliability by design: usable, accessible, and easy to work with.</p>
+      </div>
+    </section>
+
+    <div class="section-bar" id="work">
+      <span>Selected case studies</span>
+      <span>Five entries</span>
+    </div>
+
+    <a class="article" href="/workflowredesign">
+      <div class="article-body">
+        <span class="kicker">Case study one — Workflow design</span>
+        <h3 class="reveal-target"><span class="reveal-line"><span>Redesigning the workflow builder canvas, activity configuration and testing experience</span></span></h3>
+        <p class="dateline"><b>ARKK, 2024–2025</b> — Enterprise data platform</p>
+        <p class="body">Rebuilding a modal-based workflow editor as a full-screen canvas on Foblex Flow, with a structured activity configuration drawer — across four initiatives and more than fifteen design review cycles.</p>
+        <p class="tools">Figma / FigJam / Foblex Flow</p>
+        <span class="jump">Read the case study</span>
+      </div>
+      <figure>
+        <img src="/public/images/workflowredesign/canvas-tree.png" alt="The redesigned workflow canvas, showing activity nodes connected in a tree with a workflow testing panel docked at the bottom" onerror="imgFallback(this)" loading="lazy">
+      </figure>
+    </a>
+
+    <a class="article" href="/drawerredesign">
+      <div class="article-body">
+        <span class="kicker">Case study two — Design systems</span>
+        <h3 class="reveal-target"><span class="reveal-line"><span>Optimising pharmacy workflows by redesigning the patient drawer</span></span></h3>
+        <p class="dateline"><b>APODIENSTE, 2024</b> — PharmaBits</p>
+        <p class="body">Transforming the patient drawer into a modular system — streamlining pharmacy workflows, reducing task friction, and creating a scalable foundation for future service expansions.</p>
+        <p class="tools">Figma / FigJam / Notion / Figma Make / Maze</p>
+        <span class="jump">Read the case study</span>
+      </div>
+      <figure>
+        <img src="/public/images/drawer-redesign.png" alt="apodienste's insight dashboard on a laptop, showing service statistics, a revenue chart, and a kanban board of patient services by status" onerror="imgFallback(this)" loading="lazy">
+      </figure>
+    </a>
+
+    <a class="article" href="/patienthistory">
+      <div class="article-body">
+        <span class="kicker">Case study three — Product design</span>
+        <h3 class="reveal-target"><span class="reveal-line"><span>Design in three acts: the patient history feature</span></span></h3>
+        <p class="dateline"><b>APODIENSTE, 2024</b> — PharmaBits</p>
+        <p class="body">A lean, iterative redesign of a complex workflow handling comments, actions and patient information — uncovering key pain points through close stakeholder collaboration and usability testing.</p>
+        <p class="tools">Figma / FigJam / Notion / Maze</p>
+        <span class="jump">Read the case study</span>
+      </div>
+      <figure>
+        <img src="/public/images/patient-history.png" alt="Wireframe view of the apodienste patient history interface, showing the patient list sidebar, comment and action panels, and a card grid below" onerror="imgFallback(this)" loading="lazy">
+      </figure>
+    </a>
+
+    <a class="article" href="/sensecast">
+      <div class="article-body">
+        <span class="kicker">Case study four — Sensory data</span>
+        <h3 class="reveal-target"><span class="reveal-line"><span>Turning ambient data into emotional predictability</span></span></h3>
+        <p class="dateline"><b>SENSECAST, 2025</b> — Self-directed</p>
+        <p class="body">A sensory data platform that helps people with social anxiety feel emotionally prepared before entering public spaces — transforming real-time ambient data into calming visual previews.</p>
+        <p class="tools">TouchDesigner / Figma / Figma Make / FigJam</p>
+        <span class="jump">Read the case study</span>
+      </div>
+      <figure>
+        <img src="/public/images/sensecast.png" alt="SenseCast across mobile and Apple Watch, showing live crowd and comfort readings for a destination" onerror="imgFallback(this)" loading="lazy">
+      </figure>
+    </a>
+
+    <a class="article" href="/mml">
+      <div class="article-body">
+        <span class="kicker">Case study five — Archive UX</span>
+        <h3 class="reveal-target"><span class="reveal-line"><span>Redesigning a historical archive for the digital age</span></span></h3>
+        <p class="dateline"><b>MARX MEMORIAL LIBRARY, 2024</b> — London</p>
+        <p class="body">A full UX redesign of the Marx Memorial Library website — improving navigation, accessibility and content discovery for a historical archive serving researchers and the public.</p>
+        <p class="tools">Figma / FigJam</p>
+        <span class="jump">Read the case study</span>
+      </div>
+      <figure>
+        <img src="/public/images/mml.png" alt="The redesigned Marx Memorial Library homepage on a laptop, with a historical archive photo, search bar, and Visit Archive, Research and Support Us buttons" onerror="imgFallback(this)" loading="lazy">
+      </figure>
+    </a>
+
+    <div class="section-bar" id="about">
+      <span>About the designer</span>
+      <span>Profile</span>
+    </div>
+
+    <section class="about">
+      <figure class="portrait">
+        <img src="https://framerusercontent.com//public/images/OlXkOOhYqtk9aH7CWxTDHvKSgs.jpeg" alt="Yasaman Aminian, product designer" referrerpolicy="no-referrer" data-fallback="/public/images/portrait.jpg" onerror="imgFallback(this)" loading="lazy">
+        <figcaption>Yasaman Aminian</figcaption>
+      </figure>
+      <div class="cols">
+        <p>I come at design from a technical view, but what holds my attention is <em>design's impact</em> — not how something looks, but what it does. Good design, to me, isn't visual: <em>it's a service</em>, something that quietly does its job for the person depending on it.</p>
+        <p>Known for a big smile and a steady supply of coffee and tea. I paint occasionally, and I'm always chasing new music.</p>
+        <p>I'm drawn to <em>complicated territory</em> — the difficulty is rarely visual. The rules are involved, the states are numerous, and the person on the other side of the screen is <em>accountable</em> for getting it right.</p>
+        <p><em>Good defaults</em> do more work than polish. I work cross-functionally and trust <em>research over assumptions</em>.</p>
+      </div>
+    </section>
+
+    <section class="colophon" id="contact">
+      <div>
+        <p class="mail"><a href="mailto:yasmn.aminian@gmail.com">yasmn.aminian@gmail.com</a></p>
+        <p>Open to product design roles and freelance work.<br>Based in the United Kingdom.</p>
+      </div>
+      <p>London — 2026.</p>
+    </section>
+
+  </main>
+
+</div>
+
+<!-- Live contrast meter: measures whatever the cursor is over -->
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+</body>
+</html>
