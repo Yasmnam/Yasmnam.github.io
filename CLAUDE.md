@@ -60,6 +60,19 @@ Type:
 - `--serif` Literata — body
 - `--mono` IBM Plex Mono — technical labels, datelines, spec block
 
+Big headlines (`.lead-article h2`, `.cs-head h1`) render through the
+`.reveal-line{overflow:hidden}` scroll-reveal mask. At the tight line-heights
+these once used (1.03–1.04) with Literata, the font's real line box ran
+taller than the mask and permanently clipped the tops of ascenders/caps and
+the descenders — not just during the reveal animation, at rest too. Both now
+use `var(--masthead)` at weight 700 with `line-height:1.32`, which clears it
+(verified by comparing actual glyph-ink bounding boxes against the mask, not
+just eyeballing a screenshot). If you touch either rule, or add a new heading
+wrapped in `.reveal-line`, re-check for this — a manually split two-line
+heading (like `.lead-article h2`, two separate `.reveal-line`s) is at risk;
+a single wrapping heading (like `.cs-head h1`) is much safer since the
+`.reveal-line`'s height auto-sizes around however many lines it wraps to.
+
 ## Accessibility — non-negotiable
 
 Every text colour has been checked against the sheet **after** the newsprint
@@ -119,7 +132,9 @@ than claimed. Keep it working.
    links resolve as static-server directory indexes), reusing `main.css` and
    the shared header/texture/meter markup via a new `.cs-*` component set
    (`.cs-head`, `.cs-section`, `.cs-numbered`, `.cs-figure`, `.cs-quote`,
-   `.cs-stats`, `.cs-next`). Content and images were pulled from the live
+   `.cs-stats`, `.cs-next`, plus `.cs-meta`, `.cs-gap`, `.cs-compare` and
+   `.cs-diagram` added for the ARKK rewrite — see item 5). Content and images
+   were pulled from the live
    Framer site (yasaman-aminian.framer.website) — each page uses 4-5 curated
    figures (not every source image) with alt text written after actually
    viewing each one, self-hosted under `public/images/<slug>/`. Quotes from
@@ -142,25 +157,40 @@ than claimed. Keep it working.
    LinkedIn URL is `https://www.linkedin.com/in/yasaman-aminian/` (found on
    the live Framer site while pulling case study content) — not yet wired in.
 4. **Deploy.** Static — Netlify, Vercel or GitHub Pages all work as-is.
-5. **Verify the ARKK case study copy.** `/workflowredesign` (case study five,
-   "Redesigning the workflow builder canvas...") was added from a single
-   screenshot of a case-study document she supplied in chat, not from a live
-   site. The title, meta row (role/duration/platform/deliverables), section
-   structure, initiative names, key-decision names, and the four "By the
-   Numbers" stats were clearly legible and transcribed directly. The body
-   paragraphs (problem description, Foblex Flow capability lists, process
-   step descriptions, drawer pros/cons) were reconstructed from a
-   lower-resolution read of the same screenshot and may not match her exact
-   original wording — worth a pass against the source document to correct
-   anything that drifted. 3 of the 5 figures now use real screenshots she
-   supplied directly in chat, self-hosted at
-   `public/images/workflowredesign/{canvas-tree,runtime-settings-drawer,
-   workflow-testing-drawer}.png` (also used as the homepage card image).
-   Two are still dashed placeholder boxes (`.cs-figure-pending`) with no
-   source image yet: the legacy modal-based editor (in "The problem") and
-   the Foblex Flow capability-audit diagram (in "Foblex Flow — capability
-   audit") — swap those in under the same folder, same `<img>` pattern,
-   once available.
+5. ~~**Verify the ARKK case study copy.**~~ Done — `/workflowredesign`
+   (case study one, "Rebuilding a workflow builder around the people who use
+   it most") was rewritten from her own "Draft 4" brief, replacing the
+   version reconstructed from a screenshot. New: an `Overview` fact table
+   (`.cs-meta`), a text-placeholder style for narrative gaps (`.cs-gap`,
+   not currently used — the draft's gaps were resolved using already
+   fact-checked content from the prior version: the rejected drawer layouts,
+   the Foblex Flow capability audit, and what "converging" involved), a
+   three-way layout comparison (`.cs-compare`), and two hand-drawn inline
+   SVGs (`.cs-diagram`) for the ownership split and the three drawer widths
+   — both marked `aria-hidden` with the equivalent information carried in
+   the visible figcaption, since main.js's contrast meter and the
+   `reveal-line` mask do not otherwise apply to SVG content. Corrected the
+   timeframe from the placeholder "2024–2025" to the brief's "April – July
+   2026", and the role from "Lead product designer — 4 initiatives" to
+   "owned two of three initiatives end to end" — the homepage card was
+   updated to match both. The kicker on the page itself read "Case study
+   five", inconsistent with the homepage's "Case study one" — fixed to
+   match. The hero image and homepage card thumbnail now use
+   `workflow-testing-drawer.png` (was `canvas-tree.png`), the shot closest
+   to "canvas with the drawer open at half screen, straight-on". Two
+   `.cs-figure-pending` placeholders remain, both dropped from the new
+   structure's copy since no source exists yet: the legacy modal-based
+   editor, and a capability-audit diagram (the audit itself now runs as
+   text, under "Where I joined the process"). Two narrative specifics the
+   draft flagged as gaps were resolved with deliberately neutral language
+   rather than invented detail, per the content rule below: the drawer's
+   "specific failures" (one verified failure — no grouping/ordering — is
+   used rather than the "two or three" the draft asked for), and what made
+   undo/redo "complicated" (left general — "the complexity of doing it
+   properly" — rather than naming an unverified technical cause). One line
+   from the draft was dropped rather than shipped as an unverified
+   claim: that tabs "matched how users already thought about some activity
+   types" — no source confirms which ones.
 
 ## Content rules
 
