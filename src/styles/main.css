@@ -372,9 +372,10 @@
   .cs-head .rule-light{height:1px;background:var(--ink);margin-top:3px}
   .cs-head .kicker{margin:1.6rem 0 .8rem}
   .cs-head h1{
-    font-weight:300;
+    font-family:var(--masthead);
+    font-weight:700;
     font-size:clamp(2rem,5.6vw,4.2rem);
-    line-height:1.03;letter-spacing:-.028em;
+    line-height:1.32;letter-spacing:-.018em;
     margin:0 0 1.1rem;text-wrap:balance;
   }
   .cs-head .dateline{margin-bottom:0}
@@ -429,6 +430,37 @@
     font-family:var(--mono);font-size:.72rem;color:var(--ink-quiet);line-height:1.6;
   }
 
+  .cs-diagram{
+    width:100%;border:1px solid var(--rule);padding:1.5rem 1rem;margin:2rem 0;
+  }
+  .cs-diagram svg{width:100%;height:auto;display:block}
+
+  .cs-gap{
+    border:1px dashed var(--rule);padding:.9rem 1.2rem;
+    font-family:var(--mono);font-size:.78rem;color:var(--ink-quiet);
+    line-height:1.6;margin:1.2rem 0;max-width:46rem;
+  }
+  .cs-gap b{color:var(--ink-mid);font-weight:500}
+
+  .cs-meta{margin:0 0 1.6rem;border-top:1px solid var(--rule);max-width:46rem}
+  .cs-meta div{
+    display:grid;grid-template-columns:9rem 1fr;gap:1rem;
+    padding:.8rem 0;border-bottom:1px solid var(--rule);
+  }
+  .cs-meta dt{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-quiet);margin:0;
+  }
+  .cs-meta dd{margin:0;color:var(--ink);font-size:.94rem}
+
+  .cs-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0}
+  .cs-compare > div{border:1px solid var(--rule);padding:1.2rem 1.3rem}
+  .cs-compare h4{margin:0 0 .9rem;font-size:.98rem;font-weight:500;color:var(--ink)}
+  .cs-compare ul{margin:0 0 .9rem;padding-left:1.2rem;font-size:.86rem;color:var(--ink-mid);line-height:1.5}
+  .cs-compare ul:last-child{margin-bottom:0}
+  .cs-compare .good li::marker{content:'+ ';color:var(--spot)}
+  .cs-compare .bad li::marker{content:'– ';color:var(--ink-quiet)}
+
   .cs-quote{
     border-left:3px solid var(--spot);margin:2rem 0;padding:.2rem 0 .2rem 1.6rem;
     max-width:44rem;
@@ -472,6 +504,10 @@
 
   @media (max-width:900px){
     .cs-figure-pair{grid-template-columns:1fr}
+    .cs-compare{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .cs-meta div{grid-template-columns:1fr;gap:.2rem}
   }
 
   @media (max-width:900px){
