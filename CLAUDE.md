@@ -191,6 +191,23 @@ than claimed. Keep it working.
    from the draft was dropped rather than shipped as an unverified
    claim: that tabs "matched how users already thought about some activity
    types" — no source confirms which ones.
+6. **Swap real ARKK screenshots for generic wireframes where supplied.** She
+   provided `drawer-wireframe.png` and `testing-panel-wireframe.png` —
+   greyscale, placeholder-content versions of the real drawer and
+   canvas+testing screenshots, structurally identical but with no real field
+   values visible. These now replace `runtime-settings-drawer.png` (Initiative
+   two) and `workflow-testing-drawer.png` (the hero figure and Initiative
+   three) respectively, including the homepage card thumbnail and the
+   og:image/twitter:image meta tags. `canvas-tree.png` (Initiative one) is
+   still the real screenshot — she also shared a FigJam board of "Node
+   interaction requirements" / "Connection interaction requirements" meant to
+   replace it (or to illustrate "What Foblex Flow gave, and what it cost"),
+   but unlike the other two, it was never saved to disk as a locatable file
+   (checked Downloads, Desktop, Documents, Pictures, and session temp dirs) —
+   only pasted inline in chat. Needs her to save/share it as an actual file
+   before it can be added. The originals (`runtime-settings-drawer.png`,
+   `workflow-testing-drawer.png`) are still in `public/images/workflowredesign/`,
+   unused — safe to delete once she confirms she doesn't want them back.
 
 ## Content rules
 

@@ -11,11 +11,11 @@
 <meta property="og:url" content="https://yasmnam.github.io/workflowredesign/">
 <meta property="og:title" content="Rebuilding a workflow builder around the people who use it most — Yasaman Aminian">
 <meta property="og:description" content="Case study: redesigning ARKK's workflow canvas, activity configuration drawer and in-context testing for an enterprise tax platform.">
-<meta property="og:image" content="https://yasmnam.github.io/public/images/workflowredesign/workflow-testing-drawer.png">
+<meta property="og:image" content="https://yasmnam.github.io/public/images/workflowredesign/testing-panel-wireframe.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rebuilding a workflow builder around the people who use it most — Yasaman Aminian">
 <meta name="twitter:description" content="Case study: redesigning ARKK's workflow canvas, activity configuration drawer and in-context testing for an enterprise tax platform.">
-<meta name="twitter:image" content="https://yasmnam.github.io/public/images/workflowredesign/workflow-testing-drawer.png">
+<meta name="twitter:image" content="https://yasmnam.github.io/public/images/workflowredesign/testing-panel-wireframe.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECECE8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%2314161A'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,8 +83,8 @@ function imgFallback(img){
       </dl>
       <p class="lede">The workflow canvas is the core of the product, but users couldn't zoom or pan it, the activity drawer didn't scale, and there was no way to test a workflow without leaving the environment. Across three initiatives I converged the canvas redesign, designed a configuration drawer built to hold activity types that don't exist yet, and scoped an MVP for testing in place. The work is specced and awaiting build.</p>
       <figure class="cs-figure">
-        <img src="/public/images/workflowredesign/workflow-testing-drawer.png" alt="The redesigned workflow canvas with the activity configuration drawer open at half screen alongside a workflow testing panel, showing test entity, test period and testing notes fields for validating an activity before it is published." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>The canvas, the activity drawer and workflow testing, together on one screen — the shape all three initiatives converge on.</figcaption>
+        <img src="/public/images/workflowredesign/testing-panel-wireframe.png" alt="Wireframe of the workflow canvas with a tree of activity nodes, and the workflow testing panel open below it showing generic placeholder fields for test entity, test period, and testing notes." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The canvas and workflow testing, together on one screen — the shape all three initiatives converge on. Shown as a wireframe rather than with real field values.</figcaption>
       </figure>
     </section>
 
@@ -219,16 +219,16 @@ function imgFallback(img){
       <p>A stakeholder insisted on a half-screen size as well, for a behaviour I hadn't accounted for — users move back and forth between the workflow and the activity they're configuring, checking one against the other. At a third the drawer is too cramped for dense settings; at full screen the workflow disappears. Half screen keeps both readable.</p>
       <p>The drawer shipped with three sizes. The third exists because someone closer to the users than I was said so, and was right.</p>
       <figure class="cs-figure">
-        <img src="/public/images/workflowredesign/runtime-settings-drawer.png" alt="The redesigned activity configuration drawer, open on its Runtime Settings tab, showing ordering and description fields, default-versus-custom access controls, an assignee field, and view-access options." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>The drawer's Runtime Settings tab: ordering, description and access, structured into the header/body/footer shape.</figcaption>
+        <img src="/public/images/workflowredesign/drawer-wireframe.png" alt="Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The drawer's Runtime Settings tab: ordering, description and access, structured into the header/body/footer shape. Shown as a wireframe rather than with real field values.</figcaption>
       </figure>
     </section>
 
     <section class="cs-section">
       <h2>Initiative three — closing the validation loop</h2>
       <figure class="cs-figure">
-        <img src="/public/images/workflowredesign/workflow-testing-drawer.png" alt="The canvas with the activity drawer open alongside a workflow testing panel, showing test entity, test period and testing notes fields for validating an activity before it is published." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Testing in context: an activity validated without leaving the canvas.</figcaption>
+        <img src="/public/images/workflowredesign/testing-panel-wireframe.png" alt="Wireframe of the canvas with the activity drawer open alongside the workflow testing panel, showing generic placeholder fields for test entity, test period, and testing notes." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Testing in context: an activity validated without leaving the canvas. Shown as a wireframe rather than with real field values.</figcaption>
       </figure>
       <p>I designed an MVP for testing in place, so an activity could be validated without scheduling it and navigating away.</p>
       <h3>What it deliberately left out</h3>
