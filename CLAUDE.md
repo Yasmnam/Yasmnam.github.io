@@ -191,23 +191,31 @@ than claimed. Keep it working.
    from the draft was dropped rather than shipped as an unverified
    claim: that tabs "matched how users already thought about some activity
    types" — no source confirms which ones.
-6. **Swap real ARKK screenshots for generic wireframes where supplied.** She
-   provided `drawer-wireframe.png` and `testing-panel-wireframe.png` —
-   greyscale, placeholder-content versions of the real drawer and
-   canvas+testing screenshots, structurally identical but with no real field
-   values visible. These now replace `runtime-settings-drawer.png` (Initiative
-   two) and `workflow-testing-drawer.png` (the hero figure and Initiative
-   three) respectively, including the homepage card thumbnail and the
-   og:image/twitter:image meta tags. `canvas-tree.png` (Initiative one) is
-   still the real screenshot — she also shared a FigJam board of "Node
-   interaction requirements" / "Connection interaction requirements" meant to
-   replace it (or to illustrate "What Foblex Flow gave, and what it cost"),
-   but unlike the other two, it was never saved to disk as a locatable file
-   (checked Downloads, Desktop, Documents, Pictures, and session temp dirs) —
-   only pasted inline in chat. Needs her to save/share it as an actual file
-   before it can be added. The originals (`runtime-settings-drawer.png`,
-   `workflow-testing-drawer.png`) are still in `public/images/workflowredesign/`,
-   unused — safe to delete once she confirms she doesn't want them back.
+6. ~~**No real ARKK UI screenshots.**~~ Done — she does not want any real
+   product screenshots in this case study, and wants no image repeated. Of
+   the three original real screenshots, two (`runtime-settings-drawer.png`,
+   `workflow-testing-drawer.png`) had already been replaced with supplied
+   generic wireframes (`drawer-wireframe.png` for Initiative two,
+   `testing-panel-wireframe.png` for the hero figure). The third
+   (`canvas-tree.png`, Initiative one) had no wireframe replacement, and
+   `testing-panel-wireframe.png` had been reused a second time for
+   Initiative three — both fixed by drawing original hand-coded inline SVGs
+   (`.cs-diagram`, same pattern as the ownership and drawer-width diagrams):
+   a generic canvas node-tree with a toolbar strip for Initiative one, and a
+   before/after flow ("leave the environment to validate" vs "test in
+   place") for Initiative three. All three original real screenshots were
+   deleted from `public/images/workflowredesign/` — nothing references them
+   any more. The case study's only real (non-wireframe, non-diagram) images
+   now are none; every figure is either a wireframe with placeholder content
+   or a hand-drawn schematic.
+
+   Still outstanding: a FigJam board of "Node interaction requirements" /
+   "Connection interaction requirements" was shared inline in chat (meant to
+   support "What Foblex Flow gave, and what it cost") but was never saved to
+   disk as a locatable file (checked Downloads, Desktop, Documents, Pictures,
+   and session temp dirs) — needs her to save/share it as an actual file
+   before it can be added, and since it's a real artefact (not a wireframe),
+   check with her first given the no-real-screenshots preference above.
 
 ## Content rules
 
