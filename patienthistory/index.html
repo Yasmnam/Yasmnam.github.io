@@ -138,8 +138,45 @@ function imgFallback(img){
       <h3>Validate and iterate</h3>
       <p>Pre-launch usability tests found users enthusiastic, and they helped distinguish "high-frequency" from "rare or risky" actions. A thematic analysis of comments — interviews, clustering, AI-assisted categorisation — produced an action taxonomy; a survey on the categorisation showed roughly 86% accuracy for the AI-assisted grouping.</p>
       <figure class="cs-figure">
-        <img src="/public/images/patienthistory/fig3-thematic-analysis-1.png" alt="Table from the thematic analysis of operator comments, with columns for Action Category, Specific Action from apodienste, Description/Implication and Outcome Sentiment, highlighting rows such as 'Patient status changed to available' (positive) and 'Patient is temporary blocked until date' (negative)." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Fig. 3 — thematic analysis of comments: category, action, implication and sentiment.</figcaption>
+        <div class="cs-table-wrap">
+          <table class="cs-table">
+            <thead>
+              <tr>
+                <th scope="col">Action category</th>
+                <th scope="col">Specific action</th>
+                <th scope="col">Description / implication</th>
+                <th scope="col">Outcome sentiment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Main action</td>
+                <td>Patient status changed to available</td>
+                <td>Changes patient's status</td>
+                <td class="sentiment" data-sentiment="positive">Positive</td>
+              </tr>
+              <tr>
+                <td>Main action</td>
+                <td>Patient is temporary blocked until date (time period)</td>
+                <td>Changes patient's status</td>
+                <td class="sentiment" data-sentiment="negative">Negative</td>
+              </tr>
+              <tr>
+                <td>Supportive action</td>
+                <td>Patient data is imported to MediCheck</td>
+                <td>Data processing step that enables subsequent analysis</td>
+                <td class="sentiment" data-sentiment="neutral">Neutral</td>
+              </tr>
+              <tr>
+                <td>Supportive action</td>
+                <td>Patient data updated in MediCheck</td>
+                <td>Updates patient data within the MediCheck system</td>
+                <td class="sentiment" data-sentiment="neutral">Neutral</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption>Fig. 3 — thematic analysis of comments: category, action, implication and sentiment. Two worked examples each for main and supportive actions.</figcaption>
       </figure>
       <figure class="cs-figure">
         <img src="/public/images/patienthistory/fig4-thematic-analysis-2.png" alt="Flow diagram: observation of all user interactions and system logs splits into Supportive Actions (add context without altering core state) and Main Actions (directly change patient or case state), both feeding into Outcome Sentiments, which resolve to either neutral/positive service changes or negative incident outcomes." loading="lazy" onerror="imgFallback(this)">

@@ -301,6 +301,21 @@ than claimed. Keep it working.
    the source screenshot (`fig6-task-analysis.png`) were removed as
    unused.
 
+   Fig. 3 (the thematic-analysis table) got the same complaint — a
+   screenshot with a black header bar and a blur-most/spotlight-two-rows
+   annotation style, neither of which fits the newsprint design. Since this
+   one is genuinely tabular data (not a diagram), it's rebuilt as a real
+   `<table>` — a new `.cs-table`/`.cs-table-wrap` component in main.css
+   (mono uppercase headers, `var(--rule)` row dividers, the Outcome
+   Sentiment column right-aligned in mono with `var(--spot)` for Negative,
+   `var(--ink)` for Positive, `var(--ink-quiet)` for Neutral), wrapped in an
+   `overflow-x:auto` div for narrow viewports. Content is the exact two
+   worked examples per category (main/supportive) that were the only rows
+   not blurred in the source image — genuinely sourced, not invented.
+   `fig3-thematic-analysis-1.png` removed as unused. Fig. 4 (a real flow
+   diagram, already high-contrast) and Fig. 5 (a FigJam sticky-note board,
+   also fine) didn't have this problem and were left as images.
+
 ## Content rules
 
 - British spelling

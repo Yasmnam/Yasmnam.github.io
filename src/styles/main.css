@@ -423,6 +423,20 @@
   }
   .cs-figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 
+  .cs-table-wrap{overflow-x:auto;margin:2rem 0}
+  .cs-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:38rem}
+  .cs-table th{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-quiet);text-align:left;font-weight:400;
+    padding:.7rem .9rem;border-bottom:1px solid var(--ink);white-space:nowrap;
+  }
+  .cs-table td{padding:.85rem .9rem;border-bottom:1px solid var(--rule);color:var(--ink-mid);vertical-align:top}
+  .cs-table td:first-child{font-family:var(--mono);font-size:.72rem;color:var(--ink-quiet);white-space:nowrap}
+  .cs-table td.sentiment{font-family:var(--mono);font-size:.72rem;text-align:right;white-space:nowrap}
+  .cs-table td.sentiment[data-sentiment="negative"]{color:var(--spot)}
+  .cs-table td.sentiment[data-sentiment="positive"]{color:var(--ink)}
+  .cs-table td.sentiment[data-sentiment="neutral"]{color:var(--ink-quiet)}
+
   .cs-figure-pending{
     width:100%;min-height:14rem;
     border:1px dashed var(--rule);
