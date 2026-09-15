@@ -164,9 +164,83 @@ function imgFallback(img){
       <p>Introduced guided action modals that keep users in context: clear primary actions (changing case status, scheduling an event, adding a service), contextual confirmations and next-step prompts, and system notifications for downstream stakeholders. The original comment use-cases were migrated into main actions, so operators no longer needed comments for operational steps.</p>
       <h3>Deliver &amp; impact</h3>
       <p>Usability tests showed operators realised they no longer needed to navigate to the comment section to complete work. Business-critical actions were prioritised first, with the rest sequenced into the delivery queue.</p>
-      <figure class="cs-figure cs-figure-dark">
-        <img src="/public/images/patienthistory/fig6-task-analysis.png" alt="Task analysis comparing before and after, for the goal 'Schedule brownbag appointment and review historical context'. Before: 6 minutes, 12 clicks, across 4 top-level steps. After: 4 minutes, 9 clicks, across 3 top-level steps, each broken into numbered sub-steps." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Fig. 6 — task analysis: the same job, before and after guided action modals.</figcaption>
+      <figure class="cs-diagram">
+        <svg viewBox="0 0 1400 400" role="img" aria-labelledby="ta-title">
+          <title id="ta-title">Task analysis comparing before and after, for the goal "schedule brownbag appointment and review historical context"</title>
+          <text x="700" y="24" font-family="var(--serif)" font-style="italic" font-size="15" fill="var(--ink-mid)" text-anchor="middle">Goal — schedule brownbag appointment &amp; review historical context</text>
+          <line x1="20" y1="42" x2="1380" y2="42" stroke="var(--rule)"/>
+          <line x1="700" y1="52" x2="700" y2="380" stroke="var(--rule)"/>
+
+          <text x="340" y="72" font-family="var(--mono)" font-size="15" letter-spacing="0.06em" fill="var(--ink)" text-anchor="middle">BEFORE</text>
+          <text x="250" y="96" font-family="var(--mono)" font-size="11" fill="var(--ink-quiet)" text-anchor="middle">TASK TIME</text>
+          <text x="250" y="114" font-family="var(--mono)" font-size="16" fill="var(--ink)" text-anchor="middle">6 min</text>
+          <text x="430" y="96" font-family="var(--mono)" font-size="11" fill="var(--ink-quiet)" text-anchor="middle">CLICKS</text>
+          <text x="430" y="114" font-family="var(--mono)" font-size="16" fill="var(--ink)" text-anchor="middle">12</text>
+
+          <text x="1060" y="72" font-family="var(--mono)" font-size="15" letter-spacing="0.06em" fill="var(--ink)" text-anchor="middle">AFTER</text>
+          <text x="970" y="96" font-family="var(--mono)" font-size="11" fill="var(--ink-quiet)" text-anchor="middle">TASK TIME</text>
+          <text x="970" y="114" font-family="var(--mono)" font-size="16" fill="var(--spot)" text-anchor="middle">4 min</text>
+          <text x="1150" y="96" font-family="var(--mono)" font-size="11" fill="var(--ink-quiet)" text-anchor="middle">CLICKS</text>
+          <text x="1150" y="114" font-family="var(--mono)" font-size="16" fill="var(--spot)" text-anchor="middle">9</text>
+
+          <!-- Before: lane 1 -->
+          <rect x="20" y="130" width="150" height="30" fill="none" stroke="var(--ink-mid)"/>
+          <text x="95" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">1. Initiate call</text>
+          <rect x="20" y="160" width="150" height="96" fill="none" stroke="var(--rule)"/>
+          <text x="28" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.1 Open quick modal</text>
+          <text x="28" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.2 Call patient</text>
+          <text x="28" y="214" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.3 Conduct call</text>
+
+          <!-- Before: lane 2 -->
+          <rect x="185" y="130" width="150" height="30" fill="none" stroke="var(--ink-mid)"/>
+          <text x="260" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">2. Patient record</text>
+          <rect x="185" y="160" width="150" height="60" fill="none" stroke="var(--rule)"/>
+          <text x="193" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.1 Open drawer</text>
+          <text x="193" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.2 Read records</text>
+
+          <!-- Before: lane 3 -->
+          <rect x="350" y="130" width="150" height="30" fill="none" stroke="var(--ink-mid)"/>
+          <text x="425" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">3. Set appointment</text>
+          <rect x="350" y="160" width="150" height="168" fill="none" stroke="var(--rule)"/>
+          <text x="358" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.1 Open quick modal</text>
+          <text x="358" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.2 Click set appt</text>
+          <text x="358" y="214" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.3 Sets appointment</text>
+          <text x="358" y="232" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.4 Close modal</text>
+          <text x="358" y="250" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.5 Conclude call</text>
+
+          <!-- Before: lane 4 -->
+          <rect x="515" y="130" width="150" height="30" fill="none" stroke="var(--ink-mid)"/>
+          <text x="590" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">4. Log interaction</text>
+          <rect x="515" y="160" width="150" height="60" fill="none" stroke="var(--rule)"/>
+          <text x="523" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">4.1 Open drawer again</text>
+          <text x="523" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">4.2 Add comment</text>
+
+          <!-- After: lane 1 -->
+          <rect x="740" y="130" width="200" height="30" fill="none" stroke="var(--spot)" stroke-width="1.5"/>
+          <text x="840" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">1. Access &amp; initiate</text>
+          <rect x="740" y="160" width="200" height="150" fill="none" stroke="var(--rule)"/>
+          <text x="748" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.1 Open action panel</text>
+          <text x="748" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.2 Check action history</text>
+          <text x="748" y="214" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.3 Call patient (on modal)</text>
+          <text x="748" y="232" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.4 Conduct call</text>
+          <text x="748" y="250" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">1.5 Note past actions</text>
+
+          <!-- After: lane 2 -->
+          <rect x="960" y="130" width="200" height="30" fill="none" stroke="var(--spot)" stroke-width="1.5"/>
+          <text x="1060" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">2. Schedule &amp; document</text>
+          <rect x="960" y="160" width="200" height="114" fill="none" stroke="var(--rule)"/>
+          <text x="968" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.1 Tap 'Set appt'</text>
+          <text x="968" y="196" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.2 Finish the call</text>
+          <text x="968" y="214" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.3 Write note</text>
+          <text x="968" y="232" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">2.4 Save details</text>
+
+          <!-- After: lane 3 -->
+          <rect x="1180" y="130" width="200" height="30" fill="none" stroke="var(--spot)" stroke-width="1.5"/>
+          <text x="1280" y="150" font-family="var(--serif)" font-size="12" fill="var(--ink)" text-anchor="middle">3. Conclude</text>
+          <rect x="1180" y="160" width="200" height="42" fill="none" stroke="var(--rule)"/>
+          <text x="1188" y="178" font-family="var(--mono)" font-size="10" fill="var(--ink-mid)">3.1 Close panel modal</text>
+        </svg>
+        <figcaption>Fig. 6 — task analysis: the same job, before and after guided action modals. Four top-level steps and 12 clicks became three steps and 9.</figcaption>
       </figure>
     </section>
 

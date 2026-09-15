@@ -282,6 +282,25 @@ than claimed. Keep it working.
    accessibility tree (empty `alt`), so every figure was viewed directly
    before writing real alt text, not inferred from HTML order alone.
 
+   Fig. 6 (task analysis, before/after) turned out to have a transparent
+   background — verified by inspecting its actual pixel/alpha data: the
+   "Before"/"After" titles and the stat labels are white or near-white,
+   meant to sit on a dark FigJam canvas, while the numbered step boxes are
+   fully opaque white with dark text (unaffected either way). First fix was
+   a `.cs-figure-dark` class (`background:#000` on the `img`) — worked, but
+   she pointed out a flat black box doesn't match the newsprint design, so
+   it was replaced with a hand-drawn inline `.cs-diagram` SVG instead (same
+   pattern as ARKK's diagrams): two lane groups (Before/After) built from
+   `var(--ink)`/`var(--ink-mid)`/`var(--rule)`/`var(--spot)` and `var(--mono)`
+   for labels, spot-highlighting the improved "After" numbers and step
+   borders. Unlike the ARKK diagrams, this one is **not** `aria-hidden` —
+   it's real SVG `<text>`, genuinely reachable by a screen reader, because
+   it carries the sub-step breakdown that isn't repeated anywhere in the
+   surrounding prose (the ARKK diagrams were hidden because they only
+   restated what the paragraph text already said). `.cs-figure-dark` and
+   the source screenshot (`fig6-task-analysis.png`) were removed as
+   unused.
+
 ## Content rules
 
 - British spelling
