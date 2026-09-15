@@ -153,7 +153,20 @@ than claimed. Keep it working.
    page uses under `public/images/<slug>/`.) Remaining: the About section's
    portrait still hotlinks to Framer with a missing local fallback
    (`portrait.jpg`) — no source photo has been provided to self-host in its
-   place.
+   place. Update: `drawer-redesign.png` (the homepage card thumbnail for
+   `/drawerredesign`) was later swapped to a generic wireframe of the
+   dashboard — the "Cover image" she had selected in Framer's own
+   `CaseStudyCard` component for that project (found via `getSelectedNodesXml`
+   after she said to use "the one selected in Framer"; her Framer file also
+   has a `Projects` CMS collection, but that's unrelated leftover template
+   demo data — Landio/Portfolite/Fade/Polo, not her real case studies).
+   `drawer-redesign.png` had a second, unrelated job — it was also the
+   homepage's own site-wide `og:image`/`twitter:image` (the whole portfolio's
+   social-preview image, nothing to do with this one card) — so before
+   overwriting it, the original real screenshot was preserved as
+   `drawer-redesign-photo.png` and the site-wide meta tags repointed there,
+   so swapping the card's cover didn't silently change what the whole
+   portfolio link previews as when shared.
 3. **Real contact links.** LinkedIn and Dribbble are `#`. Note: the real
    LinkedIn URL is `https://www.linkedin.com/in/yasaman-aminian/` (found on
    the live Framer site while pulling case study content) — not yet wired in.
