@@ -415,7 +415,8 @@
   .cs-numbered span{color:var(--ink-mid);font-size:.94rem}
 
   .cs-figure{margin:2rem 0}
-  .cs-figure img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+  .cs-figure img,.cs-figure video{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+  .cs-figure-stack{display:flex;flex-direction:column;gap:.5rem}
   .cs-figure figcaption{
     font-family:var(--mono);font-size:.68rem;color:var(--ink-quiet);
     margin-top:.6rem;line-height:1.45;max-width:46rem;

@@ -136,7 +136,8 @@ than claimed. Keep it working.
    `.cs-diagram` added for the ARKK rewrite — see item 5). Content and images
    were pulled from the live
    Framer site (yasaman-aminian.framer.website) — each page uses 4-5 curated
-   figures (not every source image) with alt text written after actually
+   figures (not every source image, except `/drawerredesign` — see item 7,
+   which imports every figure from its Framer source) with alt text written after actually
    viewing each one, self-hosted under `public/images/<slug>/`. Quotes from
    real users are kept verbatim (including American spelling); narration
    around them uses British spelling per the content rules.
@@ -216,6 +217,40 @@ than claimed. Keep it working.
    and session temp dirs) — needs her to save/share it as an actual file
    before it can be added, and since it's a real artefact (not a wireframe),
    check with her first given the no-real-screenshots preference above.
+7. ~~**Import all content into `/drawerredesign`.**~~ Done — she asked to
+   "bring all the contents" from her Framer source, not just curated
+   highlights, and to miss nothing. Source was read via the Framer MCP
+   server (a `mcp.unframer.co` connector she pasted a URL for; already
+   registered in-session under a different connector ID, so it didn't need
+   re-adding — `getProjectXml` lists pages/nodeIds, but `getNodeXml` only
+   works reliably on whichever page is currently focused in her live Framer
+   editor, so unfocused pages were instead read from the published site,
+   `yasaman-aminian.framer.website/drawerredesign`, which is server-rendered
+   with full text and image URLs in the raw HTML — `getProjectWebsiteUrl`
+   gives that URL). All 16 numbered figures (the source's own "Fig N"
+   captions) plus the one video were downloaded from
+   `framerusercontent.com` and self-hosted under
+   `public/images/drawerredesign/fig1…fig16`, replacing the previous 4
+   curated images (`before.png`, `after.png`, `flowchart.png`,
+   `design-decision.png`, now deleted). Exact image-to-caption mapping was
+   confirmed visually (screenshots), not just by HTML order, since Framer's
+   accessibility tree hides all of this page's images (empty `alt` attribute
+   on every one — a real accessibility gap in the source that this rewrite
+   fixes with real alt text). New content added that the previous curated
+   version dropped entirely: the "My Role" paragraph, a Design
+   credit/Team/Timeline `.cs-meta` block, the full 6-step "Process" list, all
+   three persona cards (Fig. 3–5, with photos) and their concluding 5-point
+   findings list, images for all four design iterations (Fig. 7–11, Fig. 7
+   is two images stacked in one `.cs-figure` via the new `.cs-figure-stack`
+   rule in main.css) with their verbatim stakeholder-feedback quotes, the
+   "Eureka!" moment, the UX Research Plan board (Fig. 13), the front-end
+   handoff spec (Fig. 14), and Onboarding & User Guidance as its own section
+   with the Notion doc screenshot (Fig. 15) and the embedded Synthesia
+   tutorial video (Fig. 16, `.cs-figure video` styling added to main.css,
+   ~17MB, self-hosted with `controls preload="metadata"` since the static
+   page has no scroll-triggered autoplay the way the Framer source does).
+   Also fixed the page's kicker, which read "Case study one" against the
+   homepage's "Case study two".
 
 ## Content rules
 
