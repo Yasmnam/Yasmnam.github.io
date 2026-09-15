@@ -121,6 +121,23 @@
     border-bottom:1px solid var(--ink);
   }
 
+  /* ---------- Client bar (groups case studies by client) ---------- */
+  .client-bar{
+    display:flex;align-items:center;gap:1rem;
+    padding:1.1rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .client-bar img{
+    width:64px;height:44px;object-fit:cover;flex-shrink:0;
+    border:1px solid var(--rule);
+  }
+  .client-bar-text{display:flex;flex-direction:column;gap:.2rem}
+  .client-bar-name{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .client-bar-tagline{font-family:var(--mono);font-size:.66rem;color:var(--ink-quiet)}
+
   /* ---------- Articles ---------- */
   .article{
     display:grid;grid-template-columns:1fr 1.15fr;

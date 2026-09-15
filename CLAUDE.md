@@ -316,6 +316,26 @@ than claimed. Keep it working.
    diagram, already high-contrast) and Fig. 5 (a FigJam sticky-note board,
    also fine) didn't have this problem and were left as images.
 
+   Update: she felt the table itself still read cramped once styled — a
+   4-column table squeezed into the ~46rem article column doesn't have
+   room to breathe regardless of border/padding tweaks. Replaced
+   `.cs-table`/`.cs-table-wrap` with `.cs-records`: each entry is a block
+   with a category/sentiment header line (dateline-style, matching
+   `.dateline`), the action as a real heading, and the implication as body
+   text — the same rhythm as `.cs-numbered`, with generous per-record
+   padding (1.8rem) instead of a spreadsheet metaphor.
+9. ~~**Client-bar divider on the homepage.**~~ Done — a small header
+   grouping the two apodienste case studies (`/drawerredesign` and
+   `/patienthistory`) under their shared client, matching how the Framer
+   source groups them by client in its own "next case studies" widget
+   ("PharmaBits / apodienste — Pharmaceutical digital Services"). New
+   `.client-bar` component in main.css: a 64×44 thumbnail plus a two-line
+   mono label, sitting between the ARKK card and the drawerredesign card.
+   The thumbnail reuses `drawer-redesign-photo.png` (the real "Insight
+   Dashboard" screenshot preserved in item 2, above) — she pointed to it by
+   selecting it in Framer (a `BgImg` inside an unrelated `SkillsProfile`
+   section, found via `getSelectedNodesXml`), so no new asset was needed.
+
 ## Content rules
 
 - British spelling
