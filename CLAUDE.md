@@ -264,6 +264,23 @@ than claimed. Keep it working.
    page has no scroll-triggered autoplay the way the Framer source does).
    Also fixed the page's kicker, which read "Case study one" against the
    homepage's "Case study two".
+8. ~~**Same treatment for `/patienthistory`.**~~ Done — she selected the
+   `/patienthistory` `CaseStudyCard` in Framer next and asked for the same
+   cover-photo swap plus a full content import. Cover: `patient-history.png`
+   replaced with the image selected in Framer
+   (`8NQsgf03MlKsTLeO2W49ppWsi0.png` on `framerusercontent.com`) — no
+   dual-usage conflict this time (unlike `drawer-redesign.png`), so it was a
+   direct swap. Content: this page already used 4 curated figures, close to
+   the source's own copy, so the gaps were narrower than drawerredesign's —
+   added a brief "Process — three acts" overview section, all 3 thematic-
+   analysis figures (Fig. 3–5; the old page only had 1 of the 3), and
+   expanded Outcome from 3 stats to the source's full 5 items (kept `.cs-stats`
+   for the 2 numeric ones, added a list for the 3 qualitative ones). Also
+   fixed this page's kicker, which read "Case study two" against the
+   homepage's "Case study three". Same visual-confirmation approach as
+   drawerredesign: this source also hides all its images from the
+   accessibility tree (empty `alt`), so every figure was viewed directly
+   before writing real alt text, not inferred from HTML order alone.
 
 ## Content rules
 

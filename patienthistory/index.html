@@ -11,11 +11,11 @@
 <meta property="og:url" content="https://yasmnam.github.io/patienthistory/">
 <meta property="og:title" content="Design in three acts — Yasaman Aminian">
 <meta property="og:description" content="Case study: turning apodienste's patient history comment thread into actionable, searchable, documented workflows.">
-<meta property="og:image" content="https://yasmnam.github.io/public/images/patienthistory/mentions-outcome.png">
+<meta property="og:image" content="https://yasmnam.github.io/public/images/patienthistory/fig1-actionable-mentions.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Design in three acts — Yasaman Aminian">
 <meta name="twitter:description" content="Case study: turning apodienste's patient history comment thread into actionable, searchable, documented workflows.">
-<meta name="twitter:image" content="https://yasmnam.github.io/public/images/patienthistory/mentions-outcome.png">
+<meta name="twitter:image" content="https://yasmnam.github.io/public/images/patienthistory/fig1-actionable-mentions.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECECE8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%2314161A'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,7 @@ function imgFallback(img){
   <header class="cs-head">
     <div class="rule-heavy"></div>
     <div class="rule-light"></div>
-    <span class="kicker">Case study two — Product design</span>
+    <span class="kicker">Case study three — Product design</span>
     <h1 class="reveal-target"><span class="reveal-line"><span>Design in three acts: the patient history feature</span></span></h1>
     <p class="dateline"><b>APODIENSTE, 2024</b> — PharmaBits</p>
     <p class="tools">Figma / FigJam / Notion / Maze</p>
@@ -91,6 +91,15 @@ function imgFallback(img){
       </ol>
     </section>
 
+    <section class="cs-section">
+      <h2>Process — three acts</h2>
+      <ol class="cs-numbered">
+        <li><strong>Act 1 — actionable mentions.</strong> <span>Transform unstructured comments into traceable work.</span></li>
+        <li><strong>Act 2 — the action panel.</strong> <span>Keep context visible while acting.</span></li>
+        <li><strong>Act 3 — guided action modals.</strong> <span>Driven by an action taxonomy, so work can be completed without returning to comments.</span></li>
+      </ol>
+    </section>
+
     <div class="cs-quote">
       <p>"We have to use the comment section to track and record what has been done before for the patient, but it quickly becomes cluttered and hard to follow the important information."</p>
       <cite>Lorina, call-centre operator</cite>
@@ -108,12 +117,12 @@ function imgFallback(img){
       <h3>Deliver &amp; impact</h3>
       <p>Shipped mentions and resolving for comments, giving call-centre operators a comprehensive workflow and producing a notable drop in missed cases and lost information.</p>
       <figure class="cs-figure">
-        <img src="/public/images/patienthistory/mentions-outcome.png" alt="Annotated screenshot of the apodienste mentions feature: a dedicated Mentions tab in the sidebar, resolved/unresolved list separation, an @mention inserted into a comment, and a mark-as-resolved control." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Actionable mentions, shipped: a dedicated tab, resolved/unresolved separation, and inline @mentions.</figcaption>
+        <img src="/public/images/patienthistory/fig1-actionable-mentions.png" alt="Annotated screenshot of the shipped mentions feature, numbered 1 to 4: a dedicated Mentions tab in the sidebar; resolved/unresolved list separation; the ability to mention a colleague directly in a comment; and a mark-as-resolved control on each mention." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 1 — actionable mentions, shipped: a dedicated tab, resolved/unresolved separation, and inline @mentions.</figcaption>
       </figure>
       <figure class="cs-figure">
-        <img src="/public/images/patienthistory/swimlane.png" alt="Swimlane diagram of the mention-and-resolve flow: clicking @ to mention a colleague, selecting a user, then opening the mention menu, the unresolved tab, the patient's drawer, and marking the mention resolved." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>The mention-and-resolve flow, end to end.</figcaption>
+        <img src="/public/images/patienthistory/fig2-swimlane-diagram.png" alt="Swimlane diagram with two lanes. User A: clicks '@' to mention colleagues, then selects a user to mention. User B: opens the mention menu item, opens the unresolved tab, opens the patient's drawer, reads the content and marks the mention as resolved." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 2 — the mention-and-resolve flow, end to end.</figcaption>
       </figure>
     </section>
 
@@ -129,8 +138,16 @@ function imgFallback(img){
       <h3>Validate and iterate</h3>
       <p>Pre-launch usability tests found users enthusiastic, and they helped distinguish "high-frequency" from "rare or risky" actions. A thematic analysis of comments — interviews, clustering, AI-assisted categorisation — produced an action taxonomy; a survey on the categorisation showed roughly 86% accuracy for the AI-assisted grouping.</p>
       <figure class="cs-figure">
-        <img src="/public/images/patienthistory/thematic-analysis.png" alt="Table from the thematic analysis of operator comments, listing action categories, specific actions such as patient status changes and MediCheck updates, their implications, and outcome sentiment." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Thematic analysis of comments, sorted into an action taxonomy by category and sentiment.</figcaption>
+        <img src="/public/images/patienthistory/fig3-thematic-analysis-1.png" alt="Table from the thematic analysis of operator comments, with columns for Action Category, Specific Action from apodienste, Description/Implication and Outcome Sentiment, highlighting rows such as 'Patient status changed to available' (positive) and 'Patient is temporary blocked until date' (negative)." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 3 — thematic analysis of comments: category, action, implication and sentiment.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/fig4-thematic-analysis-2.png" alt="Flow diagram: observation of all user interactions and system logs splits into Supportive Actions (add context without altering core state) and Main Actions (directly change patient or case state), both feeding into Outcome Sentiments, which resolve to either neutral/positive service changes or negative incident outcomes." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 4 — how supportive and main actions were classified into outcome sentiments.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/patienthistory/fig5-thematic-analysis-3.png" alt="A FigJam board sorting specific actions into four rows: neutral/positive supportive action (e.g. 'Medicheck analysis shared with the pharmacists'), neutral/positive main action (e.g. 'New case is started'), negative enabling action (e.g. 'Patient did not answer'), and negative main action (e.g. 'Patient is blocked permanently')." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 5 — the resulting action taxonomy, sorted by category and sentiment.</figcaption>
       </figure>
       <h3>Deliver</h3>
       <p>Shipped the action panel and aligned the interface around the new action taxonomy.</p>
@@ -148,8 +165,8 @@ function imgFallback(img){
       <h3>Deliver &amp; impact</h3>
       <p>Usability tests showed operators realised they no longer needed to navigate to the comment section to complete work. Business-critical actions were prioritised first, with the rest sequenced into the delivery queue.</p>
       <figure class="cs-figure">
-        <img src="/public/images/patienthistory/task-analysis.png" alt="Task analysis diagram comparing the pre- and post-solution flow for scheduling a home visit appointment and reviewing historical context, broken into numbered sub-steps for each." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Task analysis: the same job, before and after guided action modals.</figcaption>
+        <img src="/public/images/patienthistory/fig6-task-analysis.png" alt="Task analysis comparing before and after, for the goal 'Schedule brownbag appointment and review historical context'. Before: 6 minutes, 12 clicks, across 4 top-level steps. After: 4 minutes, 9 clicks, across 3 top-level steps, each broken into numbered sub-steps." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 6 — task analysis: the same job, before and after guided action modals.</figcaption>
       </figure>
     </section>
 
@@ -167,9 +184,12 @@ function imgFallback(img){
       <div class="cs-stats">
         <div><span class="num">30%</span><span class="lab">decrease in the number of clicks</span></div>
         <div><span class="num">50%</span><span class="lab">decrease in task completion time</span></div>
-        <div><span class="num">↓</span><span class="lab">unnecessary navigation, streamlined workflows</span></div>
       </div>
-      <p style="margin-top:1.6rem">Operators reported improved focus on tasks, with less time spent context-switching between comments and action modals.</p>
+      <ol class="cs-numbered" style="margin-top:1.6rem">
+        <li><span>Reduced unnecessary navigation.</span></li>
+        <li><span>Streamlined workflows.</span></li>
+        <li><span>Improved focus on tasks — operators reported less time spent context-switching between comments and action modals.</span></li>
+      </ol>
     </section>
 
   </main>
