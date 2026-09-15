@@ -138,43 +138,39 @@ function imgFallback(img){
       <h3>Validate and iterate</h3>
       <p>Pre-launch usability tests found users enthusiastic, and they helped distinguish "high-frequency" from "rare or risky" actions. A thematic analysis of comments — interviews, clustering, AI-assisted categorisation — produced an action taxonomy; a survey on the categorisation showed roughly 86% accuracy for the AI-assisted grouping.</p>
       <figure class="cs-figure">
-        <div class="cs-table-wrap">
-          <table class="cs-table">
-            <thead>
-              <tr>
-                <th scope="col">Action category</th>
-                <th scope="col">Specific action</th>
-                <th scope="col">Description / implication</th>
-                <th scope="col">Outcome sentiment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Main action</td>
-                <td>Patient status changed to available</td>
-                <td>Changes patient's status</td>
-                <td class="sentiment" data-sentiment="positive">Positive</td>
-              </tr>
-              <tr>
-                <td>Main action</td>
-                <td>Patient is temporary blocked until date (time period)</td>
-                <td>Changes patient's status</td>
-                <td class="sentiment" data-sentiment="negative">Negative</td>
-              </tr>
-              <tr>
-                <td>Supportive action</td>
-                <td>Patient data is imported to MediCheck</td>
-                <td>Data processing step that enables subsequent analysis</td>
-                <td class="sentiment" data-sentiment="neutral">Neutral</td>
-              </tr>
-              <tr>
-                <td>Supportive action</td>
-                <td>Patient data updated in MediCheck</td>
-                <td>Updates patient data within the MediCheck system</td>
-                <td class="sentiment" data-sentiment="neutral">Neutral</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cs-records">
+          <div class="cs-record">
+            <div class="cs-record-meta">
+              <span class="cs-record-category">Main action</span>
+              <span class="cs-record-sentiment" data-sentiment="positive">Positive</span>
+            </div>
+            <h4>Patient status changed to available</h4>
+            <p>Changes patient's status.</p>
+          </div>
+          <div class="cs-record">
+            <div class="cs-record-meta">
+              <span class="cs-record-category">Main action</span>
+              <span class="cs-record-sentiment" data-sentiment="negative">Negative</span>
+            </div>
+            <h4>Patient is temporary blocked until date (time period)</h4>
+            <p>Changes patient's status.</p>
+          </div>
+          <div class="cs-record">
+            <div class="cs-record-meta">
+              <span class="cs-record-category">Supportive action</span>
+              <span class="cs-record-sentiment" data-sentiment="neutral">Neutral</span>
+            </div>
+            <h4>Patient data is imported to MediCheck</h4>
+            <p>Data processing step that enables subsequent analysis.</p>
+          </div>
+          <div class="cs-record">
+            <div class="cs-record-meta">
+              <span class="cs-record-category">Supportive action</span>
+              <span class="cs-record-sentiment" data-sentiment="neutral">Neutral</span>
+            </div>
+            <h4>Patient data updated in MediCheck</h4>
+            <p>Updates patient data within the MediCheck system.</p>
+          </div>
         </div>
         <figcaption>Fig. 3 — thematic analysis of comments: category, action, implication and sentiment. Two worked examples each for main and supportive actions.</figcaption>
       </figure>
