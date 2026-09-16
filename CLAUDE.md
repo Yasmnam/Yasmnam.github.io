@@ -377,6 +377,63 @@ than claimed. Keep it working.
     requests correctly. Verify large local videos either by waiting long
     enough for a full no-Range download, or with a Range-capable static
     server (e.g. `npx serve`), before concluding a video file is bad.
+11. ~~**Fix MML's Fig. 1 and Fig. 2 contrast, then de-monotone all five case
+    study layouts.**~~ Done.
+
+    Fig. 1 (`fig1-problem-framing.png`) and Fig. 2
+    (`fig2-pain-points-solutions.png`) had the same defect already fixed
+    once for patienthistory's Fig. 6 (see item 8): transparent-background
+    FigJam exports with white/light headers and connector labels, invisible
+    on the site's light sheet. My first read of Fig. 2 wrongly concluded it
+    had an opaque dark background — an artefact of how the image viewer
+    rendered its transparency — until alpha-channel inspection (`PIL`,
+    checking corner-pixel alpha) confirmed both were fully transparent, same
+    as Fig. 1. Given the same rejection of a flat-black-background hack
+    already on record (item 8), both were rebuilt as native HTML instead of
+    images: a new `.cs-pairs` definition list (problem → solution rows) and
+    `.cs-ideas` (a four-category idea grid) for Fig. 1's problem-framing
+    map and wider brainstorm; `.cs-pairs` again for Fig. 2, crediting
+    teammate Gargi once in the figcaption rather than per row. Both PNGs
+    deleted as unused.
+
+    Separately, she asked for the case study layouts generally to be "less
+    boring," suggesting a newspaper-like treatment. Diagnosis: every section
+    on every page repeated the same shape (mono eyebrow, prose capped at
+    46rem, full-bleed figure), and because the case study `<main>` itself
+    was uncapped at the full ~71rem paper width, wide viewports showed a
+    large dead margin to the right of the narrow text column. Fixed in
+    `main.css`:
+    - `.cs-head + main` and `.cs-next` capped to 64rem (was full paper
+      width) — narrow enough that a floated aside sits snug against the
+      text instead of stranded in empty space, and single (non-paired)
+      figures now cap at 64rem instead of ~71rem.
+    - `.cs-pull` — a floated, serif-italic pull-quote. Existing `.cs-quote`
+      blocks that sat as standalone full-width elements between sections
+      were moved inline into the section they support (as the first child,
+      before a numbered list) so following text genuinely wraps around
+      them, the way a broadsheet column does. Only used for short,
+      punchy quotes — SenseCast's "Key insight" quote is a full paragraph,
+      too long to read well in a ~15.5rem-wide float, so it was
+      deliberately left as a full-width `.cs-quote`.
+    - `.cs-aside` — a floated stat/fact callout, mono label + large
+      spot-red figure + short line. Used to re-surface a number already
+      stated in the prose (drawerredesign's 80%/30%, patienthistory's 86%)
+      as a visual anchor, not to introduce a new claim. ARKK has no
+      quotes to pull and nothing has shipped yet, so its two asides are
+      plain status notes ("Specced, not shipped") rather than an invented
+      metric, per the content rule below.
+    - `.lede` paragraphs got a CSS-only drop cap (`::first-letter`) — applies
+      automatically wherever the class is already used, no markup changes.
+    - `.cs-section::after` clearfix added so a section's own
+      bottom border/padding correctly wraps floated content instead of
+      collapsing above it.
+
+    Coverage: 2 pulls + 2 asides on drawerredesign and patienthistory each,
+    1 pull + 1 aside on mml, 1 pull on sensecast, 2 asides on
+    workflowredesign. Not every page needed the same count — matched to
+    what each actually had to pull from, rather than mechanically applying
+    the same number everywhere. All floats collapse to full-width, stacked
+    below their text, under 900px.
 
 ## Content rules
 
