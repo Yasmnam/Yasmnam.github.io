@@ -403,6 +403,7 @@
   }
 
   .cs-section{padding:2.6rem 0;border-bottom:1px solid var(--rule)}
+  .cs-section::after{content:'';display:table;clear:both}
   .cs-section > h2{
     font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
     text-transform:uppercase;color:var(--ink-quiet);
@@ -416,6 +417,32 @@
   .cs-section p{margin:0 0 1.1rem;color:var(--ink-mid);font-size:.97rem;max-width:46rem}
   .cs-section p:last-child{margin-bottom:0}
   .cs-section .lede{font-size:1.08rem;color:var(--ink);max-width:44rem}
+  .cs-section .lede::first-letter{
+    font-family:var(--masthead);font-weight:900;color:var(--ink);
+    float:left;font-size:3.4em;line-height:.82;padding:.03em .07em 0 0;
+  }
+
+  /* Floated marginalia — breaks the single-column stack up like a broadsheet's sidebar notes */
+  .cs-pull,.cs-aside{float:right;clear:right;width:15.5rem;margin:.3rem 0 1.5rem 2.4rem}
+  .cs-pull{padding:0 0 0 1.2rem;border-left:3px solid var(--spot)}
+  .cs-pull p{
+    font-family:var(--serif);font-style:italic;color:var(--ink);
+    font-size:1.05rem;line-height:1.48;margin:0 0 .6rem;max-width:none;
+  }
+  .cs-pull cite{font-family:var(--mono);font-size:.66rem;color:var(--ink-quiet);font-style:normal}
+  .cs-aside{padding:1.1rem 1.3rem;border:1px solid var(--rule)}
+  .cs-aside .cs-aside-label{
+    display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-quiet);margin-bottom:.6rem;
+  }
+  .cs-aside .cs-aside-figure{
+    font-family:var(--masthead);font-weight:700;color:var(--spot);
+    font-size:2.1rem;line-height:1.1;display:block;margin-bottom:.3rem;
+  }
+  .cs-aside p{margin:0;font-size:.86rem;color:var(--ink-mid);line-height:1.55;max-width:none}
+  @media (max-width:900px){
+    .cs-pull,.cs-aside{float:none;width:auto;margin:1.4rem 0}
+  }
 
   .cs-numbered{margin:0;padding:0;list-style:none;counter-reset:cs}
   .cs-numbered li{
@@ -536,7 +563,8 @@
   }
   .cs-stats .lab{font-size:.82rem;color:var(--ink-mid)}
 
-  .cs-next{padding:2.8rem 0 3.5rem}
+  .cs-head + main{max-width:64rem}
+  .cs-next{padding:2.8rem 0 3.5rem;max-width:64rem}
   .cs-next .lab{
     font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
     color:var(--ink-quiet);display:block;margin-bottom:.9rem;

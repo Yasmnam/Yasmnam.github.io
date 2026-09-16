@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6YRJYG5M5F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6YRJYG5M5F');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redesigning the patient drawer — Yasaman Aminian</title>
@@ -23,6 +31,7 @@
 
   <link rel="stylesheet" href="/src/styles/main.css">
   <script src="/src/scripts/main.js" defer></script>
+  <script src="/src/scripts/analytics.js" defer></script>
   <script>
 function imgFallback(img){
   var fig = img.closest ? img.closest('figure') : null;
@@ -52,8 +61,8 @@ function imgFallback(img){
 <nav class="topbar" aria-label="Primary">
   <a class="tb-name" href="/#main">Yasaman Aminian</a>
   <div class="tb-links">
-    <a href="/#work">Work</a>
-    <a href="/#about">About</a>
+    <a href="/#work" data-ga-event="nav_click" data-ga-label="work">Work</a>
+    <a href="/#about" data-ga-event="nav_click" data-ga-label="about">About</a>
   </div>
   <a class="tb-cta" href="/#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
 </nav>
@@ -99,6 +108,10 @@ function imgFallback(img){
 
     <section class="cs-section">
       <h2>Challenges</h2>
+      <div class="cs-pull">
+        <p>"How might we improve the pharmacy service workflow in a scalable and intuitive way that accommodates the needs of multiple user groups — while ensuring efficiency, clarity and ease of use across different service types?"</p>
+        <cite>Problem statement</cite>
+      </div>
       <ol class="cs-numbered">
         <li><strong>Confusing mental model.</strong> <span>Pharmacists struggled to relate to the concept of "cases" and found it difficult to understand why patient documents and case documents were in different places within the drawer. This confusion hindered their ability to execute tasks efficiently.</span></li>
         <li><strong>High cognitive load.</strong> <span>The system displayed too much information, much of which was unnecessary, overwhelming pharmacists with irrelevant data and complicating the service delivery process.</span></li>
@@ -106,11 +119,6 @@ function imgFallback(img){
         <li><strong>Manual navigation burden.</strong> <span>Pharmacists had to manually search for documents rather than being guided through a clear, streamlined service execution path. The process didn't align with the fast-paced, business-driven environment of the pharmacy.</span></li>
       </ol>
     </section>
-
-    <div class="cs-quote">
-      <p>"How might we improve the pharmacy service workflow in a scalable and intuitive way that accommodates the needs of multiple user groups — such as call centre agents and pharmacists — while ensuring efficiency, clarity and ease of use across different service types?"</p>
-      <cite>Problem statement</cite>
-    </div>
 
     <section class="cs-section">
       <h2>Constraints</h2>
@@ -252,6 +260,11 @@ function imgFallback(img){
 
     <section class="cs-section">
       <h2>Usability testing &amp; research plan</h2>
+      <div class="cs-aside">
+        <span class="cs-aside-label">Pre-launch testing</span>
+        <span class="cs-aside-figure">80%</span>
+        <p>of core tasks completed successfully on the first attempt, with minimal guidance.</p>
+      </div>
       <p>Once the modular design reached a stable version, scenario-based usability tests were conducted with both pharmacists and call centre users to evaluate how intuitive the new flow felt in practice. Participants were asked to perform key tasks such as creating a service, setting an appointment, reviewing documentation, and completing a patient session.</p>
       <p>While early insights were gathered through stakeholder feedback and initial user discussions, a structured research plan was created after developing the modular design. This allowed the new workflow to be validated with real users, measuring its impact both pre- and post-launch.</p>
       <figure class="cs-figure">
@@ -293,6 +306,11 @@ function imgFallback(img){
 
     <section class="cs-section">
       <h2>Outcome &amp; impact</h2>
+      <div class="cs-aside">
+        <span class="cs-aside-label">Impact</span>
+        <span class="cs-aside-figure">30%</span>
+        <p>faster task completion during patient sessions, after release.</p>
+      </div>
       <ol class="cs-numbered">
         <li><span>30% faster task completion during patient sessions.</span></li>
         <li><span>Significant reduction in process-related support tickets.</span></li>
@@ -305,11 +323,11 @@ function imgFallback(img){
 
   <nav class="cs-next" aria-label="Next case studies">
     <span class="lab">Next case studies</span>
-    <a href="/patienthistory">
+    <a href="/patienthistory" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-location="next_case_study">
       <h3>Design in three acts — the patient history feature</h3>
       <span class="jump">Read →</span>
     </a>
-    <a href="/mml">
+    <a href="/mml" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-location="next_case_study">
       <h3>Redesigning a historical archive for the digital age</h3>
       <span class="jump">Read →</span>
     </a>
