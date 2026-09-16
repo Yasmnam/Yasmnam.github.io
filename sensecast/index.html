@@ -11,11 +11,11 @@
 <meta property="og:url" content="https://yasmnam.github.io/sensecast/">
 <meta property="og:title" content="Turning ambient data into emotional predictability — Yasaman Aminian">
 <meta property="og:description" content="Case study: SenseCast, a sensory data visualisation platform helping people feel emotionally prepared before entering public spaces.">
-<meta property="og:image" content="https://yasmnam.github.io/public/images/sensecast/mobile-ui.png">
+<meta property="og:image" content="https://yasmnam.github.io/public/images/sensecast/fig17-brand-identity.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Turning ambient data into emotional predictability — Yasaman Aminian">
 <meta name="twitter:description" content="Case study: SenseCast, a sensory data visualisation platform helping people feel emotionally prepared before entering public spaces.">
-<meta name="twitter:image" content="https://yasmnam.github.io/public/images/sensecast/mobile-ui.png">
+<meta name="twitter:image" content="https://yasmnam.github.io/public/images/sensecast/fig17-brand-identity.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECECE8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%2314161A'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,7 @@ function imgFallback(img){
   <header class="cs-head">
     <div class="rule-heavy"></div>
     <div class="rule-light"></div>
-    <span class="kicker">Case study three — Sensory data</span>
+    <span class="kicker">Case study four — Sensory data</span>
     <h1 class="reveal-target"><span class="reveal-line"><span>Turning ambient data into emotional predictability</span></span></h1>
     <p class="dateline"><b>SENSECAST, 2025</b> — Self-directed</p>
     <p class="tools">TouchDesigner / Figma / Figma Make / FigJam</p>
@@ -76,6 +76,10 @@ function imgFallback(img){
       <h2>Problem</h2>
       <p class="lede">Public environments are unpredictable — noise, light and crowd levels change constantly. For people with sensory sensitivities or anxiety, that unpredictability can be overwhelming and lead to avoidance.</p>
       <p>Existing solutions, such as occupancy apps and weather forecasts, address the practical layer but fail to address the emotional layer of spatial experience.</p>
+      <figure class="cs-figure">
+        <video src="/public/images/sensecast/hero-video.mp4" controls preload="metadata" muted loop playsinline></video>
+        <figcaption>SenseCast in motion: the visual language the rest of this case study builds toward.</figcaption>
+      </figure>
     </section>
 
     <div class="cs-quote">
@@ -98,6 +102,38 @@ function imgFallback(img){
     <section class="cs-section">
       <h2>Research — grounding in human needs</h2>
       <p>Surveys and interviews explored how people perceive and navigate public spaces. Psychological studies investigated how shapes, colours and sensory inputs affect emotional response. Benchmarking against weather apps and ambient interfaces showed how soft, uncertain data can still be presented clearly.</p>
+
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig1-survey-1.png" alt="Survey pie chart: 'What emotions do you associate with a GP experience?' — 16 responses, split mainly between anxious (31.3%), comfortable (31.3%), relaxed (12.5%) and distracted (12.5%)." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 1 — survey: emotional associations with a GP waiting room.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig2-survey-2.png" alt="Survey pie chart: 'What emotions do you associate with a university cafeteria?' — 16 responses, dominated by overstimulated (37.5%), with relaxed and comfortable each at 18.8%." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 2 — survey: emotional associations with a university cafeteria.</figcaption>
+        </figure>
+      </div>
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig3-sensory-installations-1.png" alt="Research board on sensory design installations, referencing existing immersive and calming spatial experiences." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 3 — research into sensory design installations.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig4-sensory-installations-2.png" alt="A second research board on sensory design installations, continuing the survey of existing calming spatial experiences." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 4 — research into sensory design installations, continued.</figcaption>
+        </figure>
+      </div>
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig5-visual-language-research-1.png" alt="Research board on sensory visual language, collecting reference imagery for how soft data and forecasts are visualised elsewhere." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 5 — research into sensory visual language and forecasting interfaces.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig6-visual-language-research-2.png" alt="A second research board on forecasting user interfaces, continuing the survey of visual language reference imagery." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 6 — research into forecasting user interfaces, continued.</figcaption>
+        </figure>
+      </div>
+
       <div class="cs-quote">
         <p>A calm and emotionally supportive interface emerges from the thoughtful combination of sensory science and visual design. Rounded shapes, organic forms and soft colour transitions turn complex sensory information into an accessible, reassuring experience — a principle that became central to SenseCast's visual language.</p>
         <cite>Key insight</cite>
@@ -105,43 +141,112 @@ function imgFallback(img){
     </section>
 
     <section class="cs-section">
-      <h2>Concept development</h2>
+      <h2>Concept development — from idea to vision</h2>
       <p>Role-based personas and user journeys mapped needs and behaviours. Key sensory inputs — sound, light, crowd density, colour and social cues — were identified, and an impact–feasibility matrix prioritised the most meaningful data. The concept settled on transforming ambient data into emotional previews that support comfort and predictability.</p>
       <p class="lede">Design concept: a predictive "emotional weather forecast" for spaces, visualised through soft, fluid graphics that represent sensory conditions at a glance.</p>
+
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig7-personas-1.png" alt="Role-based persona board, mapping one target user's goals, environment and sensory triggers." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 7 — role-based persona.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig8-personas-2.png" alt="A second role-based persona board, mapping a different target user's goals, environment and sensory triggers." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 8 — a second role-based persona.</figcaption>
+        </figure>
+      </div>
       <figure class="cs-figure">
-        <img src="/public/images/sensecast/wireframes.png" alt="Low-fidelity wireframe flow for the SenseCast app: a destinations list, an upcoming-destinations screen, and an add-destination screen with a draggable map pin and confirm button." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Wireframing the core flow: browsing destinations, then adding and confirming a new one.</figcaption>
+        <img src="/public/images/sensecast/fig9-journey-map.png" alt="User journey map tracing a person's emotional state before, during and after entering an unfamiliar public space." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 9 — user journey mapping.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig10-feasibility-matrix.png" alt="Impact-feasibility matrix plotting candidate sensory data sources against how emotionally meaningful and how technically feasible each was." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 10 — feasibility–impact diagram.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig11-sensory-inputs-map.png" alt="Diagram mapping key sensory inputs — sound, light, spatial layout, smell, colour and social cues — by their emotional impact and technical feasibility." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 11 — mapping key sensory inputs by emotional impact and technical feasibility.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig12-sensory-zones.png" alt="Diagram defining sensory zones based on measurable variables like sound levels, light intensity and crowd density, categorising environments from a 'safe bubble' to 'unpredictable'." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 12 — defining sensory zones, from "safe bubble" to "unpredictable".</figcaption>
       </figure>
     </section>
 
     <section class="cs-section">
-      <h2>Design &amp; prototyping</h2>
+      <h2>Design &amp; prototyping — bringing SenseCast to life</h2>
       <h3>Sensory visual explorations</h3>
       <p>TouchDesigner translated sensory data into dynamic visuals — audio-reactive elements, fluid forms and particle systems standing in for sound, light and crowd density. The learning curve with the tool expanded technical range and deepened an understanding of how data can drive emotional, atmospheric design.</p>
       <figure class="cs-figure">
-        <img src="/public/images/sensecast/audioreactive-texture.png" alt="Glowing turquoise and blue fluid texture generated in TouchDesigner, resembling luminous ink or coral suspended in dark water, exploring an audio-reactive visual language for ambient data." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Audio-reactive texture study, exploring the visual language later applied to the interface.</figcaption>
+        <div class="cs-figure-stack">
+          <img src="/public/images/sensecast/fig13-audioreactive-exploration-1.png" alt="Audio-reactive visual exploration in TouchDesigner: a glowing fluid texture reacting to sound." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig14-audioreactive-exploration-2.png" alt="A second audio-reactive visual exploration, a different fluid particle texture reacting to sound." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig15-audioreactive-exploration-3.png" alt="A third audio-reactive visual exploration, continuing the study of fluid, particle-based sound-reactive textures." loading="lazy" onerror="imgFallback(this)">
+        </div>
+        <figcaption>Fig. 13–15 — audio-reactive visual exploration in TouchDesigner.</figcaption>
       </figure>
+      <figure class="cs-figure">
+        <video src="/public/images/sensecast/fig16-audioreactive-video.mov" controls preload="metadata" muted loop playsinline></video>
+        <figcaption>Fig. 16 — an audio-reactive visual, in motion.</figcaption>
+      </figure>
+
+      <h3>Brand identity design</h3>
+      <p>The logo and visual language use fluid forms and glassmorphism effects to capture the idea of "casting" sensory data, while maintaining a calm and approachable character.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig17-brand-identity.png" alt="SenseCast brand identity board: logo lockup variations in six colourways, an Inter/Bebas Neue typography pairing, a six-colour palette, and organic pattern swatches generated from real-time data." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 17 — brand identity of SenseCast.</figcaption>
+      </figure>
+      <p>Wireframing and structure: wireframes and user flows defined the core interactions and navigation of the product.</p>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig18-wireframing.png" alt="Low-fidelity wireframe flow for the SenseCast app, defining core screens and navigation." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 18 — wireframing.</figcaption>
+      </figure>
+
       <h3>Vibecoding &amp; creative process</h3>
       <p>Vibecoding — working conversationally with an AI coding assistant — sped up iteration and acted as a creative partner, generating new visual directions and strengthening the ability to combine computational logic with emotional storytelling.</p>
       <figure class="cs-figure">
-        <img src="/public/images/sensecast/vibecoding.png" alt="Screenshot of an AI-assisted coding tool building the SenseCast mobile interface: a chat panel describing sensor network and accessibility improvements alongside a live preview of the mood-tracker screen." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Vibecoding the interface: an AI coding assistant and a live preview, side by side.</figcaption>
+        <div class="cs-figure-stack">
+          <img src="/public/images/sensecast/fig19-vibecoded-1.png" alt="Vibecoded UI outcome: an AI-assisted coding session generating part of the SenseCast interface." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig20-vibecoded-2.png" alt="A second vibecoded UI outcome, continuing the AI-assisted interface exploration." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig21-vibecoded-3.png" alt="A third vibecoded UI outcome, continuing the AI-assisted interface exploration." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig22-vibecoded-4.png" alt="A fourth vibecoded UI outcome, continuing the AI-assisted interface exploration." loading="lazy" onerror="imgFallback(this)">
+          <img src="/public/images/sensecast/fig23-vibecoded-5.png" alt="A fifth vibecoded UI outcome, concluding the AI-assisted interface exploration." loading="lazy" onerror="imgFallback(this)">
+        </div>
+        <figcaption>Fig. 19–23 — vibecoded outcomes.</figcaption>
       </figure>
+
       <h3>UI design</h3>
       <p>High-fidelity interfaces for mobile, public screens and a wearable extension used soft gradients, organic shapes and a calming colour palette, translating complex sensory data into clear, emotionally supportive experiences.</p>
+      <div class="cs-figure-pair">
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig24-hifi-mobile-1.png" alt="High-fidelity mobile screen showing a destination's live conditions: an optimal status prediction, sound level, crowd density, lighting, air quality readings, and environmental temperature and humidity." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 24 — high-fidelity mobile prototype.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/sensecast/fig25-hifi-mobile-2.png" alt="A second high-fidelity mobile screen, continuing the live sensory-conditions flow for a destination." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Fig. 25 — high-fidelity mobile prototype, continued.</figcaption>
+        </figure>
+      </div>
       <figure class="cs-figure">
-        <img src="/public/images/sensecast/mobile-ui.png" alt="High-fidelity mobile screen showing a destination's live conditions: an optimal status prediction, sound level, crowd density, lighting, air quality readings, and environmental temperature and humidity." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>High-fidelity mobile prototype — live sensory conditions for a destination.</figcaption>
+        <img src="/public/images/sensecast/fig26-hifi-public-screen.png" alt="High-fidelity public-screen prototype, showing an ambient forecast visualisation designed for a shared space rather than a personal device." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 26 — high-fidelity public-screen prototype.</figcaption>
       </figure>
     </section>
 
     <section class="cs-section">
       <h2>Testing &amp; future steps</h2>
-      <p>Peer review sessions gathered reactions to colour and texture treatments across a set of simulated destinations, testing which visual moods read as calm, safe or overwhelming, and to whom.</p>
+      <p>The concept was tested beyond the screen too: a public-screen projection let people experience the ambient forecast in a shared space, and peer review sessions gathered reactions to colour and texture treatments across a set of simulated destinations, testing which visual moods read as calm, safe or overwhelming, and to whom.</p>
       <figure class="cs-figure">
-        <img src="/public/images/sensecast/peer-review.png" alt="Six phone-lock-screen mockups in different colour treatments — orange, blue, red, purple, lavender and teal — each annotated with sticky-note reviewer comments describing how crowded, calm or overwhelming that colour and texture combination felt." loading="lazy" onerror="imgFallback(this)">
-        <figcaption>Peer review: reactions to colour and texture across six simulated conditions.</figcaption>
+        <img src="/public/images/sensecast/fig27-video-showcase.jpeg" alt="Photo of the SenseCast concept projected onto a public screen in a workshop space, alongside a smaller vertical display showing the same ambient forecast." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 27 — video showcase and public-screen projection.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig28-peer-review.png" alt="Six phone-lock-screen mockups in different colour treatments — orange, blue, red, purple, lavender and teal — each annotated with sticky-note reviewer comments describing how crowded, calm or overwhelming that colour and texture combination felt." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 28 — peer review on UI and colour iterations.</figcaption>
+      </figure>
+      <figure class="cs-figure">
+        <img src="/public/images/sensecast/fig29-audioreactive-final.png" alt="A final audio-reactive visual study, refining the fluid, particle-based texture language used across the brand and interface." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Fig. 29 — an audio-reactive visual, refined.</figcaption>
       </figure>
     </section>
 

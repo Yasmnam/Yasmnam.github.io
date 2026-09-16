@@ -335,6 +335,48 @@ than claimed. Keep it working.
    Dashboard" screenshot preserved in item 2, above) — she pointed to it by
    selecting it in Framer (a `BgImg` inside an unrelated `SkillsProfile`
    section, found via `getSelectedNodesXml`), so no new asset was needed.
+10. ~~**Full content import for `/sensecast` and `/mml`.**~~ Done — the same
+    "bring everything, including video" treatment as items 7–8, for the
+    last two case studies. Both were previously curated (5 images for
+    SenseCast, 4 for MML); now every numbered figure from each Framer
+    source is self-hosted, matching the "Fig N" captions in the source
+    text.
+
+    SenseCast: 28 images + 2 videos (`hero-video.mp4`, a problem-statement
+    video near the top with no figure number of its own, and Fig. 16, an
+    audio-reactive `.mov` clip). New sections added that the curated
+    version dropped: three paired research boards (Fig. 1–6, survey +
+    sensory-installation research + visual-language research), the full
+    concept-development chapter (personas, journey map, feasibility matrix,
+    sensory-input and sensory-zone diagrams, Fig. 7–12), the brand identity
+    board (Fig. 17), all five vibecoded-outcome screens (Fig. 19–23, via
+    `.cs-figure-stack`), and the public-screen showcase photo (Fig. 27).
+
+    MML: 27 images + 1 video (Fig. 24, a desktop-prototype walkthrough).
+    The Before/After hero comparison at the top turned out to be two
+    `<video>` elements with **no actual video source** (empty `src`,
+    poster-only) — found via `getComputedStyle`/`querySelector('video')`
+    in the live page after `<img>`-tag regex search came up empty, since
+    Framer had wrapped what are functionally just two static images in
+    video tags. Used the poster images directly. The source also had
+    obvious copy-paste leftovers from other case studies — a sentence
+    about "TouchDesigner" and "audio-reactive elements" and a line about
+    an "emotional weather forecast" (both clearly SenseCast's, not a
+    library website's) — dropped rather than reproduced, per the content
+    rule below about not inventing/misrepresenting.
+
+    General note for future Framer imports: some visuals on this site are
+    `<video>` tags with real `.mp4`/`.mov` sources, not `<img>` tags — a
+    plain `<img src=` regex over the raw HTML will silently miss them.
+    Check for `<video` tags too. Separately: local testing served videos
+    over `python3 -m http.server`, which does not support HTTP Range
+    requests (confirmed via `curl -H "Range: ..."` returning a full `200`
+    instead of `206 Partial Content`) — large videos can appear stuck at
+    `0:00` when testing locally for this reason alone. That's a dev-server
+    artifact, not evidence the video is broken; GitHub Pages serves Range
+    requests correctly. Verify large local videos either by waiting long
+    enough for a full no-Range download, or with a Range-capable static
+    server (e.g. `npx serve`), before concluding a video file is bad.
 
 ## Content rules
 
