@@ -493,6 +493,22 @@
   .cs-compare .good li::marker{content:'+ ';color:var(--spot)}
   .cs-compare .bad li::marker{content:'– ';color:var(--ink-quiet)}
 
+  .cs-pairs{margin:0 0 2rem;border-top:1px solid var(--ink)}
+  .cs-pairs > div{
+    display:grid;grid-template-columns:16rem 1fr;gap:1.5rem;
+    padding:1.1rem 0;border-bottom:1px solid var(--rule);
+  }
+  .cs-pairs dt{margin:0;font-size:.95rem;font-weight:500;color:var(--ink)}
+  .cs-pairs dd{margin:0;color:var(--ink-mid);font-size:.9rem;line-height:1.55}
+
+  .cs-ideas{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:0 0 1.5rem}
+  .cs-ideas > div{border:1px solid var(--rule);padding:1.1rem 1.2rem}
+  .cs-ideas h4{
+    margin:0 0 .8rem;font-family:var(--mono);font-size:.66rem;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink-quiet);
+  }
+  .cs-ideas ul{margin:0;padding-left:1.1rem;color:var(--ink-mid);font-size:.85rem;line-height:1.6}
+
   .cs-quote{
     border-left:3px solid var(--spot);margin:2rem 0;padding:.2rem 0 .2rem 1.6rem;
     max-width:44rem;
@@ -537,9 +553,12 @@
   @media (max-width:900px){
     .cs-figure-pair{grid-template-columns:1fr}
     .cs-compare{grid-template-columns:1fr}
+    .cs-ideas{grid-template-columns:1fr 1fr}
+    .cs-pairs > div{grid-template-columns:1fr;gap:.4rem}
   }
   @media (max-width:560px){
     .cs-meta div{grid-template-columns:1fr;gap:.2rem}
+    .cs-ideas{grid-template-columns:1fr}
   }
 
   @media (max-width:900px){
