@@ -444,6 +444,98 @@
     .cs-pull,.cs-aside{float:none;width:auto;margin:1.4rem 0}
   }
 
+  /* Success-metric cards — two wide percentage cards with segmented gauges, then three narrower ones */
+  .cs-metric-grid{
+    list-style:none;margin:1.8rem 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem;
+  }
+  .cs-metric{
+    position:relative;grid-column:span 2;display:flex;flex-direction:column;
+    padding:1.3rem 1.5rem 1.5rem;
+    border:1px solid var(--rule);border-top:3px solid var(--ink);
+    transition:box-shadow .25s;
+  }
+  .cs-metric-lg{grid-column:span 3;padding-bottom:1.7rem}
+  .cs-metric:hover{box-shadow:6px 6px 0 var(--ink)}
+
+  .cs-metric-head{display:flex;align-items:center;gap:.85rem;margin-bottom:1.5rem}
+  .cs-metric-icon{
+    flex:none;display:grid;place-items:center;width:2.5rem;height:2.5rem;
+    border:1px solid var(--ink);color:var(--ink);transition:background .25s,color .25s,border-color .25s;
+  }
+  .cs-metric-icon svg{
+    width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;
+    stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+  }
+  .cs-metric:hover .cs-metric-icon{background:var(--spot);border-color:var(--spot);color:var(--sheet)}
+  .cs-metric-id{
+    display:flex;flex-direction:column;gap:.25rem;
+    font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;
+  }
+  .cs-metric-name{font-size:.72rem;color:var(--ink)}
+  .cs-metric-when{font-size:.64rem;color:var(--ink-quiet)}
+  .cs-metric-index{
+    margin-left:auto;align-self:flex-start;
+    font-family:var(--mono);font-size:.64rem;color:var(--ink-quiet);
+  }
+
+  .cs-metrics .cs-metric-figure{
+    display:block;margin-bottom:.6rem;
+    font-family:var(--masthead);font-weight:700;color:var(--spot);
+    font-size:clamp(2.4rem,4.6vw,3.3rem);line-height:1.2;
+  }
+  .cs-metrics .cs-metric-lg .cs-metric-figure{font-size:clamp(3.6rem,8vw,5.4rem);line-height:1.1}
+  .cs-metric-figure small{font-size:.5em;margin-left:.05em}
+  .cs-metrics .cs-metric-quote{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:1.4rem;line-height:1.35;color:var(--ink);
+  }
+  .cs-metrics .cs-metric p{margin:0;font-size:.9rem;line-height:1.55;max-width:none}
+
+  .cs-metric-dark{background:var(--ink);border-color:var(--ink);border-top-color:var(--spot)}
+  .cs-metric-dark:hover{box-shadow:6px 6px 0 var(--spot)}
+  .cs-metric-dark .cs-metric-icon{border-color:var(--paper);color:var(--paper)}
+  .cs-metric-dark .cs-metric-name{color:var(--sheet)}
+  .cs-metric-dark .cs-metric-when,.cs-metric-dark .cs-metric-index{color:var(--paper)}
+  .cs-metrics .cs-metric-dark .cs-metric-quote{color:var(--sheet)}
+  .cs-metrics .cs-metric-dark p{color:var(--paper)}
+
+  .cs-gauge{margin-top:auto;padding-top:1.5rem}
+  .cs-gauge-bar{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+  .cs-gauge-bar i{position:relative;display:block;height:16px;background:var(--rule);overflow:hidden}
+  .cs-gauge-bar i.on::after{content:'';position:absolute;inset:0;background:var(--spot)}
+  .cs-gauge-scale{
+    display:flex;justify-content:space-between;margin-top:.55rem;
+    font-family:var(--mono);font-size:.62rem;color:var(--ink-quiet);
+  }
+
+  @media (max-width:900px){
+    .cs-metric,.cs-metric-lg{grid-column:1 / -1}
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .cs-metric{
+      opacity:0;transform:translateY(14px);
+      transition:opacity .7s var(--ease),transform .7s var(--ease),box-shadow .25s;
+    }
+    .cs-metric.revealed{opacity:1;transform:none}
+    .cs-metric:nth-child(2){transition-delay:.08s}
+    .cs-metric:nth-child(3){transition-delay:.16s}
+    .cs-metric:nth-child(4){transition-delay:.24s}
+    .cs-metric:nth-child(5){transition-delay:.32s}
+    .cs-metric.revealed:hover{transform:translate(-3px,-3px);transition-delay:0s}
+    .cs-gauge-bar i.on::after{transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+    .cs-metric.revealed .cs-gauge-bar i.on::after{transform:none}
+    .cs-gauge-bar i:nth-child(1)::after{transition-delay:.35s}
+    .cs-gauge-bar i:nth-child(2)::after{transition-delay:.42s}
+    .cs-gauge-bar i:nth-child(3)::after{transition-delay:.49s}
+    .cs-gauge-bar i:nth-child(4)::after{transition-delay:.56s}
+    .cs-gauge-bar i:nth-child(5)::after{transition-delay:.63s}
+    .cs-gauge-bar i:nth-child(6)::after{transition-delay:.70s}
+    .cs-gauge-bar i:nth-child(7)::after{transition-delay:.77s}
+    .cs-gauge-bar i:nth-child(8)::after{transition-delay:.84s}
+  }
+
   .cs-numbered{margin:0;padding:0;list-style:none;counter-reset:cs}
   .cs-numbered li{
     counter-increment:cs;position:relative;
