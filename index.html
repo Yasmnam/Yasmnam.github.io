@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6YRJYG5M5F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6YRJYG5M5F');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yasaman Aminian — Product Design Portfolio</title>
@@ -23,6 +31,7 @@
 
   <link rel="stylesheet" href="/src/styles/main.css">
   <script src="/src/scripts/main.js" defer></script>
+  <script src="/src/scripts/analytics.js" defer></script>
   <script>
 function imgFallback(img){
   var local = img.getAttribute('data-fallback');
@@ -69,10 +78,10 @@ function imgFallback(img){
 <nav class="topbar" aria-label="Primary">
   <a class="tb-name" href="#main">Yasaman Aminian</a>
   <div class="tb-links">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
+    <a href="#work" data-ga-event="nav_click" data-ga-label="work">Work</a>
+    <a href="#about" data-ga-event="nav_click" data-ga-label="about">About</a>
   </div>
-  <a class="tb-cta" href="#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
+  <a class="tb-cta" href="#contact" data-ga-event="nav_click" data-ga-label="contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
 </nav>
 
   <header class="masthead">
@@ -111,7 +120,7 @@ function imgFallback(img){
       <span>Five entries</span>
     </div>
 
-    <a class="article" href="/workflowredesign">
+    <a class="article" href="/workflowredesign" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="workflowredesign" data-ga-position="1">
       <div class="article-body">
         <span class="kicker">Case study one — Workflow design</span>
         <h3 class="reveal-target"><span class="reveal-line"><span>Rebuilding a workflow builder around the people who use it most</span></span></h3>
@@ -133,7 +142,7 @@ function imgFallback(img){
       </div>
     </div>
 
-    <a class="article" href="/drawerredesign">
+    <a class="article" href="/drawerredesign" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="2">
       <div class="article-body">
         <span class="kicker">Case study two — Design systems</span>
         <h3 class="reveal-target"><span class="reveal-line"><span>Optimising pharmacy workflows by redesigning the patient drawer</span></span></h3>
@@ -147,7 +156,7 @@ function imgFallback(img){
       </figure>
     </a>
 
-    <a class="article" href="/patienthistory">
+    <a class="article" href="/patienthistory" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="3">
       <div class="article-body">
         <span class="kicker">Case study three — Product design</span>
         <h3 class="reveal-target"><span class="reveal-line"><span>Design in three acts: the patient history feature</span></span></h3>
@@ -161,7 +170,7 @@ function imgFallback(img){
       </figure>
     </a>
 
-    <a class="article" href="/sensecast">
+    <a class="article" href="/sensecast" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="sensecast" data-ga-position="4">
       <div class="article-body">
         <span class="kicker">Case study four — Sensory data</span>
         <h3 class="reveal-target"><span class="reveal-line"><span>Turning ambient data into emotional predictability</span></span></h3>
@@ -175,7 +184,7 @@ function imgFallback(img){
       </figure>
     </a>
 
-    <a class="article" href="/mml">
+    <a class="article" href="/mml" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-position="5">
       <div class="article-body">
         <span class="kicker">Case study five — Archive UX</span>
         <h3 class="reveal-target"><span class="reveal-line"><span>Redesigning a historical archive for the digital age</span></span></h3>
@@ -209,7 +218,7 @@ function imgFallback(img){
 
     <section class="colophon" id="contact">
       <div>
-        <p class="mail"><a href="mailto:yasmn.aminian@gmail.com">yasmn.aminian@gmail.com</a></p>
+        <p class="mail"><a href="mailto:yasmn.aminian@gmail.com" data-ga-event="contact_click" data-ga-method="email">yasmn.aminian@gmail.com</a></p>
         <p>Open to product design roles and freelance work.<br>Based in the United Kingdom.</p>
       </div>
       <p>London — 2026.</p>
