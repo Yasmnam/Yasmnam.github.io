@@ -452,7 +452,7 @@
   .cs-metric{
     position:relative;grid-column:span 2;display:flex;flex-direction:column;
     padding:1.3rem 1.5rem 1.5rem;
-    border:1px solid var(--rule);border-top:3px solid var(--ink);
+    border:1px solid var(--rule);border-top:5px double var(--ink);
     transition:box-shadow .25s;
   }
   .cs-metric-lg{grid-column:span 3;padding-bottom:1.7rem}
@@ -467,7 +467,7 @@
     width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;
     stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
   }
-  .cs-metric:hover .cs-metric-icon{background:var(--spot);border-color:var(--spot);color:var(--sheet)}
+  .cs-metric:hover .cs-metric-icon{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
   .cs-metric-id{
     display:flex;flex-direction:column;gap:.25rem;
     font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;
@@ -481,7 +481,7 @@
 
   .cs-metrics .cs-metric-figure{
     display:block;margin-bottom:.6rem;
-    font-family:var(--masthead);font-weight:700;color:var(--spot);
+    font-family:var(--masthead);font-weight:700;color:var(--ink);
     font-size:clamp(2.4rem,4.6vw,3.3rem);line-height:1.2;
   }
   .cs-metrics .cs-metric-lg .cs-metric-figure{font-size:clamp(3.6rem,8vw,5.4rem);line-height:1.1}
@@ -492,8 +492,8 @@
   }
   .cs-metrics .cs-metric p{margin:0;font-size:.9rem;line-height:1.55;max-width:none}
 
-  .cs-metric-dark{background:var(--ink);border-color:var(--ink);border-top-color:var(--spot)}
-  .cs-metric-dark:hover{box-shadow:6px 6px 0 var(--spot)}
+  .cs-metric-dark{background:var(--ink);border-color:var(--ink)}
+  .cs-metric-dark:hover{box-shadow:6px 6px 0 var(--ink-mid)}
   .cs-metric-dark .cs-metric-icon{border-color:var(--paper);color:var(--paper)}
   .cs-metric-dark .cs-metric-name{color:var(--sheet)}
   .cs-metric-dark .cs-metric-when,.cs-metric-dark .cs-metric-index{color:var(--paper)}
@@ -503,7 +503,7 @@
   .cs-gauge{margin-top:auto;padding-top:1.5rem}
   .cs-gauge-bar{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
   .cs-gauge-bar i{position:relative;display:block;height:16px;background:var(--rule);overflow:hidden}
-  .cs-gauge-bar i.on::after{content:'';position:absolute;inset:0;background:var(--spot)}
+  .cs-gauge-bar i.on::after{content:'';position:absolute;inset:0;background:var(--ink)}
   .cs-gauge-scale{
     display:flex;justify-content:space-between;margin-top:.55rem;
     font-family:var(--mono);font-size:.62rem;color:var(--ink-quiet);
