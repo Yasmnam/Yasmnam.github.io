@@ -330,7 +330,10 @@ than claimed. Keep it working.
    source groups them by client in its own "next case studies" widget
    ("PharmaBits / apodienste — Pharmaceutical digital Services"). New
    `.client-bar` component in main.css: a 64×44 thumbnail plus a two-line
-   mono label, sitting between the ARKK card and the drawerredesign card.
+   mono label, sitting directly under the "Selected case studies" bar, above
+   the drawerredesign card. (The apodienste pair was moved above ARKK on
+   2026-10-16 because the ARKK case study isn't fully finished; ARKK is now
+   case study three.)
    The thumbnail reuses `drawer-redesign-photo.png` (the real "Insight
    Dashboard" screenshot preserved in item 2, above) — she pointed to it by
    selecting it in Framer (a `BgImg` inside an unrelated `SkillsProfile`
