@@ -438,6 +438,20 @@ than claimed. Keep it working.
     the same number everywhere. All floats collapse to full-width, stacked
     below their text, under 900px.
 
+12. **`/drawerredesign` rewritten from `drawer-redesign-copy.md`** (2026-10-16,
+    copy file kept in her Downloads, not the repo). Word-for-word copy. The
+    testing "[TO CONFIRM]" is left off; "What I would do differently" was
+    drafted from her own two points (more time on needs and problem
+    definition; longer in low fidelity) — she should check the wording. The old 5-card
+    "Success metrics" section folded into Overview as 3 result figures, and
+    she asked for a much simpler card design: no icons, labels, gauges,
+    boxes or hover shadow, just figure + line in hairline-divided columns. New
+    components in main.css: `.cs-figure-trio` (3-up personas),
+    `.cs-thumbs-row` (4-up cropped iteration strip), `.cs-table` (stacks into
+    labelled blocks under 600px) and `.cs-list` (bulleted `.cs-numbered`).
+    Figs 6, 7b, 10, 13, 14 no longer used on the page (files kept);
+    captions lost their "Fig. N" prefixes since the remaining numbers had gaps.
+
 ## Content rules
 
 - British spelling

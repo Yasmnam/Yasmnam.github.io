@@ -444,96 +444,33 @@
     .cs-pull,.cs-aside{float:none;width:auto;margin:1.4rem 0}
   }
 
-  /* Success-metric cards — two wide percentage cards with segmented gauges, then three narrower ones */
+  /* Result figures — three plain columns divided by hairlines */
   .cs-metric-grid{
-    list-style:none;margin:1.8rem 0 0;padding:0;
-    display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem;
+    list-style:none;margin:1.2rem 0 2.4rem;padding:0;
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);
   }
-  .cs-metric{
-    position:relative;grid-column:span 2;display:flex;flex-direction:column;
-    padding:1.3rem 1.5rem 1.5rem;
-    border:1px solid var(--rule);border-top:5px double var(--ink);
-    transition:box-shadow .25s;
-  }
-  .cs-metric-lg{grid-column:span 3;padding-bottom:1.7rem}
-  .cs-metric:hover{box-shadow:6px 6px 0 var(--ink)}
-
-  .cs-metric-head{display:flex;align-items:center;gap:.85rem;margin-bottom:1.5rem}
-  .cs-metric-icon{
-    flex:none;display:grid;place-items:center;width:2.5rem;height:2.5rem;
-    border:1px solid var(--ink);color:var(--ink);transition:background .25s,color .25s,border-color .25s;
-  }
-  .cs-metric-icon svg{
-    width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;
-    stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
-  }
-  .cs-metric:hover .cs-metric-icon{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
-  .cs-metric-id{
-    display:flex;flex-direction:column;gap:.25rem;
-    font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;
-  }
-  .cs-metric-name{font-size:.72rem;color:var(--ink)}
-  .cs-metric-when{font-size:.64rem;color:var(--ink-quiet)}
-  .cs-metric-index{
-    margin-left:auto;align-self:flex-start;
-    font-family:var(--mono);font-size:.64rem;color:var(--ink-quiet);
-  }
-
+  .cs-metric{padding:1.4rem 1.6rem 1.6rem;border-left:1px solid var(--rule)}
+  .cs-metric:first-child{padding-left:0;border-left:none}
   .cs-metrics .cs-metric-figure{
-    display:block;margin-bottom:.6rem;
+    display:block;margin-bottom:.5rem;
     font-family:var(--masthead);font-weight:700;color:var(--ink);
-    font-size:clamp(2.4rem,4.6vw,3.3rem);line-height:1.2;
+    font-size:clamp(2.4rem,4.6vw,3.2rem);line-height:1.15;
   }
-  .cs-metrics .cs-metric-lg .cs-metric-figure{font-size:clamp(3.6rem,8vw,5.4rem);line-height:1.1}
-  .cs-metric-figure small{font-size:.5em;margin-left:.05em}
-  .cs-metrics .cs-metric-quote{
-    font-family:var(--serif);font-style:italic;font-weight:400;
-    font-size:1.4rem;line-height:1.35;color:var(--ink);
-  }
+  .cs-metric-figure small{font-size:.55em;margin-left:.05em}
   .cs-metrics .cs-metric p{margin:0;font-size:.9rem;line-height:1.55;max-width:none}
 
-  .cs-metric-dark{background:var(--ink);border-color:var(--ink)}
-  .cs-metric-dark:hover{box-shadow:6px 6px 0 var(--ink-mid)}
-  .cs-metric-dark .cs-metric-icon{border-color:var(--paper);color:var(--paper)}
-  .cs-metric-dark .cs-metric-name{color:var(--sheet)}
-  .cs-metric-dark .cs-metric-when,.cs-metric-dark .cs-metric-index{color:var(--paper)}
-  .cs-metrics .cs-metric-dark .cs-metric-quote{color:var(--sheet)}
-  .cs-metrics .cs-metric-dark p{color:var(--paper)}
-
-  .cs-gauge{margin-top:auto;padding-top:1.5rem}
-  .cs-gauge-bar{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
-  .cs-gauge-bar i{position:relative;display:block;height:16px;background:var(--rule);overflow:hidden}
-  .cs-gauge-bar i.on::after{content:'';position:absolute;inset:0;background:var(--ink)}
-  .cs-gauge-scale{
-    display:flex;justify-content:space-between;margin-top:.55rem;
-    font-family:var(--mono);font-size:.62rem;color:var(--ink-quiet);
-  }
-
   @media (max-width:900px){
-    .cs-metric,.cs-metric-lg{grid-column:1 / -1}
+    .cs-metric-grid{grid-template-columns:1fr}
+    .cs-metric,.cs-metric:first-child{padding:1.2rem 0;border-left:none}
+    .cs-metric + .cs-metric{border-top:1px solid var(--rule)}
   }
 
   @media (prefers-reduced-motion:no-preference){
-    .cs-metric{
-      opacity:0;transform:translateY(14px);
-      transition:opacity .7s var(--ease),transform .7s var(--ease),box-shadow .25s;
-    }
-    .cs-metric.revealed{opacity:1;transform:none}
+    .cs-metric{opacity:0;transition:opacity .7s var(--ease)}
+    .cs-metric.revealed{opacity:1}
     .cs-metric:nth-child(2){transition-delay:.08s}
     .cs-metric:nth-child(3){transition-delay:.16s}
-    .cs-metric:nth-child(4){transition-delay:.24s}
-    .cs-metric:nth-child(5){transition-delay:.32s}
-    .cs-metric.revealed:hover{transform:translate(-3px,-3px);transition-delay:0s}
-    .cs-gauge-bar i.on::after{transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
-    .cs-metric.revealed .cs-gauge-bar i.on::after{transform:none}
-    .cs-gauge-bar i:nth-child(1)::after{transition-delay:.35s}
-    .cs-gauge-bar i:nth-child(2)::after{transition-delay:.42s}
-    .cs-gauge-bar i:nth-child(3)::after{transition-delay:.49s}
-    .cs-gauge-bar i:nth-child(4)::after{transition-delay:.56s}
-    .cs-gauge-bar i:nth-child(5)::after{transition-delay:.63s}
-    .cs-gauge-bar i:nth-child(6)::after{transition-delay:.70s}
-    .cs-gauge-bar i:nth-child(7)::after{transition-delay:.77s}
-    .cs-gauge-bar i:nth-child(8)::after{transition-delay:.84s}
   }
 
   .cs-numbered{margin:0;padding:0;list-style:none;counter-reset:cs}
@@ -558,6 +495,38 @@
     margin-top:.6rem;line-height:1.45;max-width:46rem;
   }
   .cs-figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .cs-figure-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:2rem 0}
+  .cs-figure-trio .cs-figure{margin:0}
+  .cs-thumbs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+  .cs-thumbs-row img{aspect-ratio:4/3;object-fit:cover;object-position:top left}
+
+  /* Bulleted variant of .cs-numbered — same rhythm, a rule mark instead of a count */
+  .cs-list li::before{content:'—'}
+  .cs-stage{
+    display:block;margin-bottom:.35rem;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:var(--spot);
+  }
+  .cs-list strong{display:inline;margin:0}
+
+  .cs-table-wrap{overflow-x:auto;margin:1.6rem 0 0;max-width:52rem}
+  .cs-table{width:100%;border-collapse:collapse;border-top:1px solid var(--ink);font-size:.92rem}
+  .cs-table th,.cs-table td{text-align:left;vertical-align:top;padding:1rem 1.2rem 1rem 0;border-bottom:1px solid var(--rule);line-height:1.5}
+  .cs-table thead th{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;
+    font-weight:400;color:var(--ink-quiet);padding-top:.8rem;padding-bottom:.8rem;
+  }
+  .cs-table tbody th{font-weight:500;color:var(--ink);width:30%}
+  .cs-table td{color:var(--ink-mid)}
+  @media (max-width:600px){
+    .cs-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    .cs-table tr,.cs-table th,.cs-table td{display:block;width:auto}
+    .cs-table tr{padding:1rem 0;border-bottom:1px solid var(--rule)}
+    .cs-table tbody th,.cs-table td{border:none;padding:.2rem 0;width:auto}
+    .cs-table td::before{
+      content:attr(data-label);display:block;margin-top:.5rem;
+      font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-quiet);
+    }
+  }
 
   .cs-records{margin:2.2rem 0;border-top:1px solid var(--ink)}
   .cs-record{padding:1.8rem 0;border-bottom:1px solid var(--rule)}
@@ -675,6 +644,8 @@
 
   @media (max-width:900px){
     .cs-figure-pair{grid-template-columns:1fr}
+    .cs-figure-trio{grid-template-columns:1fr}
+    .cs-thumbs-row{grid-template-columns:1fr 1fr}
     .cs-compare{grid-template-columns:1fr}
     .cs-ideas{grid-template-columns:1fr 1fr}
     .cs-pairs > div{grid-template-columns:1fr;gap:.4rem}
