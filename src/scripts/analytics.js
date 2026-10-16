@@ -13,4 +13,12 @@
     }
     window.gtag('event', el.getAttribute('data-ga-event'), params);
   });
+
+  // GA4's built-in video tracking only covers YouTube, so report self-hosted plays here (once per video per page view).
+  document.addEventListener('play', function(e){
+    var v = e.target;
+    if(!v || v.tagName !== 'VIDEO' || v.dataset.gaPlayed || typeof window.gtag !== 'function') return;
+    v.dataset.gaPlayed = '1';
+    window.gtag('event', 'video_play', { video_src: (v.currentSrc || v.src).split('/').pop() });
+  }, true);
 })();

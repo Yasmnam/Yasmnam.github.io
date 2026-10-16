@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/src/styles/main.css">
   <script src="/src/scripts/main.js" defer></script>
   <script src="/src/scripts/analytics.js" defer></script>
+  <script src="/src/scripts/hover-video.js" defer></script>
   <script>
 function imgFallback(img){
   var fig = img.closest ? img.closest('figure') : null;
@@ -80,6 +81,11 @@ function imgFallback(img){
   </header>
 
   <main id="main">
+
+    <figure class="cs-figure">
+      <video src="/public/images/mml/fig24-desktop-prototype-video.mov" poster="/public/images/mml/hero-prototype-poster.png" controls preload="metadata" muted loop playsinline aria-label="Desktop prototype of the redesigned Marx Memorial Library website"></video>
+      <figcaption>Desktop version prototype.</figcaption>
+    </figure>
 
     <section class="cs-section">
       <h2>Context &amp; my role</h2>
@@ -374,10 +380,6 @@ function imgFallback(img){
           <img src="/public/images/mml/fig23-branding-5.png" alt="A fifth branding and graphic design outcome, concluding the visual identity system." loading="lazy" onerror="imgFallback(this)">
         </div>
         <figcaption>Fig. 19–23 — branding and graphic design outcome.</figcaption>
-      </figure>
-      <figure class="cs-figure">
-        <video src="/public/images/mml/fig24-desktop-prototype-video.mov" controls preload="metadata" muted loop playsinline></video>
-        <figcaption>Fig. 24 — desktop version prototype.</figcaption>
       </figure>
     </section>
 
