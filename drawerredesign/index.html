@@ -26,7 +26,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="../src/styles/main.css?v=9">
+  <link rel="stylesheet" href="../src/styles/main.css?v=10">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js" defer></script>
   <script type="module" src="../src/scripts/motion.js"></script>
@@ -67,6 +67,13 @@ function imgFallback(img){
   </dl>
 </header>
 
+<div class="container article-hero">
+  <figure class="cs-figure article-hero__figure">
+      <video src="../public/images/drawerredesign/hero-motion.mp4" poster="../public/images/drawerredesign/hero-motion-poster.png" controls preload="metadata" muted loop playsinline aria-label="Motion overview of the patient drawer redesign"></video>
+      <figcaption>Motion overview — the patient drawer redesign.</figcaption>
+    </figure>
+</div>
+
   <div class="container article-layout">
     <nav class="toc" aria-label="Contents">
       <span class="label">Contents</span>
@@ -84,11 +91,6 @@ function imgFallback(img){
       </ol>
     </nav>
   <main id="main" class="article-body">
-
-    <figure class="cs-figure reveal">
-      <video src="../public/images/drawerredesign/hero-motion.mp4" poster="../public/images/drawerredesign/hero-motion-poster.png" controls preload="metadata" muted loop playsinline aria-label="Motion overview of the patient drawer redesign"></video>
-      <figcaption>Motion overview — the patient drawer redesign.</figcaption>
-    </figure>
 
     <section id="overview" class="cs-section cs-metrics" aria-labelledby="overview-heading">
       <h2 class="reveal">Overview</h2>

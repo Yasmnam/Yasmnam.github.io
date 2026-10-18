@@ -168,3 +168,8 @@
 .next-story a:focus-visible h3 { text-decoration-color: var(--accent-soft); }
 .next-story a:hover .jump,
 .next-story a:focus-visible .jump { transform: translateX(8px); color: var(--accent); }
+
+/* Case study video, full width at the top of the article */
+.article-hero { padding-top: clamp(24px, 3vw, 40px); }
+.article-hero .cs-figure { margin: 0; }
+.article-hero video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); background: var(--placeholder); }
