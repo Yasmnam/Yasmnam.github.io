@@ -1,0 +1,29 @@
+/* Footer (§5.8) */
+.footer {
+  border-top: 1px solid var(--ink);
+  margin-top: var(--section-y);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 24px;
+  padding-block: 20px 28px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer__inner p { margin: 0; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; }
+.footer a {
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.footer a:hover,
+.footer a:focus-visible { color: var(--accent); }

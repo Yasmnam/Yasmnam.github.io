@@ -1,0 +1,27 @@
+/* Reduced motion (§6.7): no intro, parallax, reveals, staggers, rolling text
+   or pulse. Colour and underline changes on hover and focus stay, instantly.
+   Page transitions fall back to a 150ms crossfade. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .status-dot::after { display: none; }
+  .roll::after { display: none; }
+  :is(a, button):is(:hover, :focus-visible) .roll > span { transform: none; }
+  .case-card:is(:hover, :focus-visible) .case-card__num,
+  .case-card:is(:hover, :focus-visible) .case-card__arrow,
+  .next-story a:is(:hover, :focus-visible) .jump,
+  .contents-box a:is(:hover, :focus-visible),
+  .toc a:is(:hover, :focus-visible) { transform: none; }
+  .product:is(:hover, :focus-within) .thumb::before { transform: none; }
+
+  @keyframes vt-fade-out { to { opacity: 0; } }
+  @keyframes vt-fade-in { from { opacity: 0; } }
+  ::view-transition-group(*) { animation: none !important; }
+  ::view-transition-old(*) { animation: vt-fade-out 150ms linear both !important; }
+  ::view-transition-new(*) { animation: vt-fade-in 150ms linear both !important; }
+}

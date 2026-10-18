@@ -1,0 +1,103 @@
+/* Masthead (§5.2) and its load sequence (§6.1, from 1750ms).
+   The sequence runs on .mast-play, offset by --mast-delay (1750ms behind the
+   intro roll, 0 on later visits). */
+.masthead {
+  padding-top: clamp(28px, 4vw, 48px);
+  text-align: center;
+}
+
+.mast-rule {
+  height: 0;
+  border-top: 5px solid var(--ink);
+  transform-origin: left;
+}
+.mast-rule--thin { border-top-width: 1.5px; margin-top: 4px; }
+.mast-rule--rev { transform-origin: right; }
+.mast-rules--bottom .mast-rule--thin { margin: 0 0 4px; }
+
+.masthead__title {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: var(--fs-masthead);
+  line-height: .95;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: clamp(16px, 2.4vw, 28px) 0;
+}
+.masthead__line {
+  display: block;
+  overflow: hidden;
+  padding-block: .04em;
+}
+.masthead__line > span { display: block; }
+
+.masthead__disciplines {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.masthead__spec {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.masthead__spec > div {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+}
+.masthead__spec > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.masthead__spec dt { font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.masthead__spec dd { margin: 0; color: var(--ink); font-size: var(--fs-small); display: inline-flex; align-items: center; gap: 10px; }
+
+/* Available dot with a continuous pulse ring */
+.status-dot {
+  position: relative;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: pulse 2.4s var(--ease-out) infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: .9; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+/* ---- Load sequence ---- */
+@keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes rise-mask { from { transform: translateY(105%); } to { transform: translateY(0); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.mast-play .mast-rules--top .mast-rule { animation: draw 1200ms var(--ease-inout) both; animation-delay: var(--mast-delay); }
+.mast-play .mast-rules--top .mast-rule--thin { animation-delay: calc(var(--mast-delay) + 150ms); }
+.mast-play .mast-rules--bottom .mast-rule { animation: draw 1200ms var(--ease-inout) both; animation-delay: calc(var(--mast-delay) + 150ms); }
+.mast-play .mast-rules--bottom .mast-rule:last-child { animation-delay: calc(var(--mast-delay) + 300ms); }
+.mast-play .masthead__line > span { animation: rise-mask 1100ms var(--ease-out) both; animation-delay: calc(var(--mast-delay) + 150ms); }
+.mast-play .masthead__line + .masthead__line > span { animation-delay: calc(var(--mast-delay) + 290ms); }
+.mast-play .masthead__disciplines { animation: fade-up 900ms var(--ease-out) both; animation-delay: calc(var(--mast-delay) + 750ms); }
+.mast-play .masthead__spec { animation: fade-up 900ms var(--ease-out) both; animation-delay: calc(var(--mast-delay) + 900ms); }
+
+@media (max-width: 520px) {
+  .masthead__spec > div { flex-direction: column; gap: 4px; }
+}

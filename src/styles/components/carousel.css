@@ -1,0 +1,38 @@
+/* Carousel: native scroll-snap with peeking neighbours (swipe works without
+   JS). carousel.js adds arrows, dots, fading and a gentle parallax: each image
+   drifts inside a slightly wider frame, so nothing is cropped. */
+.cs-carousel { margin: 32px 0; }
+.cs-figure > .cs-carousel { margin: 0; }
+.cs-carousel-track {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 20px;
+  padding: 0 8%;
+  scroll-padding: 0 8%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.cs-carousel-track::-webkit-scrollbar { display: none; }
+.cs-carousel-track .cs-figure { margin: 0; scroll-snap-align: center; transition: opacity 350ms var(--ease-out); }
+.cs-carousel-frame { overflow: hidden; border: 1px solid var(--line); background: var(--surface); padding: 10px 0; }
+.cs-carousel-frame img { width: 92%; margin: 0 auto; border: 0; background: none; }
+.cs-carousel-fit .cs-carousel-frame img { aspect-ratio: 16 / 10; object-fit: contain; }
+
+.cs-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 16px; }
+.cs-carousel-dots { display: flex; gap: 2px; }
+.cs-carousel-dots button,
+.cs-carousel-arrow { display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; color: var(--ink); }
+.cs-carousel-dots button { width: 44px; height: 44px; }
+.cs-carousel-dots button::before { content: ''; width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--muted); transition: background var(--t-fast), border-color var(--t-fast); }
+.cs-carousel-dots button:hover::before { border-color: var(--ink); }
+.cs-carousel-dots button[aria-current="true"]::before { background: var(--accent); border-color: var(--accent); }
+.cs-carousel-arrow { width: 44px; height: 44px; border: 1px solid var(--line); transition: border-color var(--t-fast), background var(--t-fast), color var(--t-fast); }
+.cs-carousel-arrow:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.cs-carousel-arrow:disabled { color: var(--muted); opacity: .45; cursor: default; }
+.cs-carousel-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 600px) { .cs-carousel-track { gap: 12px; padding: 0 6%; scroll-padding: 0 6%; } }
+@media (prefers-reduced-motion: no-preference) { .cs-carousel-track { scroll-behavior: smooth; } }

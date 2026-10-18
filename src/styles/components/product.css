@@ -1,0 +1,123 @@
+/* ProductSection (§5.4) + ProductCard thumbnail (§5.5).
+   Layout chooses itself from the number of case study cards:
+   - multi: 2+ cards (default)
+   - solo:  exactly 1 card (.product:not(:has(.case-grid > :nth-child(2))))
+   - minor: .product--minor (university projects) */
+.work-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0 14px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.product {
+  padding-block: var(--section-y);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 28px;
+}
+
+/* Thumbnail */
+.thumb {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  background-color: var(--tint-neutral);
+}
+.thumb--apodienste { background-color: var(--tint-apodienste); }
+.thumb--arkk { background-color: var(--tint-arkk); }
+.thumb::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  background-image: radial-gradient(var(--dot) 1px, transparent 1.4px);
+  background-size: 6px 6px;
+  transition: transform 1.4s var(--ease-inout);
+  pointer-events: none;
+}
+.product:hover .thumb::before,
+.product:focus-within .thumb::before { transform: translate(14px, 14px); }
+
+.thumb__org,
+.thumb__chip {
+  position: absolute;
+  top: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.thumb__org { left: 20px; color: var(--ink); }
+.thumb__chip { right: 20px; }
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: var(--radius-chip);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--f-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.thumb-mark {
+  position: absolute;
+  z-index: 1;
+}
+.thumb-mark--monogram {
+  left: 20px; bottom: 6px;
+  font-family: var(--f-serif);
+  font-size: clamp(80px, 12vw, 180px);
+  line-height: 1;
+  color: var(--ink);
+  opacity: .9;
+}
+.thumb-mark--shot {
+  right: 6%;
+  bottom: -6%;
+  width: min(62%, 720px);
+  box-shadow: 0 30px 60px var(--roll-shadow);
+}
+.thumb-mark--shot img { width: 100%; border: 1px solid var(--line); }
+
+/* Overview row */
+.product__overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px clamp(24px, 4vw, 64px);
+  align-items: end;
+}
+.product__id { flex: 1 1 360px; }
+.product__id .label { display: block; margin-bottom: 8px; }
+.product__name {
+  font-family: var(--f-serif);
+  font-size: var(--fs-product);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -.015em;
+}
+.product__about { flex: 1 1 320px; color: var(--body); font-size: var(--fs-body); }
+
+.product__studies-label { padding-top: 6px; }
+
+/* Solo: thumbnail left (4:3, ~55%), overview + card on the right */
+.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) {
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  align-items: start;
+  column-gap: clamp(24px, 4vw, 56px);
+}
+.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { aspect-ratio: 4 / 3; grid-row: span 3; }
+.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .case-grid { grid-template-columns: 1fr; }
+.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .product__overview { display: grid; }
+@media (max-width: 860px) {
+  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) { grid-template-columns: 1fr; }
+  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { grid-row: auto; }
+}
+
+/* Minor: no thumbnail, smaller italic heading */
+.product--minor .product__name { font-size: clamp(26px, 2.8vw, 36px); font-style: italic; color: var(--body); }

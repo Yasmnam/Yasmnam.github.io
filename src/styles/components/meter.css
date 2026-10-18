@@ -1,0 +1,28 @@
+/* Live contrast meter: follows the cursor and measures the text under it
+   (main.js). Accessibility demonstrated rather than claimed. */
+.meter {
+  position: fixed;
+  right: 12px; bottom: 12px;
+  z-index: 70;
+  min-width: 150px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--f-mono);
+  font-size: var(--fs-label-sm);
+  line-height: 1.6;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 350ms var(--ease-out), transform 350ms var(--ease-out);
+}
+.meter.on { opacity: 1; transform: none; }
+.meter .title { font-size: 10px; letter-spacing: .08em; color: var(--muted); padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid var(--line); }
+.meter .row { display: flex; justify-content: space-between; gap: 12px; }
+.meter .lab { color: var(--muted); }
+.meter .verdict { font-weight: 500; }
+.meter .pass { color: var(--accent); }
+.meter .fail { color: var(--danger); }
+.meter .sample,
+.meter .swatches { display: none; }

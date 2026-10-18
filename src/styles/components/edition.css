@@ -1,0 +1,52 @@
+/* Editor's note + In this edition (§5.3) */
+.edition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 72px);
+  padding-block: var(--section-y);
+  border-bottom: 1px solid var(--line);
+}
+.edition__note { flex: 1 1 520px; }
+.edition__note .label { display: block; margin-bottom: 20px; }
+
+.tagline {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: var(--fs-tagline);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin-bottom: 24px;
+}
+.tagline em { font-weight: 400; color: var(--accent); }
+
+.edition__intro { font-size: var(--fs-body-lg); max-width: 34rem; color: var(--body); }
+
+.contents-box {
+  flex: 1 1 340px;
+  align-self: start;
+  border: 1px solid var(--line);
+  padding: 22px 24px;
+}
+.contents-box .label { display: block; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.contents-box ol { list-style: none; padding: 0; }
+.contents-box li + li { border-top: 1px solid var(--hair); }
+.contents-box a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--f-serif);
+  font-size: 18px;
+  line-height: 1.3;
+  transition: transform var(--t-base) var(--ease-out), color var(--t-fast);
+}
+.contents-box a span:last-child { font-family: var(--f-mono); font-size: var(--fs-label); color: var(--accent); flex: none; }
+.contents-box a:hover,
+.contents-box a:focus-visible { transform: translateX(10px); }
+.contents-box a:hover span:first-child,
+.contents-box a:focus-visible span:first-child { color: var(--accent); }
+.contents-box__summary { margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-small); color: var(--muted); }

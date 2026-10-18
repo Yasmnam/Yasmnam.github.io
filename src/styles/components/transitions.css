@@ -1,0 +1,17 @@
+/* Cross-document page transitions (§6.4). Shared names are set inline per
+   study (cs-01-num / cs-01-title) on the home card and the article kicker/h1.
+   Browsers without support simply navigate. */
+@view-transition { navigation: auto; }
+
+@keyframes vt-out { to { opacity: 0; transform: translateY(-24px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(24px); } }
+@keyframes vt-out-back { to { opacity: 0; transform: translateY(24px); } }
+@keyframes vt-in-back { from { opacity: 0; transform: translateY(-24px); } }
+
+::view-transition-old(root) { animation: vt-out var(--t-base) var(--ease-out) both; }
+::view-transition-new(root) { animation: vt-in var(--t-base) var(--ease-out) both; }
+::view-transition-group(*) { animation-duration: var(--t-slow); animation-timing-function: var(--ease-inout); }
+
+/* Back navigation reverses the direction (type added in <head> on pagereveal) */
+html:active-view-transition-type(back)::view-transition-old(root) { animation-name: vt-out-back; }
+html:active-view-transition-type(back)::view-transition-new(root) { animation-name: vt-in-back; }

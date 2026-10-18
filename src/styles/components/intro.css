@@ -1,0 +1,59 @@
+/* Intro: the newspaper unrolls (§6.1). Runs while <html> has .intro-play,
+   which an inline script in <head> sets once per session (never under reduced
+   motion or without @property). One registered length, --unroll, drives both
+   the roll's position and the clip that reveals the sheet above it.
+   Content is clipped, never hidden from assistive technology. */
+.intro-roll { display: none; }
+
+.intro-play { --mast-delay: 1750ms; animation: unroll var(--t-intro) var(--ease-unroll) var(--t-roll) both; }
+.intro-play body { background: var(--desk); }
+
+.intro-play .sheet {
+  background: var(--bg);
+  clip-path: inset(0 0 calc(100% - var(--unroll)) 0);
+  transform-origin: 50% 0;
+  animation: settle 2900ms var(--ease-out) var(--t-roll) both;
+  will-change: transform, clip-path;
+}
+
+.intro-play .intro-roll {
+  display: block;
+  position: fixed;
+  left: 0; right: 0; top: -34px;
+  z-index: 90;
+  height: 68px;
+  pointer-events: none;
+  translate: 0 var(--unroll);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 22px, rgba(236, 231, 221, .05) 22px 60px, transparent 60px 74px) center / 100% 6px no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 40px, rgba(236, 231, 221, .04) 40px 120px) center 40% / 100% 3px no-repeat,
+    linear-gradient(180deg, var(--roll-dark) 0%, var(--roll-light) 32%, var(--roll-dark) 68%, var(--bg) 100%);
+  border-top: 1px solid var(--accent);
+  box-shadow: 0 22px 36px var(--roll-shadow);
+  animation:
+    roll-in var(--t-roll) var(--ease-out) both,
+    roll-out 400ms var(--ease-out) 2600ms forwards;
+  will-change: translate, scale, opacity;
+}
+/* Curl shadow cast on the sheet just above the roll */
+.intro-play .intro-roll::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 100%;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, var(--roll-shadow));
+}
+
+@keyframes unroll { from { --unroll: 0px; } to { --unroll: 112vh; } }
+@keyframes settle {
+  from { transform: perspective(1600px) rotateX(10deg) scale(.96); }
+  to { transform: none; }
+}
+@keyframes roll-in {
+  from { scale: .25 .7; opacity: 0; }
+  to { scale: 1 1; opacity: 1; }
+}
+@keyframes roll-out {
+  from { scale: 1 1; opacity: 1; }
+  to { scale: 1 .3; opacity: 0; }
+}

@@ -1,0 +1,84 @@
+/* CaseStudyCard (§5.6): standard and compact. Always the same two-column
+   grid, so a card is the same width whether a product has one study or three. */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr));
+  gap: 0 clamp(24px, 4vw, 56px);
+  list-style: none;
+  padding: 0;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  min-height: 260px;
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--ink);
+  color: inherit;
+  text-decoration: none;
+}
+
+.case-card__num {
+  font-family: var(--f-serif);
+  font-size: 52px;
+  line-height: .9;
+  color: var(--accent);
+  min-width: 1.6em;
+  transition: transform var(--t-base) var(--ease-out);
+}
+
+.case-card__body { display: flex; flex-direction: column; gap: 10px; }
+.case-card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.case-card__title {
+  font-family: var(--f-serif);
+  font-size: var(--fs-card);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  display: -webkit-box;
+  /* DESIGN.md says a 2-line clamp; 3 lines keeps every existing title whole */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.4em;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: .32em;
+  text-underline-offset: -.18em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color var(--t-base) var(--ease-out);
+}
+.case-card__summary {
+  margin: 0;
+  color: var(--body);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.case-card__cta {
+  margin-top: auto;
+  padding-top: 8px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.case-card__arrow { display: inline-block; transition: transform var(--t-base) var(--ease-out); }
+
+.case-card:hover .case-card__num,
+.case-card:focus-visible .case-card__num { transform: translateY(-6px); }
+.case-card:hover .case-card__arrow,
+.case-card:focus-visible .case-card__arrow { transform: translateX(8px); }
+.case-card:hover .case-card__title,
+.case-card:focus-visible .case-card__title { text-decoration-color: var(--accent-soft); }
+
+/* Compact (university projects) */
+.case-card--compact { min-height: 200px; border-top-color: var(--line); }
+.case-card--compact .case-card__num { font-size: 36px; color: var(--num-muted); }
+.case-card--compact .case-card__title { font-size: clamp(20px, 1.8vw, 24px); }
+.case-card--compact .case-card__summary { -webkit-line-clamp: 2; }

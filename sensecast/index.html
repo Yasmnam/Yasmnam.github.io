@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-page="study">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,14 +17,19 @@
 <meta name="twitter:title" content="Turning ambient data into emotional predictability — Yasaman Aminian">
 <meta name="twitter:description" content="Case study: SenseCast, a sensory data visualisation platform helping people feel emotionally prepared before entering public spaces.">
 <meta name="twitter:image" content="https://yasmnam.github.io/portfolio-redesign/public/images/sensecast/fig17-brand-identity.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECECE8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%2314161A'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141311'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%23ECE7DD'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Playfair+Display:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../src/styles/main.css">
+  <script>
+(function(r){r.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('mast-play');try{if(r.dataset.page==='home'&&!sessionStorage.getItem('intro-seen')&&window.CSS&&CSS.registerProperty){r.classList.add('intro-play');history.scrollRestoration='manual';scrollTo(0,0)}}catch(e){}})(document.documentElement);
+addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
+</script>
+  <link rel="stylesheet" href="../src/styles/main.css?v=dark1">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js" defer></script>
+  <script type="module" src="../src/scripts/motion.js"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
   <script>
 function imgFallback(img){
@@ -35,58 +40,56 @@ function imgFallback(img){
 </head>
 <body>
 
-<div class="np-halftone" aria-hidden="true"></div>
-<div class="np-ghost" aria-hidden="true"></div>
-<div class="np-fibre" aria-hidden="true"></div>
-<div class="np-mottle" aria-hidden="true"></div>
-
 <a class="skip" href="#main">Skip to content</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="ink-distort" x="-30%" y="-60%" width="160%" height="220%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>
+<div class="progress" aria-hidden="true"></div>
 
-
-<div class="paper">
-
-<nav class="topbar" aria-label="Primary">
-  <a class="tb-name" href="../#main">Yasaman Aminian</a>
-  <div class="tb-links">
-    <a href="../#work" data-ga-event="nav_click" data-ga-label="work">Work</a>
-    <a href="../#about" data-ga-event="nav_click" data-ga-label="about">About</a>
+<header class="article-top">
+  <div class="container article-top__inner">
+    <a class="article-top__name" href="../">Yasaman Aminian</a>
+    <nav class="article-top__nav" aria-label="Case study">
+      <a href="../#work">← All work</a>
+      <a href="../mml/">Next story →</a>
+    </nav>
   </div>
-  <a class="tb-cta" href="../#contact">Contact<span class="tb-dot" aria-hidden="true"></span></a>
-</nav>
+</header>
 
-  <a class="cs-back" href="../#work">← Back to case studies</a>
+<header class="container article-head" id="top">
+  <p class="kicker"><span class="kicker__num" style="view-transition-name:cs-04-num">04</span><span aria-hidden="true">·</span><span>Sensory data</span><span aria-hidden="true">·</span><span>SenseCast, self-directed</span><span aria-hidden="true">·</span><span>2025</span></p>
+  <h1 style="view-transition-name:cs-04-title">Turning ambient data into emotional predictability</h1>
+  <dl class="meta-strip">
+        <div><dt>My role</dt><dd>Self-directed project — research, visual language, TouchDesigner prototyping, and UI design across mobile, public screen and wearable concepts.</dd></div>
+        <div><dt>Tools</dt><dd>TouchDesigner / Figma / Figma Make / FigJam</dd></div>
+  </dl>
+</header>
 
-  <header class="cs-head">
-    <div class="rule-heavy"></div>
-    <div class="rule-light"></div>
-    <span class="kicker">Case study four — Sensory data</span>
-    <h1 class="reveal-target"><span class="reveal-line"><span>Turning ambient data into emotional predictability</span></span></h1>
-    <p class="dateline"><b>SENSECAST, 2025</b> — Self-directed</p>
-    <p class="tools">TouchDesigner / Figma / Figma Make / FigJam</p>
-    <p class="cs-role">Self-directed project — research, visual language, TouchDesigner prototyping, and UI design across mobile, public screen and wearable concepts.</p>
-  </header>
+  <div class="container article-layout">
+    <nav class="toc" aria-label="Contents">
+      <span class="label">Contents</span>
+      <ol>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#research-grounding-in-human-needs">Research — grounding in human needs</a></li>
+        <li><a href="#concept-development-from-idea-to-vision">Concept development — from idea to vision</a></li>
+        <li><a href="#design-prototyping-bringing-sensecast-to-life">Design &amp;amp; prototyping — bringing SenseCast to life</a></li>
+        <li><a href="#testing-future-steps">Testing &amp;amp; future steps</a></li>
+        <li><a href="#next-time-i-would">Next time, I would…</a></li>
+      </ol>
+    </nav>
+  <main id="main" class="article-body">
 
-  <main id="main">
-
-    <section class="cs-section">
-      <h2>Problem</h2>
+    <section id="problem" class="cs-section">
+      <h2 class="reveal">Problem</h2>
       <p class="lede">Public environments are unpredictable — noise, light and crowd levels change constantly. For people with sensory sensitivities or anxiety, that unpredictability can be overwhelming and lead to avoidance.</p>
       <p>Existing solutions, such as occupancy apps and weather forecasts, address the practical layer but fail to address the emotional layer of spatial experience.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <video src="../public/images/sensecast/hero-video.mp4" controls preload="metadata" muted loop playsinline></video>
         <figcaption>SenseCast in motion: the visual language the rest of this case study builds toward.</figcaption>
       </figure>
     </section>
 
-    <section class="cs-section">
-      <h2>Process</h2>
+    <section id="process" class="cs-section">
+      <h2 class="reveal">Process</h2>
       <div class="cs-pull">
         <p>"How might we visualise sensory conditions in a way that reduces emotional discomfort and builds trust before people enter a space?"</p>
         <cite>Problem statement</cite>
@@ -101,11 +104,11 @@ function imgFallback(img){
       </ol>
     </section>
 
-    <section class="cs-section">
-      <h2>Research — grounding in human needs</h2>
+    <section id="research-grounding-in-human-needs" class="cs-section">
+      <h2 class="reveal">Research — grounding in human needs</h2>
       <p>Surveys and interviews explored how people perceive and navigate public spaces. Psychological studies investigated how shapes, colours and sensory inputs affect emotional response. Benchmarking against weather apps and ambient interfaces showed how soft, uncertain data can still be presented clearly.</p>
 
-      <div class="cs-figure-pair">
+      <div class="cs-figure-pair reveal">
         <figure class="cs-figure">
           <img src="../public/images/sensecast/fig1-survey-1.png" alt="Survey pie chart: 'What emotions do you associate with a GP experience?' — 16 responses, split mainly between anxious (31.3%), comfortable (31.3%), relaxed (12.5%) and distracted (12.5%)." loading="lazy" onerror="imgFallback(this)">
           <figcaption>Fig. 1 — survey: emotional associations with a GP waiting room.</figcaption>
@@ -115,7 +118,7 @@ function imgFallback(img){
           <figcaption>Fig. 2 — survey: emotional associations with a university cafeteria.</figcaption>
         </figure>
       </div>
-      <div class="cs-figure-pair">
+      <div class="cs-figure-pair reveal">
         <figure class="cs-figure">
           <img src="../public/images/sensecast/fig3-sensory-installations-1.png" alt="Research board on sensory design installations, referencing existing immersive and calming spatial experiences." loading="lazy" onerror="imgFallback(this)">
           <figcaption>Fig. 3 — research into sensory design installations.</figcaption>
@@ -125,7 +128,7 @@ function imgFallback(img){
           <figcaption>Fig. 4 — research into sensory design installations, continued.</figcaption>
         </figure>
       </div>
-      <div class="cs-figure-pair">
+      <div class="cs-figure-pair reveal">
         <figure class="cs-figure">
           <img src="../public/images/sensecast/fig5-visual-language-research-1.png" alt="Research board on sensory visual language, collecting reference imagery for how soft data and forecasts are visualised elsewhere." loading="lazy" onerror="imgFallback(this)">
           <figcaption>Fig. 5 — research into sensory visual language and forecasting interfaces.</figcaption>
@@ -142,12 +145,12 @@ function imgFallback(img){
       </div>
     </section>
 
-    <section class="cs-section">
-      <h2>Concept development — from idea to vision</h2>
+    <section id="concept-development-from-idea-to-vision" class="cs-section">
+      <h2 class="reveal">Concept development — from idea to vision</h2>
       <p>Role-based personas and user journeys mapped needs and behaviours. Key sensory inputs — sound, light, crowd density, colour and social cues — were identified, and an impact–feasibility matrix prioritised the most meaningful data. The concept settled on transforming ambient data into emotional previews that support comfort and predictability.</p>
       <p class="lede">Design concept: a predictive "emotional weather forecast" for spaces, visualised through soft, fluid graphics that represent sensory conditions at a glance.</p>
 
-      <div class="cs-figure-pair">
+      <div class="cs-figure-pair reveal">
         <figure class="cs-figure">
           <img src="../public/images/sensecast/fig7-personas-1.png" alt="Role-based persona board, mapping one target user's goals, environment and sensory triggers." loading="lazy" onerror="imgFallback(this)">
           <figcaption>Fig. 7 — role-based persona.</figcaption>
@@ -157,29 +160,29 @@ function imgFallback(img){
           <figcaption>Fig. 8 — a second role-based persona.</figcaption>
         </figure>
       </div>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig9-journey-map.png" alt="User journey map tracing a person's emotional state before, during and after entering an unfamiliar public space." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 9 — user journey mapping.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig10-feasibility-matrix.png" alt="Impact-feasibility matrix plotting candidate sensory data sources against how emotionally meaningful and how technically feasible each was." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 10 — feasibility–impact diagram.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig11-sensory-inputs-map.png" alt="Diagram mapping key sensory inputs — sound, light, spatial layout, smell, colour and social cues — by their emotional impact and technical feasibility." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 11 — mapping key sensory inputs by emotional impact and technical feasibility.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig12-sensory-zones.png" alt="Diagram defining sensory zones based on measurable variables like sound levels, light intensity and crowd density, categorising environments from a 'safe bubble' to 'unpredictable'." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 12 — defining sensory zones, from "safe bubble" to "unpredictable".</figcaption>
       </figure>
     </section>
 
-    <section class="cs-section">
-      <h2>Design &amp; prototyping — bringing SenseCast to life</h2>
+    <section id="design-prototyping-bringing-sensecast-to-life" class="cs-section">
+      <h2 class="reveal">Design &amp; prototyping — bringing SenseCast to life</h2>
       <h3>Sensory visual explorations</h3>
       <p>TouchDesigner translated sensory data into dynamic visuals — audio-reactive elements, fluid forms and particle systems standing in for sound, light and crowd density. The learning curve with the tool expanded technical range and deepened an understanding of how data can drive emotional, atmospheric design.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <div class="cs-figure-stack">
           <img src="../public/images/sensecast/fig13-audioreactive-exploration-1.png" alt="Audio-reactive visual exploration in TouchDesigner: a glowing fluid texture reacting to sound." loading="lazy" onerror="imgFallback(this)">
           <img src="../public/images/sensecast/fig14-audioreactive-exploration-2.png" alt="A second audio-reactive visual exploration, a different fluid particle texture reacting to sound." loading="lazy" onerror="imgFallback(this)">
@@ -187,26 +190,26 @@ function imgFallback(img){
         </div>
         <figcaption>Fig. 13–15 — audio-reactive visual exploration in TouchDesigner.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <video src="../public/images/sensecast/fig16-audioreactive-video.mov" controls preload="metadata" muted loop playsinline></video>
         <figcaption>Fig. 16 — an audio-reactive visual, in motion.</figcaption>
       </figure>
 
       <h3>Brand identity design</h3>
       <p>The logo and visual language use fluid forms and glassmorphism effects to capture the idea of "casting" sensory data, while maintaining a calm and approachable character.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig17-brand-identity.png" alt="SenseCast brand identity board: logo lockup variations in six colourways, an Inter/Bebas Neue typography pairing, a six-colour palette, and organic pattern swatches generated from real-time data." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 17 — brand identity of SenseCast.</figcaption>
       </figure>
       <p>Wireframing and structure: wireframes and user flows defined the core interactions and navigation of the product.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig18-wireframing.png" alt="Low-fidelity wireframe flow for the SenseCast app, defining core screens and navigation." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 18 — wireframing.</figcaption>
       </figure>
 
       <h3>Vibecoding &amp; creative process</h3>
       <p>Vibecoding — working conversationally with an AI coding assistant — sped up iteration and acted as a creative partner, generating new visual directions and strengthening the ability to combine computational logic with emotional storytelling.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <div class="cs-figure-stack">
           <img src="../public/images/sensecast/fig19-vibecoded-1.png" alt="Vibecoded UI outcome: an AI-assisted coding session generating part of the SenseCast interface." loading="lazy" onerror="imgFallback(this)">
           <img src="../public/images/sensecast/fig20-vibecoded-2.png" alt="A second vibecoded UI outcome, continuing the AI-assisted interface exploration." loading="lazy" onerror="imgFallback(this)">
@@ -219,7 +222,7 @@ function imgFallback(img){
 
       <h3>UI design</h3>
       <p>High-fidelity interfaces for mobile, public screens and a wearable extension used soft gradients, organic shapes and a calming colour palette, translating complex sensory data into clear, emotionally supportive experiences.</p>
-      <div class="cs-figure-pair">
+      <div class="cs-figure-pair reveal">
         <figure class="cs-figure">
           <img src="../public/images/sensecast/fig24-hifi-mobile-1.png" alt="High-fidelity mobile screen showing a destination's live conditions: an optimal status prediction, sound level, crowd density, lighting, air quality readings, and environmental temperature and humidity." loading="lazy" onerror="imgFallback(this)">
           <figcaption>Fig. 24 — high-fidelity mobile prototype.</figcaption>
@@ -229,31 +232,31 @@ function imgFallback(img){
           <figcaption>Fig. 25 — high-fidelity mobile prototype, continued.</figcaption>
         </figure>
       </div>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig26-hifi-public-screen.png" alt="High-fidelity public-screen prototype, showing an ambient forecast visualisation designed for a shared space rather than a personal device." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 26 — high-fidelity public-screen prototype.</figcaption>
       </figure>
     </section>
 
-    <section class="cs-section">
-      <h2>Testing &amp; future steps</h2>
+    <section id="testing-future-steps" class="cs-section">
+      <h2 class="reveal">Testing &amp; future steps</h2>
       <p>The concept was tested beyond the screen too: a public-screen projection let people experience the ambient forecast in a shared space, and peer review sessions gathered reactions to colour and texture treatments across a set of simulated destinations, testing which visual moods read as calm, safe or overwhelming, and to whom.</p>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig27-video-showcase.jpeg" alt="Photo of the SenseCast concept projected onto a public screen in a workshop space, alongside a smaller vertical display showing the same ambient forecast." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 27 — video showcase and public-screen projection.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig28-peer-review.png" alt="Six phone-lock-screen mockups in different colour treatments — orange, blue, red, purple, lavender and teal — each annotated with sticky-note reviewer comments describing how crowded, calm or overwhelming that colour and texture combination felt." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 28 — peer review on UI and colour iterations.</figcaption>
       </figure>
-      <figure class="cs-figure">
+      <figure class="cs-figure reveal">
         <img src="../public/images/sensecast/fig29-audioreactive-final.png" alt="A final audio-reactive visual study, refining the fluid, particle-based texture language used across the brand and interface." loading="lazy" onerror="imgFallback(this)">
         <figcaption>Fig. 29 — an audio-reactive visual, refined.</figcaption>
       </figure>
     </section>
 
-    <section class="cs-section">
-      <h2>Next time, I would…</h2>
+    <section id="next-time-i-would" class="cs-section">
+      <h2 class="reveal">Next time, I would…</h2>
       <ol class="cs-numbered">
         <li><strong>Place more emphasis on testing.</strong> <span>Deeper, more frequent user testing throughout the process would have given stronger insight into how people emotionally respond to the visuals and interactions.</span></li>
         <li><strong>Address accessibility in the visual design.</strong> <span>The glassmorphism style achieved a calm, soothing aesthetic, but its accessibility limitations needed more thorough attention — particularly given a target audience that is sensitive and requires clear, inclusive design.</span></li>
@@ -262,20 +265,28 @@ function imgFallback(img){
     </section>
 
   </main>
+  </div>
 
-  <nav class="cs-next" aria-label="Next case studies">
-    <span class="lab">Next case studies</span>
-    <a href="../mml" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-location="next_case_study">
+  <nav class="container next-story" aria-label="Next case studies">
+    <span class="label">Next case studies</span>
+    <a href="../mml/" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-location="next_case_study">
       <h3>Redesigning a historical archive for the digital age</h3>
       <span class="jump">Read →</span>
     </a>
-    <a href="../drawerredesign" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-location="next_case_study">
-      <h3>Redesigning the patient drawer into a modular service system</h3>
+    <a href="../drawerredesign/" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-location="next_case_study">
+      <h3>Improving usability of pharmacy service delivery through a modular patient drawer</h3>
       <span class="jump">Read →</span>
     </a>
   </nav>
 
-</div>
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>Hand-coded, accessibility-first. London, 2026.</p>
+    <div class="footer__links">
+      <a href="../#top">Back to the front page ↑</a>
+    </div>
+  </div>
+</footer>
 
 <div class="meter" id="meter" aria-hidden="true">
   <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
