@@ -1,3 +1,22 @@
+# REDESIGN COPY — not the live portfolio
+
+This is a duplicate of `~/Documents/portfolio-project` (made 2026-10-18) for
+trying out a redesign. It publishes to **yasmnam.github.io/portfolio-redesign/**
+from the `portfolio-redesign` GitHub repo. The live site stays in the other
+folder/repo (`Yasmnam.github.io`); never push this copy there.
+
+Differences from the live project:
+- Every URL is **relative** (`../public/...`, `../#work`), not root-relative,
+  because the site is served under `/portfolio-redesign/`. Keep new links
+  relative. Preview locally under that path, e.g. a folder containing a
+  `portfolio-redesign` symlink served with `python3 -m http.server`.
+- `noindex, nofollow` on every page and `robots.txt` disallows all, so the
+  work in progress doesn't compete with the live site in search.
+- Google Analytics snippet removed so test visits don't pollute live stats
+  (`analytics.js` still loads but does nothing without `gtag`).
+
+---
+
 # Yasaman Aminian — Portfolio
 
 Personal portfolio for a product designer working in regulated software
