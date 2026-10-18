@@ -497,29 +497,44 @@
     margin-top:.6rem;line-height:1.45;max-width:46rem;
   }
   .cs-figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-  /* Carousel — native scroll-snap (swipe/scroll works without JS); carousel.js adds the dots */
+  /* Carousel — native scroll-snap with peeking neighbours (swipe works without JS).
+     carousel.js adds the arrows/dots and a gentle parallax: each image drifts inside
+     a slightly wider frame, so nothing is cropped (persona cards carry text to the edge). */
   .cs-carousel{margin:2rem 0}
   .cs-carousel-track{
-    position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:1.5rem;
+    position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:1.2rem;
+    padding:0 8%;scroll-padding:0 8%;
     overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
     scrollbar-width:none;
   }
   .cs-carousel-track::-webkit-scrollbar{display:none}
-  .cs-carousel-track .cs-figure{margin:0;scroll-snap-align:start}
-  .cs-carousel-dots{display:flex;justify-content:center;gap:.25rem;margin-top:1rem}
-  .cs-carousel-dots button{
-    display:grid;place-items:center;width:28px;height:28px;padding:0;
-    background:none;border:none;cursor:pointer;
+  .cs-carousel-track .cs-figure{margin:0;scroll-snap-align:center;transition:opacity .35s var(--ease)}
+  .cs-carousel-frame{overflow:hidden;border:1px solid var(--rule);background:var(--sheet);padding:.6rem 0}
+  .cs-carousel-frame img{width:92%;margin:0 auto;border:none;will-change:transform}
+  /* Mixed-shape images (e.g. iteration screens): same-height frames, each image contained */
+  .cs-carousel-fit .cs-carousel-frame img{aspect-ratio:16/10;object-fit:contain}
+  .cs-figure > .cs-carousel{margin:0}
+
+  .cs-carousel-controls{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem}
+  .cs-carousel-dots{display:flex;gap:.25rem}
+  .cs-carousel-dots button,.cs-carousel-arrow{
+    display:grid;place-items:center;padding:0;background:none;border:none;cursor:pointer;color:var(--ink);
   }
+  .cs-carousel-dots button{width:28px;height:28px}
   .cs-carousel-dots button::before{
     content:'';width:8px;height:8px;border-radius:50%;
     border:1px solid var(--ink-quiet);transition:background .2s,border-color .2s;
   }
   .cs-carousel-dots button:hover::before{border-color:var(--ink)}
   .cs-carousel-dots button[aria-current="true"]::before{background:var(--ink);border-color:var(--ink)}
+  .cs-carousel-arrow{width:36px;height:36px;border:1px solid var(--rule);transition:border-color .2s,background .2s,color .2s}
+  .cs-carousel-arrow:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:var(--sheet)}
+  .cs-carousel-arrow:disabled{color:var(--ink-quiet);opacity:.45;cursor:default}
+  .cs-carousel-arrow svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  @media (max-width:600px){
+    .cs-carousel-track{gap:.8rem;padding:0 6%;scroll-padding:0 6%}
+  }
   @media (prefers-reduced-motion:no-preference){.cs-carousel-track{scroll-behavior:smooth}}
-  .cs-thumbs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
-  .cs-thumbs-row img{aspect-ratio:4/3;object-fit:cover;object-position:top left}
 
   /* Bulleted variant of .cs-numbered — same rhythm, a rule mark instead of a count */
   .cs-list li::before{content:'—'}
@@ -665,7 +680,6 @@
 
   @media (max-width:900px){
     .cs-figure-pair{grid-template-columns:1fr}
-    .cs-thumbs-row{grid-template-columns:1fr 1fr}
     .cs-compare{grid-template-columns:1fr}
     .cs-ideas{grid-template-columns:1fr 1fr}
     .cs-pairs > div{grid-template-columns:1fr;gap:.4rem}

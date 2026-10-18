@@ -447,7 +447,7 @@ than claimed. Keep it working.
     she asked for a much simpler card design: no icons, labels, gauges,
     boxes or hover shadow, just figure + line in hairline-divided columns. New
     components in main.css: `.cs-figure-trio` (3-up personas),
-    `.cs-thumbs-row` (4-up cropped iteration strip), `.cs-table` (stacks into
+    `.cs-thumbs-row` (4-up iteration strip — later replaced by a `.cs-carousel-fit` parallax carousel, 2026-10-18), `.cs-table` (stacks into
     labelled blocks under 600px) and `.cs-list` (bulleted `.cs-numbered`).
     Figs 6, 7b, 10, 13, 14 no longer used on the page (files kept);
     captions lost their "Fig. N" prefixes since the remaining numbers had gaps.

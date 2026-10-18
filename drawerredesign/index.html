@@ -29,11 +29,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/src/styles/main.css?v=copy-update">
+  <link rel="stylesheet" href="/src/styles/main.css?v=carousel-parallax-3">
   <script src="/src/scripts/main.js" defer></script>
   <script src="/src/scripts/analytics.js" defer></script>
   <script src="/src/scripts/hover-video.js" defer></script>
-  <script src="/src/scripts/carousel.js" defer></script>
+  <script src="/src/scripts/carousel.js?v=parallax" defer></script>
   <script>
 function imgFallback(img){
   var fig = img.closest ? img.closest('figure') : null;
@@ -152,19 +152,19 @@ function imgFallback(img){
       <div class="cs-carousel" role="region" aria-roledescription="carousel" aria-label="Personas">
         <div class="cs-carousel-track" tabindex="0">
         <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="1 of 3">
-          <img src="/public/images/drawerredesign/fig3-persona-callcenter.png" alt="Persona card for Lorina, the Call Center User — 'The Service Initiator', age 32 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her wearing a headset at her desk." loading="lazy" onerror="imgFallback(this)">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig3-persona-callcenter.png" alt="Persona card for Lorina, the Call Center User — 'The Service Initiator', age 32 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her wearing a headset at her desk." loading="lazy" onerror="imgFallback(this)"></div>
           <figcaption>Call-centre user (Lorina)</figcaption>
         </figure>
         <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="2 of 3">
-          <img src="/public/images/drawerredesign/fig4-persona-analyst.png" alt="Persona card for Elena, the Analyst — 'The Pre-Session Specialist', age 36 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her reviewing medication records." loading="lazy" onerror="imgFallback(this)">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig4-persona-analyst.png" alt="Persona card for Elena, the Analyst — 'The Pre-Session Specialist', age 36 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her reviewing medication records." loading="lazy" onerror="imgFallback(this)"></div>
           <figcaption>Analyst (Elena)</figcaption>
         </figure>
         <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="3 of 3">
-          <img src="/public/images/drawerredesign/fig5-persona-pharmacist.png" alt="Persona card for Christina, the Pharmacist — 'The Service Provider', age 46 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her consulting a patient at the pharmacy counter." loading="lazy" onerror="imgFallback(this)">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig5-persona-pharmacist.png" alt="Persona card for Christina, the Pharmacist — 'The Service Provider', age 46 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her consulting a patient at the pharmacy counter." loading="lazy" onerror="imgFallback(this)"></div>
           <figcaption>Pharmacist (Christina)</figcaption>
         </figure>
         </div>
-        <div class="cs-carousel-dots" hidden></div>
+        <div class="cs-carousel-controls" hidden></div>
       </div>
       <div class="cs-quote">
         <p>"I can't tell where to find the right documents for each patient — and I'm not even sure what a 'case' is supposed to mean here."</p>
@@ -209,13 +209,28 @@ function imgFallback(img){
           </tbody>
         </table>
       </div>
-      <figure class="cs-figure cs-thumbs">
-        <div class="cs-thumbs-row">
-          <img src="/public/images/drawerredesign/fig7a-iteration1-case1.png" alt="Iteration 1: a collapsed 'Case 1' card with empty PDL and case type dropdowns, and Cancel/Confirm actions." loading="lazy" onerror="imgFallback(this)">
-          <img src="/public/images/drawerredesign/fig8-iteration2-modal.png" alt="Iteration 2: a 'Fast track case' modal for patient Tony Kroos, with general documentation checkboxes (data security consent, pDL agreement) on the left and a timestamped activity log on the right." loading="lazy" onerror="imgFallback(this)">
-          <img src="/public/images/drawerredesign/fig9-iteration3-tab.png" alt="Iteration 3: a two-panel view, with service status, Medicheck status and scheduled appointments on the left and an active documentation panel with pDL agreement, blood pressure measurement and inhalation procedure steps on the right." loading="lazy" onerror="imgFallback(this)">
-          <img src="/public/images/drawerredesign/fig11-iteration4-drawer.png" alt="Iteration 4: the patient drawer showing Document and Service Archive buttons, quick-action buttons for Appointment, Document and Comment, and a Polymedication Service and Blood Pressure Measurement Service each with their own checklist." loading="lazy" onerror="imgFallback(this)">
+      <figure class="cs-figure">
+      <div class="cs-carousel cs-carousel-fit" role="region" aria-roledescription="carousel" aria-label="Iterations 1–4">
+        <div class="cs-carousel-track" tabindex="0">
+        <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="1 of 4">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig7a-iteration1-case1.png" alt="Iteration 1: a collapsed 'Case 1' card with empty PDL and case type dropdowns, and Cancel/Confirm actions." loading="lazy" onerror="imgFallback(this)"></div>
+          <figcaption>1. A case per service</figcaption>
+        </figure>
+        <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="2 of 4">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig8-iteration2-modal.png" alt="Iteration 2: a 'Fast track case' modal for patient Tony Kroos, with general documentation checkboxes (data security consent, pDL agreement) on the left and a timestamped activity log on the right." loading="lazy" onerror="imgFallback(this)"></div>
+          <figcaption>2. Documentation modal</figcaption>
+        </figure>
+        <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="3 of 4">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig9-iteration3-tab.png" alt="Iteration 3: a two-panel view, with service status, Medicheck status and scheduled appointments on the left and an active documentation panel with pDL agreement, blood pressure measurement and inhalation procedure steps on the right." loading="lazy" onerror="imgFallback(this)"></div>
+          <figcaption>3. Documentation tab by service state</figcaption>
+        </figure>
+        <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="4 of 4">
+          <div class="cs-carousel-frame"><img src="/public/images/drawerredesign/fig11-iteration4-drawer.png" alt="Iteration 4: the patient drawer showing Document and Service Archive buttons, quick-action buttons for Appointment, Document and Comment, and a Polymedication Service and Blood Pressure Measurement Service each with their own checklist." loading="lazy" onerror="imgFallback(this)"></div>
+          <figcaption>4. Service modules</figcaption>
+        </figure>
         </div>
+        <div class="cs-carousel-controls" hidden></div>
+      </div>
         <figcaption>Iterations 1–4</figcaption>
       </figure>
 
