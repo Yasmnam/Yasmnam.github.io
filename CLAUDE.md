@@ -1,21 +1,16 @@
-# REDESIGN COPY — not the live portfolio
+# Live site: dark editorial redesign (2026-10-18)
 
-This is a duplicate of `~/Documents/portfolio-project` (made 2026-10-18) for
-trying out a redesign. It publishes to **yasmnam.github.io/portfolio-redesign/**
-from the `portfolio-redesign` GitHub repo. The live site stays in the other
-folder/repo (`Yasmnam.github.io`); never push this copy there.
-
-Differences from the live project:
-- Every URL is **relative** (`../public/...`, `../#work`), not root-relative,
-  because the site is served under `/portfolio-redesign/`. Keep new links
-  relative. Preview locally under that path, e.g. a folder containing a
-  `portfolio-redesign` symlink served with `python3 -m http.server`.
-- `noindex, nofollow` on every page and `robots.txt` disallows all, so the
-  work in progress doesn't compete with the live site in search.
-- Google Analytics snippet removed so test visits don't pollute live stats
-  (`analytics.js` still loads but does nothing without `gtag`).
+The dark, component-based redesign built in `~/Documents/portfolio-redesign`
+(DESIGN.md / PROMPT.md briefs in her Downloads) went live on 2026-10-18.
+Styles now live in `src/styles/tokens.css`, `base.css` and one file per
+component in `src/styles/components/`, pulled in by `src/styles/main.css`;
+bump the `?v=` on those imports and on `main.css` in each page when a
+component changes, or browsers keep serving the old file. All URLs are
+relative. Much of the history below describes the earlier light newsprint
+theme and its old class names.
 
 ---
+
 
 # Yasaman Aminian — Portfolio
 
