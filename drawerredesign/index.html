@@ -26,12 +26,12 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="../src/styles/main.css?v=8">
+  <link rel="stylesheet" href="../src/styles/main.css?v=9">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js" defer></script>
   <script type="module" src="../src/scripts/motion.js"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
-  <script src="../src/scripts/carousel.js?v=parallax" defer></script>
+  <script src="../src/scripts/carousel.js?v=minimal" defer></script>
   <script>
 function imgFallback(img){
   var fig = img.closest ? img.closest('figure') : null;
