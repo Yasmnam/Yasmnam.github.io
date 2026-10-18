@@ -31,8 +31,8 @@ if (replay && hero && !reduced) {
   });
 }
 
-// Top bar: hide on scroll down, show on scroll up
-const bar = d.querySelector('.topbar, .article-top');
+// Home top bar: hide on scroll down, show on scroll up
+const bar = d.querySelector('.topbar');
 if (bar) {
   let y = scrollY;
   on(window, 'scroll', () => {
@@ -40,6 +40,22 @@ if (bar) {
     bar.classList.toggle('is-hidden', ny > y && ny > 240);
     y = ny;
   }, { passive: true });
+}
+
+// Case study story bar: shown once the headline block has scrolled out of view
+const storyBar = d.querySelector('.story-bar');
+const head = d.querySelector('.article-head');
+if (storyBar && head) {
+  let shown = false;
+  const check = () => {
+    const show = head.getBoundingClientRect().bottom < 0;
+    if (show === shown) return;
+    shown = show;
+    storyBar.classList.toggle('is-visible', show);
+    storyBar.inert = !show;
+  };
+  on(window, 'scroll', check, { passive: true });
+  check();
 }
 
 // Scroll reveals / unroll: IntersectionObserver fallback where view() timelines aren't supported

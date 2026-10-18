@@ -3,13 +3,42 @@
 .article-top {
   border-bottom: 1px solid var(--line);
   background: var(--bg);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  transition: transform var(--t-base) var(--ease-out);
 }
-.article-top.is-hidden { transform: translateY(-100%); }
-.article-top:focus-within { transform: none; }
+
+/* Sticky story bar: slides in once the headline has scrolled away, with
+   only the way back and the way on. Inert (unfocusable) while hidden. */
+.story-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 55;
+  background: var(--bg);
+  border-bottom: 1px solid var(--hair);
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform var(--t-base) var(--ease-out), visibility 0s linear var(--t-base);
+}
+.story-bar.is-visible {
+  transform: none;
+  visibility: visible;
+  transition: transform var(--t-base) var(--ease-out), visibility 0s;
+}
+.story-bar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 52px;
+}
+.story-bar a {
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 14px 0;
+}
+.story-bar a:hover,
+.story-bar a:focus-visible { color: var(--ink); }
 .article-top__inner {
   display: flex;
   align-items: center;
@@ -86,7 +115,7 @@
 }
 .toc {
   position: sticky;
-  top: calc(var(--topbar-h) + 24px);
+  top: 76px;
   padding-top: clamp(28px, 4vw, 48px);
 }
 .toc .label { display: block; padding-bottom: 12px; border-bottom: 1px solid var(--line); }

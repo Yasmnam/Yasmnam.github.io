@@ -33,10 +33,10 @@
 document.documentElement.classList.add('js');
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="../src/styles/main.css?v=16">
+  <link rel="stylesheet" href="../src/styles/main.css?v=17">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js?v=2" defer></script>
-  <script type="module" src="../src/scripts/motion.js?v=3"></script>
+  <script type="module" src="../src/scripts/motion.js?v=5"></script>
   <script>
 function imgFallback(img){
   var fig = img.closest ? img.closest('figure') : null;
@@ -59,6 +59,13 @@ function imgFallback(img){
     </nav>
   </div>
 </header>
+
+<nav class="story-bar" aria-label="Story navigation" inert>
+  <div class="container story-bar__inner">
+    <a href="../#work" data-ga-event="nav_click" data-ga-label="all_work_sticky">← All work</a>
+    <a href="../sensecast/" data-ga-event="nav_click" data-ga-label="next_story_sticky">Next story →</a>
+  </div>
+</nav>
 
 <header class="container article-head" id="top">
   <p class="kicker"><span class="kicker__num" style="view-transition-name:cs-03-num">03</span><span aria-hidden="true">·</span><span>Workflow design</span><span aria-hidden="true">·</span><span>ARKK, enterprise data platform</span><span aria-hidden="true">·</span><span>2026</span></p>

@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   gap: clamp(28px, 5vw, 72px);
   padding-block: var(--section-y);
-  border-bottom: 1px solid var(--line);
 }
 .edition__note { flex: 1 1 520px; }
 .edition__note .label { display: block; margin-bottom: 20px; }

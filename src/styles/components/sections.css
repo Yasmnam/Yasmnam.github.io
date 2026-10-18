@@ -1,7 +1,6 @@
 /* About me (principles) · Also in brief · Contact */
 .section {
   padding-block: var(--section-y);
-  border-bottom: 1px solid var(--line);
 }
 .section__head {
   display: flex;

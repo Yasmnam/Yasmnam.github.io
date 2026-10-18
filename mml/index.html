@@ -33,10 +33,10 @@
 document.documentElement.classList.add('js');
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="../src/styles/main.css?v=16">
+  <link rel="stylesheet" href="../src/styles/main.css?v=17">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js?v=2" defer></script>
-  <script type="module" src="../src/scripts/motion.js?v=3"></script>
+  <script type="module" src="../src/scripts/motion.js?v=5"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
   <script>
 function imgFallback(img){
@@ -61,6 +61,13 @@ function imgFallback(img){
   </div>
 </header>
 
+<nav class="story-bar" aria-label="Story navigation" inert>
+  <div class="container story-bar__inner">
+    <a href="../#work" data-ga-event="nav_click" data-ga-label="all_work_sticky">← All work</a>
+    <a href="../drawerredesign/" data-ga-event="nav_click" data-ga-label="next_story_sticky">Next story →</a>
+  </div>
+</nav>
+
 <header class="container article-head" id="top">
   <p class="kicker"><span class="kicker__num" style="view-transition-name:cs-05-num">05</span><span aria-hidden="true">·</span><span>Archive UX</span><span aria-hidden="true">·</span><span>Marx Memorial Library, historical archive</span><span aria-hidden="true">·</span><span>2024</span></p>
   <h1 style="view-transition-name:cs-05-title">Redesigning a historical archive for the digital age</h1>
@@ -81,18 +88,18 @@ function imgFallback(img){
     <nav class="toc" aria-label="Contents">
       <span class="label">Contents</span>
       <ol>
-        <li><a href="#context-my-role" data-ga-event="toc_click" data-ga-section="context-my-role" data-ga-case-study="mml">Context &amp;amp; my role</a></li>
+        <li><a href="#context-my-role" data-ga-event="toc_click" data-ga-section="context-my-role" data-ga-case-study="mml">Context &amp; my role</a></li>
         <li><a href="#problem-framing" data-ga-event="toc_click" data-ga-section="problem-framing" data-ga-case-study="mml">Problem framing</a></li>
-        <li><a href="#insight-strategy" data-ga-event="toc_click" data-ga-section="insight-strategy" data-ga-case-study="mml">Insight &amp;amp; strategy</a></li>
+        <li><a href="#insight-strategy" data-ga-event="toc_click" data-ga-section="insight-strategy" data-ga-case-study="mml">Insight &amp; strategy</a></li>
         <li><a href="#process" data-ga-event="toc_click" data-ga-section="process" data-ga-case-study="mml">Process</a></li>
-        <li><a href="#research-discovery" data-ga-event="toc_click" data-ga-section="research-discovery" data-ga-case-study="mml">Research &amp;amp; discovery</a></li>
+        <li><a href="#research-discovery" data-ga-event="toc_click" data-ga-section="research-discovery" data-ga-case-study="mml">Research &amp; discovery</a></li>
         <li><a href="#define-and-synthesise" data-ga-event="toc_click" data-ga-section="define-and-synthesise" data-ga-case-study="mml">Define and synthesise</a></li>
         <li><a href="#ideation-and-sitemapping" data-ga-event="toc_click" data-ga-section="ideation-and-sitemapping" data-ga-case-study="mml">Ideation and sitemapping</a></li>
         <li><a href="#wireframing-and-user-flows" data-ga-event="toc_click" data-ga-section="wireframing-and-user-flows" data-ga-case-study="mml">Wireframing and user flows</a></li>
         <li><a href="#ui-design-concept" data-ga-event="toc_click" data-ga-section="ui-design-concept" data-ga-case-study="mml">UI design concept</a></li>
         <li><a href="#special-pages-features-and-functionalities" data-ga-event="toc_click" data-ga-section="special-pages-features-and-functionalities" data-ga-case-study="mml">Special pages, features and functionalities</a></li>
-        <li><a href="#style-component-library" data-ga-event="toc_click" data-ga-section="style-component-library" data-ga-case-study="mml">Style &amp;amp; component library</a></li>
-        <li><a href="#solution-proposal-delivery" data-ga-event="toc_click" data-ga-section="solution-proposal-delivery" data-ga-case-study="mml">Solution proposal &amp;amp; delivery</a></li>
+        <li><a href="#style-component-library" data-ga-event="toc_click" data-ga-section="style-component-library" data-ga-case-study="mml">Style &amp; component library</a></li>
+        <li><a href="#solution-proposal-delivery" data-ga-event="toc_click" data-ga-section="solution-proposal-delivery" data-ga-case-study="mml">Solution proposal &amp; delivery</a></li>
         <li><a href="#next-time-i-would" data-ga-event="toc_click" data-ga-section="next-time-i-would" data-ga-case-study="mml">Next time, I would…</a></li>
       </ol>
     </nav>
