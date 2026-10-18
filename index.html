@@ -32,7 +32,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=12">
+  <link rel="stylesheet" href="src/styles/main.css?v=13">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -249,8 +249,8 @@ function imgFallback(img){
     </div>
   </div>
 
-  <section class="container section unroll" aria-labelledby="how">
-    <div class="section__head label"><h2 id="how">How I work</h2><span>Principles</span></div>
+  <section class="container section unroll" id="about" aria-labelledby="about-h">
+    <div class="section__head label"><h2 id="about-h">About me</h2><span>How I work</span></div>
     <ol class="principles" role="list">
       <li class="principle">
         <span class="principle__num" aria-hidden="true">I.</span>
@@ -284,22 +284,6 @@ function imgFallback(img){
     <div class="brief__item">
       <h3>AI in the workflow</h3>
       <p>Created plugins and skills for internal design tasks such as documentation, and have shipped code to production using Claude and MCP.</p>
-    </div>
-  </section>
-
-  <section class="container section unroll" id="about" aria-labelledby="about-h">
-    <div class="section__head label"><h2 id="about-h">About the designer</h2><span>Profile</span></div>
-    <div class="about">
-      <figure class="about__photo">
-        <img src="https://framerusercontent.com//public/images/OlXkOOhYqtk9aH7CWxTDHvKSgs.jpeg" alt="Yasaman Aminian, product designer" referrerpolicy="no-referrer" data-fallback="public/images/portrait.jpg" onerror="imgFallback(this)" loading="lazy">
-      </figure>
-      <div class="about__bio">
-        <p>I come at design from a technical view, but what holds my attention is <em>design's impact</em> — not how something looks, but what it does. Good design, to me, isn't visual: <em>it's a service</em>, something that quietly does its job for the person depending on it.</p>
-        <p>Known for a big smile and a steady supply of coffee and tea. I paint occasionally, and I'm always chasing new music.</p>
-        <p>I'm drawn to <em>complicated territory</em> — the difficulty is rarely visual. The rules are involved, the states are numerous, and the person on the other side of the screen is <em>accountable</em> for getting it right.</p>
-        <p><em>Good defaults</em> do more work than polish. I work cross-functionally and trust <em>research over assumptions</em>.</p>
-        <p class="label">Yasaman Aminian</p>
-      </div>
     </div>
   </section>
 
