@@ -26,6 +26,7 @@
   --accent-pulse: rgba(156, 200, 242, .55);
   --shadow: rgba(0, 0, 0, .55);
   --curl-shade: rgba(0, 0, 0, .55);
+  --scrim: rgba(10, 10, 9, .7);
 
   /* Type */
   --f-display: 'Playfair Display', Georgia, serif;

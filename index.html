@@ -25,7 +25,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=intro-roll">
+  <link rel="stylesheet" href="src/styles/main.css?v=thumbs">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -120,7 +120,7 @@ function imgFallback(img){
       <div class="thumb thumb--apodienste">
         <span class="thumb__org">PharmaBits / apodienste</span>
         <span class="thumb__chip chip">2 case studies</span>
-        <figure class="thumb-mark thumb-mark--shot">
+        <figure class="thumb-mark thumb-mark--fill">
           <img src="public/images/drawer-redesign-photo.png" alt="apodienste's insight dashboard, showing service statistics, a revenue chart, and a kanban board of patient services by status" loading="lazy">
         </figure>
       </div>
@@ -135,6 +135,7 @@ function imgFallback(img){
       <ul class="case-grid" role="list">
         <li>
           <a class="case-card" href="drawerredesign/" aria-label="Case study 01: Improving usability of pharmacy service delivery through a modular patient drawer" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
+            <span class="case-card__thumb"><img src="public/images/drawer-redesign.png" alt="Wireframe of the apodienste patient management dashboard, with a sidebar list, patient detail panel and comment thread rendered as generic placeholder content." loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-01-num">01</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
@@ -146,6 +147,7 @@ function imgFallback(img){
         </li>
         <li>
           <a class="case-card" href="patienthistory/" aria-label="Case study 02: Increasing tracking and auditability in patient case handling" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
+            <span class="case-card__thumb"><img src="public/images/patient-history.png" alt="Wireframe of the apodienste patient history interface: a comment and action panel on the left with generic placeholder content, and a list of mentions on the right, each marked with a status icon." loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-02-num">02</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
@@ -162,7 +164,7 @@ function imgFallback(img){
       <div class="thumb thumb--arkk">
         <span class="thumb__org">ARKK</span>
         <span class="thumb__chip chip">1 case study</span>
-        <figure class="thumb-mark thumb-mark--shot">
+        <figure class="thumb-mark thumb-mark--fill">
           <img src="public/images/workflowredesign/testing-panel-wireframe.png" alt="Wireframe of the workflow canvas with the activity configuration drawer open alongside a workflow testing panel" loading="lazy">
         </figure>
       </div>
@@ -176,6 +178,7 @@ function imgFallback(img){
       <ul class="case-grid" role="list">
         <li>
           <a class="case-card" href="workflowredesign/" aria-label="Case study 03: Increasing trust in a tax compliance automation platform" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="workflowredesign" data-ga-position="3">
+            <span class="case-card__thumb"><img src="public/images/workflowredesign/drawer-wireframe.png" alt="Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields." loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-03-num">03</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Workflow design · 2026</span>
@@ -198,6 +201,7 @@ function imgFallback(img){
       <ul class="case-grid" role="list">
         <li>
           <a class="case-card case-card--compact" href="sensecast/" aria-label="Case study 04: Turning ambient data into emotional predictability" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="sensecast" data-ga-position="4">
+            <span class="case-card__thumb"><img src="public/images/sensecast.png" alt="SenseCast across mobile and Apple Watch, showing live crowd and comfort readings for a destination" loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-04-num">04</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Sensory data · 2025</span></span>
@@ -209,6 +213,7 @@ function imgFallback(img){
         </li>
         <li>
           <a class="case-card case-card--compact" href="mml/" aria-label="Case study 05: Redesigning a historical archive for the digital age" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-position="5">
+            <span class="case-card__thumb"><img src="public/images/mml.png" alt="The redesigned Marx Memorial Library homepage on a laptop, with a historical archive photo, search bar, and Visit Archive, Research and Support Us buttons" loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-05-num">05</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Archive UX · 2024</span></span>

@@ -85,6 +85,21 @@
 }
 .thumb-mark--shot img { width: 100%; border: 1px solid var(--line); }
 
+/* Product shot filling the whole thumbnail */
+.thumb-mark--fill { inset: 0; z-index: 0; }
+.thumb-mark--fill img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+/* Scrim so the org label and chip stay legible over the shot */
+.thumb:has(.thumb-mark--fill)::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 96px;
+  z-index: 1;
+  background: linear-gradient(to bottom, var(--scrim), transparent);
+  pointer-events: none;
+}
+.thumb::before { z-index: 1; }
+
 /* Overview row */
 .product__overview {
   display: flex;
@@ -111,12 +126,12 @@
   align-items: start;
   column-gap: clamp(24px, 4vw, 56px);
 }
-.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { aspect-ratio: 4 / 3; grid-row: span 3; }
+.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { aspect-ratio: auto; min-height: 420px; grid-row: span 3; align-self: stretch; }
 .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .case-grid { grid-template-columns: 1fr; }
 .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .product__overview { display: grid; }
 @media (max-width: 860px) {
   .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) { grid-template-columns: 1fr; }
-  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { grid-row: auto; }
+  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { grid-row: auto; aspect-ratio: 4 / 3; min-height: 0; }
 }
 
 /* Minor: no thumbnail, smaller italic heading */
