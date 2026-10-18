@@ -15,7 +15,7 @@
   .case-card:is(:hover, :focus-visible) .case-card__num,
   .case-card:is(:hover, :focus-visible) .case-card__arrow,
   .next-story a:is(:hover, :focus-visible) .jump,
-  .contents-box a:is(:hover, :focus-visible),
+  .contents a:is(:hover, :focus-visible),
   .toc a:is(:hover, :focus-visible) { transform: none; }
   .product:is(:hover, :focus-within) .thumb::before { transform: none; }
 

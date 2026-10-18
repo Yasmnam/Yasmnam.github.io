@@ -25,7 +25,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=thumbs">
+  <link rel="stylesheet" href="src/styles/main.css?v=3">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -100,16 +100,15 @@ function imgFallback(img){
       <h2 class="tagline" id="tagline">Thinking in systems, <em>fascinated by design.</em></h2>
       <p class="edition__intro">I create trust and reliability by design: usable, accessible, and easy to work with.</p>
     </div>
-    <nav class="contents-box" aria-label="In this edition">
+    <nav class="contents" aria-label="In this edition">
       <span class="label">In this edition</span>
       <ol>
-          <li><a href="drawerredesign/"><span>Improving usability of pharmacy service delivery through a modular patient drawer</span><span aria-hidden="true">01</span></a></li>
-          <li><a href="patienthistory/"><span>Increasing tracking and auditability in patient case handling</span><span aria-hidden="true">02</span></a></li>
-          <li><a href="workflowredesign/"><span>Increasing trust in a tax compliance automation platform</span><span aria-hidden="true">03</span></a></li>
-          <li><a href="sensecast/"><span>Turning ambient data into emotional predictability</span><span aria-hidden="true">04</span></a></li>
-          <li><a href="mml/"><span>Redesigning a historical archive for the digital age</span><span aria-hidden="true">05</span></a></li>
+        <li><a href="drawerredesign/"><span class="contents__num" aria-hidden="true">01</span><span class="contents__title">Modular patient drawer</span></a></li>
+        <li><a href="patienthistory/"><span class="contents__num" aria-hidden="true">02</span><span class="contents__title">Patient case tracking</span></a></li>
+        <li><a href="workflowredesign/"><span class="contents__num" aria-hidden="true">03</span><span class="contents__title">Workflow canvas at ARKK</span></a></li>
+        <li class="contents__minor"><a href="sensecast/"><span class="contents__num" aria-hidden="true">04</span><span class="contents__title">SenseCast</span></a></li>
+        <li class="contents__minor"><a href="mml/"><span class="contents__num" aria-hidden="true">05</span><span class="contents__title">Marx Memorial Library</span></a></li>
       </ol>
-      <p class="contents-box__summary">Five entries, grouped by product.</p>
     </nav>
   </section>
 
