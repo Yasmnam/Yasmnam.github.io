@@ -452,6 +452,19 @@ than claimed. Keep it working.
     Figs 6, 7b, 10, 13, 14 no longer used on the page (files kept);
     captions lost their "Fig. N" prefixes since the remaining numbers had gaps.
 
+13. **Copy update for all three client case studies** (2026-10-18), from
+    `drawer-redesign-copy (1).md`, `patienthistory-copy.md` and
+    `workflow-redesign-copy.md` in her Downloads. New h1s and an
+    "Opportunity" section on each; the line under each h1 uses `.cs-role`
+    as the subtitle (no dek style existed). Results/Impact use the simple
+    `.cs-metric` cards. Patient history: old 30%/50% outcome figures, Fig. 3
+    action cards and Fig. 4 removed; now framed as a new feature, not a
+    redesign. Workflow: old sections and the four earlier diagrams replaced
+    by three new schematics (drawer sizes, drawer structure, hover chain);
+    the two generic wireframes kept. Kept against the brief, because she asked
+    for them directly: the persona carousel, Discover/Define/Develop and
+    "What I would do differently" on `/drawerredesign`.
+
 ## Content rules
 
 - British spelling

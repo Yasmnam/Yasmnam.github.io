@@ -401,6 +401,8 @@
     font-family:var(--mono);font-size:.82rem;color:var(--ink-mid);
     max-width:42rem;margin:1.4rem 0 0;line-height:1.6;
   }
+  .cs-head h1 + .cs-role{margin:0 0 1rem}
+  .cs-head .cs-meta{margin:1.4rem 0 0}
 
   .cs-section{padding:2.6rem 0;border-bottom:1px solid var(--rule)}
   .cs-section::after{content:'';display:table;clear:both}
@@ -495,8 +497,27 @@
     margin-top:.6rem;line-height:1.45;max-width:46rem;
   }
   .cs-figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-  .cs-figure-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:2rem 0}
-  .cs-figure-trio .cs-figure{margin:0}
+  /* Carousel — native scroll-snap (swipe/scroll works without JS); carousel.js adds the dots */
+  .cs-carousel{margin:2rem 0}
+  .cs-carousel-track{
+    position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:1.5rem;
+    overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+    scrollbar-width:none;
+  }
+  .cs-carousel-track::-webkit-scrollbar{display:none}
+  .cs-carousel-track .cs-figure{margin:0;scroll-snap-align:start}
+  .cs-carousel-dots{display:flex;justify-content:center;gap:.25rem;margin-top:1rem}
+  .cs-carousel-dots button{
+    display:grid;place-items:center;width:28px;height:28px;padding:0;
+    background:none;border:none;cursor:pointer;
+  }
+  .cs-carousel-dots button::before{
+    content:'';width:8px;height:8px;border-radius:50%;
+    border:1px solid var(--ink-quiet);transition:background .2s,border-color .2s;
+  }
+  .cs-carousel-dots button:hover::before{border-color:var(--ink)}
+  .cs-carousel-dots button[aria-current="true"]::before{background:var(--ink);border-color:var(--ink)}
+  @media (prefers-reduced-motion:no-preference){.cs-carousel-track{scroll-behavior:smooth}}
   .cs-thumbs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
   .cs-thumbs-row img{aspect-ratio:4/3;object-fit:cover;object-position:top left}
 
@@ -644,7 +665,6 @@
 
   @media (max-width:900px){
     .cs-figure-pair{grid-template-columns:1fr}
-    .cs-figure-trio{grid-template-columns:1fr}
     .cs-thumbs-row{grid-template-columns:1fr 1fr}
     .cs-compare{grid-template-columns:1fr}
     .cs-ideas{grid-template-columns:1fr 1fr}
