@@ -1,22 +1,50 @@
-/* ProductSection (§5.4) + ProductCard thumbnail (§5.5).
-   Layout chooses itself from the number of case study cards:
-   - multi: 2+ cards (default)
-   - solo:  exactly 1 card (.product:not(:has(.case-grid > :nth-child(2))))
-   - minor: .product--minor (university projects) */
-.work-head {
+/* Selected work: section header, then products stacked vertically.
+   Each product: a header row (thumbnail ~51% | overview ~49%), a label,
+   then its case studies as full-width stacked rows (case-row.css). */
+
+/* Section header: thin double rule, then title and note */
+.work-head { margin-bottom: clamp(32px, 4vw, 48px); }
+.work-head__rules { display: grid; gap: 4px; }
+.work-head__rules .rule { background: var(--body); }
+.work-head__row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 16px;
-  padding: 18px 0 14px;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+  gap: 6px 24px;
+  padding-top: 14px;
+}
+.work-head__title {
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.work-head__note { margin: 0; font-style: italic; font-size: var(--fs-small); color: var(--muted); }
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(56px, 7vw, 96px);
+  padding-bottom: var(--section-y);
 }
 
-.product {
-  padding-block: var(--section-y);
-  border-bottom: 1px solid var(--line);
-  display: grid;
+.product { display: flex; flex-direction: column; }
+
+/* Header row: thumbnail | overview, stacking below ~820px */
+.product__header {
+  display: flex;
+  flex-wrap: wrap;
   gap: 28px;
+  align-items: flex-start;
+}
+.product__header > .thumb { flex: 1.05 1 420px; }
+.product__overview { flex: 1 1 380px; min-width: 0; }
+@media (max-width: 820px) {
+  .product__header > .thumb,
+  .product__overview { flex-basis: 100%; }
 }
 
 /* Thumbnail */
@@ -24,17 +52,16 @@
   position: relative;
   aspect-ratio: 21 / 9;
   overflow: hidden;
+  border: 1px solid var(--line);
   background-color: var(--tint-neutral);
 }
 .thumb--apodienste { background-color: var(--tint-apodienste); }
-/* The carousel's shots are 1.41:1; a slightly taller frame keeps the devices whole */
-.thumb--carousel { aspect-ratio: 2 / 1; }
-.thumb--carousel::before { display: none; }
 .thumb--arkk { background-color: var(--tint-arkk); }
 .thumb::before {
   content: '';
   position: absolute;
   inset: -14px;
+  z-index: 1;
   background-image: radial-gradient(var(--dot) 1px, transparent 1.4px);
   background-size: 6px 6px;
   transition: transform 1.4s var(--ease-inout);
@@ -46,15 +73,15 @@
 .thumb__org,
 .thumb__chip {
   position: absolute;
-  top: 18px;
-  z-index: 2;
+  top: 16px;
+  z-index: 3;
   font-family: var(--f-mono);
   font-size: var(--fs-label-sm);
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.thumb__org { left: 20px; color: var(--ink); }
-.thumb__chip { right: 20px; }
+.thumb__org { left: 18px; color: var(--ink); }
+.thumb__chip { right: 18px; }
 .chip {
   display: inline-block;
   padding: 4px 8px;
@@ -63,55 +90,35 @@
   color: var(--accent);
   font-family: var(--f-mono);
   font-size: var(--fs-label-sm);
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  letter-spacing: .06em;
   line-height: 1.4;
 }
 
-.thumb-mark {
-  position: absolute;
-  z-index: 1;
-}
+.thumb-mark { position: absolute; z-index: 0; }
 .thumb-mark--monogram {
   left: 20px; bottom: 6px;
   font-family: var(--f-serif);
   font-size: clamp(80px, 12vw, 180px);
   line-height: 1;
   color: var(--ink);
-  opacity: .9;
 }
-.thumb-mark--shot {
-  right: 6%;
-  bottom: -6%;
-  width: min(62%, 720px);
-  box-shadow: 0 30px 60px var(--shadow);
-}
-.thumb-mark--shot img { width: 100%; border: 1px solid var(--line); }
-
-/* Product shot filling the whole thumbnail */
-.thumb-mark--fill { inset: 0; z-index: 0; }
+/* Product shot filling the whole thumbnail, cropped to it */
+.thumb-mark--fill { inset: 0; }
 .thumb-mark--fill img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-/* Scrim so the org label and chip stay legible over the shot */
-.thumb:has(.thumb-mark--fill)::after {
+/* Scrim so the org label and chip stay legible over a shot */
+.thumb:has(.thumb-mark--fill, .cs-carousel)::after {
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: 96px;
-  z-index: 1;
+  height: 72px;
+  z-index: 2;
   background: linear-gradient(to bottom, var(--scrim), transparent);
   pointer-events: none;
 }
-.thumb::before { z-index: 1; }
+.thumb--carousel::before { display: none; }
 
-/* Overview row */
-.product__overview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px clamp(24px, 4vw, 64px);
-  align-items: end;
-}
-.product__id { flex: 1 1 300px; }
-.product__id .label { display: block; margin-bottom: 8px; }
+/* Overview */
+.product__overview > .label { display: block; margin-bottom: 8px; }
 .product__name {
   font-family: var(--f-serif);
   font-size: var(--fs-product);
@@ -119,34 +126,31 @@
   line-height: 1.02;
   letter-spacing: -.015em;
 }
-.product__about { flex: 1.5 1 480px; color: var(--body); font-size: var(--fs-body-lg); line-height: 1.55; }
-.product__overview:has(.product__meta) { align-items: start; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.product__about { margin: 16px 0 0; color: var(--body); font-size: var(--fs-body-lg); line-height: 1.55; max-width: 40rem; }
 .product__meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 12px 24px;
   margin: 20px 0 0;
-  padding-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--hair);
 }
 .product__meta dt { font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .product__meta dd { margin: 0; color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
 
-.product__studies-label { padding-top: 6px; }
+.product__studies-label { margin: 28px 0 20px; font-size: var(--fs-label); }
 
-/* Solo: thumbnail left (4:3, ~55%), overview + card on the right */
-.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) {
-  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
-  align-items: start;
-  column-gap: clamp(24px, 4vw, 56px);
-}
-.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { aspect-ratio: auto; min-height: 420px; grid-row: span 3; align-self: stretch; }
-.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .case-grid { grid-template-columns: 1fr; }
-.product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .product__overview { display: grid; }
-@media (max-width: 860px) {
-  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) { grid-template-columns: 1fr; }
-  .product:not(.product--minor):not(:has(.case-grid > :nth-child(2))) .thumb { grid-row: auto; aspect-ratio: 4 / 3; min-height: 0; }
-}
-
-/* Minor: no thumbnail, smaller italic heading */
+/* University projects: no thumbnail, smaller italic heading */
+.product--minor .product__header { align-items: baseline; }
 .product--minor .product__name { font-size: clamp(26px, 2.8vw, 36px); font-style: italic; color: var(--body); }
+.product--minor .case-list { margin-top: 24px; }
+
+/* Thumbnail opens out as it scrolls in; monogram drifts while in view */
+@keyframes thumb-open { from { clip-path: inset(12% 8%); } to { clip-path: inset(0); } }
+@keyframes drift { from { translate: 0 28px; } to { translate: 0 -28px; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .js .thumb { animation: thumb-open linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+    .js .thumb-mark--monogram { animation: drift linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+  }
+}

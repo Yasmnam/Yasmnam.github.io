@@ -12,8 +12,9 @@
   .status-dot::after { display: none; }
   .roll::after { display: none; }
   :is(a, button):is(:hover, :focus-visible) .roll > span { transform: none; }
-  .case-card:is(:hover, :focus-visible) .case-card__num,
-  .case-card:is(:hover, :focus-visible) .case-card__arrow,
+  .case-row:is(:hover, :focus-visible) .case-row__num,
+  .case-row:is(:hover, :focus-visible) .case-row__arrow,
+  .case-row:is(:hover, :focus-visible) .case-row__thumb img,
   .next-story a:is(:hover, :focus-visible) .jump,
   .contents a:is(:hover, :focus-visible),
   .toc a:is(:hover, :focus-visible) { transform: none; }

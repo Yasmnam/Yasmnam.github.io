@@ -49,7 +49,7 @@ if (!reduced && !CSS.supports('animation-timeline: view()') && 'IntersectionObse
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   }), { threshold: .15 });
-  d.querySelectorAll('.reveal, .unroll').forEach(el => io.observe(el));
+  d.querySelectorAll('.reveal, .unroll, .case-row-item').forEach(el => io.observe(el));
 }
 
 // Case study contents: highlight the section being read

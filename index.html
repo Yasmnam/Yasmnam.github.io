@@ -25,7 +25,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=7">
+  <link rel="stylesheet" href="src/styles/main.css?v=8">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -113,10 +113,18 @@ function imgFallback(img){
     </nav>
   </section>
 
-  <div class="container" id="work">
-    <div class="work-head label"><h2 class="label">Selected case studies</h2><span>Five entries</span></div>
+  <div class="container work" id="work">
+    <div class="work-head">
+      <div class="work-head__rules" aria-hidden="true"><span class="rule rule--15"></span><span class="rule rule--5"></span></div>
+      <div class="work-head__row">
+        <p class="work-head__title">Selected work</p>
+        <p class="work-head__note">Grouped by product: an overview first, then the case studies.</p>
+      </div>
+    </div>
 
-    <section class="product unroll" aria-labelledby="p-apodienste">
+    <div class="products">
+    <section class="product" aria-labelledby="p-apodienste">
+      <div class="product__header">
       <div class="thumb thumb--apodienste thumb--carousel">
         <span class="thumb__org">PharmaBits / apodienste</span>
         <span class="thumb__chip chip">2 case studies</span>
@@ -129,49 +137,47 @@ function imgFallback(img){
         </div>
       </div>
       <div class="product__overview">
-        <div class="product__id">
-          <span class="label"><span class="label--accent">Product</span> · PharmaBits · 2024</span>
-          <h3 class="product__name" id="p-apodienste">Apodienste</h3>
-        </div>
-        <div class="product__about">
-          <p>A platform pharmacies use to run patient services, from booking appointments to documentation and follow-up.</p>
-          <dl class="product__meta">
-            <div><dt>Domain</dt><dd>Healthcare · Pharmacy SaaS</dd></div>
-            <div><dt>Used by</dt><dd>Pharmacists and pharmacy teams</dd></div>
-            <div><dt>My role</dt><dd>Product designer</dd></div>
-          </dl>
-        </div>
+        <span class="label"><span class="label--accent">Product</span> · PharmaBits · 2024</span>
+        <h2 class="product__name" id="p-apodienste">Apodienste</h2>
+        <p class="product__about">A platform pharmacies use to run patient services, from booking appointments to documentation and follow-up.</p>
+        <dl class="product__meta">
+          <div><dt>Domain</dt><dd>Healthcare · Pharmacy SaaS</dd></div>
+          <div><dt>Used by</dt><dd>Pharmacists and pharmacy teams</dd></div>
+          <div><dt>My role</dt><dd>Product designer</dd></div>
+        </dl>
+      </div>
       </div>
       <p class="label product__studies-label">Case studies from Apodienste</p>
-      <ul class="case-grid" role="list">
-        <li>
-          <a class="case-card" href="drawerredesign/" aria-label="Case study 01: One drawer, built from blocks" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
-            <span class="case-card__thumb"><img src="public/images/drawer-redesign.png" alt="Wireframe of the apodienste patient management dashboard, with a sidebar list, patient detail panel and comment thread rendered as generic placeholder content." loading="lazy" onerror="imgFallback(this)"></span>
-            <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-01-num">01</span>
-            <span class="case-card__body">
-              <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-01-title">One drawer, built from blocks</span>
-              <span class="case-card__summary">Pharmacy services redesigned as modules (appointments, documents, comments) held together by a guided service flow.</span>
-              <span class="case-card__cta">Read the case study <span class="case-card__arrow" aria-hidden="true">→</span></span>
-            </span>
+      <ol class="case-list" role="list">
+        <li class="case-row-item">
+          <a class="case-row" href="drawerredesign/" aria-label="Case study 01: One drawer, built from blocks" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
+            <span class="case-row__num" aria-hidden="true" style="view-transition-name:cs-01-num">01</span>
+            <div class="case-row__body">
+              <div class="case-row__meta"><span class="label">Product design · 2024</span></div>
+              <h3 class="case-row__title" style="view-transition-name:cs-01-title">One drawer, built from blocks</h3>
+              <p class="case-row__summary">Pharmacy services redesigned as modules (appointments, documents, comments) held together by a guided service flow.</p>
+              <span class="case-row__cta">Read the case study <span class="case-row__arrow" aria-hidden="true">→</span></span>
+            </div>
+            <span class="case-row__thumb"><img src="public/images/drawer-redesign.png" alt="Wireframe of the apodienste patient management dashboard, with a sidebar list, patient detail panel and comment thread rendered as generic placeholder content." loading="lazy" onerror="imgFallback(this)"></span>
           </a>
         </li>
-        <li>
-          <a class="case-card" href="patienthistory/" aria-label="Case study 02: From comment thread to auditable patient record" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
-            <span class="case-card__thumb"><img src="public/images/patient-history.png" alt="Wireframe of the apodienste patient history interface: a comment and action panel on the left with generic placeholder content, and a list of mentions on the right, each marked with a status icon." loading="lazy" onerror="imgFallback(this)"></span>
-            <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-02-num">02</span>
-            <span class="case-card__body">
-              <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-02-title">From comment thread to auditable patient record</span>
-              <span class="case-card__summary">Loose comments turned into trackable actions over three releases, designed in partnership with a fellow designer.</span>
-              <span class="case-card__cta">Read the case study <span class="case-card__arrow" aria-hidden="true">→</span></span>
-            </span>
+        <li class="case-row-item">
+          <a class="case-row" href="patienthistory/" aria-label="Case study 02: From comment thread to auditable patient record" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
+            <span class="case-row__num" aria-hidden="true" style="view-transition-name:cs-02-num">02</span>
+            <div class="case-row__body">
+              <div class="case-row__meta"><span class="label">Product design · 2024</span></div>
+              <h3 class="case-row__title" style="view-transition-name:cs-02-title">From comment thread to auditable patient record</h3>
+              <p class="case-row__summary">Loose comments turned into trackable actions over three releases, designed in partnership with a fellow designer.</p>
+              <span class="case-row__cta">Read the case study <span class="case-row__arrow" aria-hidden="true">→</span></span>
+            </div>
+            <span class="case-row__thumb"><img src="public/images/patient-history.png" alt="Wireframe of the apodienste patient history interface: a comment and action panel on the left with generic placeholder content, and a list of mentions on the right, each marked with a status icon." loading="lazy" onerror="imgFallback(this)"></span>
           </a>
         </li>
-      </ul>
+      </ol>
     </section>
 
-    <section class="product unroll" aria-labelledby="p-arkk">
+    <section class="product" aria-labelledby="p-arkk">
+      <div class="product__header">
       <div class="thumb thumb--arkk">
         <span class="thumb__org">ARKK</span>
         <span class="thumb__chip chip">1 case study</span>
@@ -180,62 +186,60 @@ function imgFallback(img){
         </figure>
       </div>
       <div class="product__overview">
-        <div class="product__id">
-          <span class="label label--accent">ARKK</span>
-          <h3 class="product__name" id="p-arkk">ARKK platform</h3>
-        </div>
+        <span class="label"><span class="label--accent">Product</span> · ARKK · 2026</span>
+        <h2 class="product__name" id="p-arkk">ARKK platform</h2>
         <p class="product__about">Enterprise data platform</p>
       </div>
-      <ul class="case-grid" role="list">
-        <li>
-          <a class="case-card" href="workflowredesign/" aria-label="Case study 03: Increasing trust in a tax compliance automation platform" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="workflowredesign" data-ga-position="3">
-            <span class="case-card__thumb"><img src="public/images/workflowredesign/drawer-wireframe.png" alt="Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields." loading="lazy" onerror="imgFallback(this)"></span>
-            <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-03-num">03</span>
-            <span class="case-card__body">
-              <span class="case-card__meta"><span class="label">Workflow design · 2026</span>
-              <span class="chip">In pilot · ~40% of internal users</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-03-title">Increasing trust in a tax compliance automation platform</span>
-              <span class="case-card__summary">The workflow canvas is the core of ARKK's enterprise data platform.</span>
-              <span class="case-card__cta">Read the case study <span class="case-card__arrow" aria-hidden="true">→</span></span>
-            </span>
+      </div>
+      <p class="label product__studies-label">Case studies from ARKK platform</p>
+      <ol class="case-list" role="list">
+        <li class="case-row-item">
+          <a class="case-row" href="workflowredesign/" aria-label="Case study 03: Increasing trust in a tax compliance automation platform" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="workflowredesign" data-ga-position="3">
+            <span class="case-row__num" aria-hidden="true" style="view-transition-name:cs-03-num">03</span>
+            <div class="case-row__body">
+              <div class="case-row__meta"><span class="label">Workflow design · 2026</span><span class="chip">In pilot with ~40% of internal users</span></div>
+              <h3 class="case-row__title" style="view-transition-name:cs-03-title">Increasing trust in a tax compliance automation platform</h3>
+              <p class="case-row__summary">The workflow canvas is the core of ARKK's enterprise data platform.</p>
+              <span class="case-row__cta">Read the case study <span class="case-row__arrow" aria-hidden="true">→</span></span>
+            </div>
+            <span class="case-row__thumb"><img src="public/images/workflowredesign/drawer-wireframe.png" alt="Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields." loading="lazy" onerror="imgFallback(this)"></span>
           </a>
         </li>
-      </ul>
+      </ol>
     </section>
 
-    <section class="product product--minor unroll" aria-labelledby="p-uni">
-      <div class="product__overview">
-        <div class="product__id">
-          <h3 class="product__name" id="p-uni">University projects</h3>
-        </div>
+    <section class="product product--minor" aria-labelledby="p-uni">
+      <div class="product__header">
+        <h2 class="product__name" id="p-uni">University projects</h2>
       </div>
-      <ul class="case-grid" role="list">
-        <li>
-          <a class="case-card case-card--compact" href="sensecast/" aria-label="Case study 04: Turning ambient data into emotional predictability" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="sensecast" data-ga-position="4">
-            <span class="case-card__thumb"><img src="public/images/sensecast.png" alt="SenseCast across mobile and Apple Watch, showing live crowd and comfort readings for a destination" loading="lazy" onerror="imgFallback(this)"></span>
-            <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-04-num">04</span>
-            <span class="case-card__body">
-              <span class="case-card__meta"><span class="label">Sensory data · 2025</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-04-title">Turning ambient data into emotional predictability</span>
-              <span class="case-card__summary">A sensory data platform that helps people with social anxiety feel emotionally prepared before entering public spaces — transforming real-time ambient data into calming visual previews.</span>
-              <span class="case-card__cta">Read <span class="case-card__arrow" aria-hidden="true">→</span></span>
-            </span>
+      <ol class="case-list" role="list">
+        <li class="case-row-item">
+          <a class="case-row case-row--compact" href="sensecast/" aria-label="Case study 04: Turning ambient data into emotional predictability" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="sensecast" data-ga-position="4">
+            <span class="case-row__num" aria-hidden="true" style="view-transition-name:cs-04-num">04</span>
+            <div class="case-row__body">
+              <div class="case-row__meta"><span class="label">Sensory data · 2025</span></div>
+              <h3 class="case-row__title" style="view-transition-name:cs-04-title">Turning ambient data into emotional predictability</h3>
+              <p class="case-row__summary">A sensory data platform that helps people with social anxiety feel emotionally prepared before entering public spaces — transforming real-time ambient data into calming visual previews.</p>
+              <span class="case-row__cta">Read <span class="case-row__arrow" aria-hidden="true">→</span></span>
+            </div>
+            <span class="case-row__thumb"><img src="public/images/sensecast.png" alt="SenseCast across mobile and Apple Watch, showing live crowd and comfort readings for a destination" loading="lazy" onerror="imgFallback(this)"></span>
           </a>
         </li>
-        <li>
-          <a class="case-card case-card--compact" href="mml/" aria-label="Case study 05: Redesigning a historical archive for the digital age" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-position="5">
-            <span class="case-card__thumb"><img src="public/images/mml.png" alt="The redesigned Marx Memorial Library homepage on a laptop, with a historical archive photo, search bar, and Visit Archive, Research and Support Us buttons" loading="lazy" onerror="imgFallback(this)"></span>
-            <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-05-num">05</span>
-            <span class="case-card__body">
-              <span class="case-card__meta"><span class="label">Archive UX · 2024</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-05-title">Redesigning a historical archive for the digital age</span>
-              <span class="case-card__summary">A full UX redesign of the Marx Memorial Library website — improving navigation, accessibility and content discovery for a historical archive serving researchers and the public.</span>
-              <span class="case-card__cta">Read <span class="case-card__arrow" aria-hidden="true">→</span></span>
-            </span>
+        <li class="case-row-item">
+          <a class="case-row case-row--compact" href="mml/" aria-label="Case study 05: Redesigning a historical archive for the digital age" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-position="5">
+            <span class="case-row__num" aria-hidden="true" style="view-transition-name:cs-05-num">05</span>
+            <div class="case-row__body">
+              <div class="case-row__meta"><span class="label">Archive UX · 2024</span></div>
+              <h3 class="case-row__title" style="view-transition-name:cs-05-title">Redesigning a historical archive for the digital age</h3>
+              <p class="case-row__summary">A full UX redesign of the Marx Memorial Library website — improving navigation, accessibility and content discovery for a historical archive serving researchers and the public.</p>
+              <span class="case-row__cta">Read <span class="case-row__arrow" aria-hidden="true">→</span></span>
+            </div>
+            <span class="case-row__thumb"><img src="public/images/mml.png" alt="The redesigned Marx Memorial Library homepage on a laptop, with a historical archive photo, search bar, and Visit Archive, Research and Support Us buttons" loading="lazy" onerror="imgFallback(this)"></span>
           </a>
         </li>
-      </ul>
+      </ol>
     </section>
+    </div>
   </div>
 
   <section class="container section unroll" aria-labelledby="how">

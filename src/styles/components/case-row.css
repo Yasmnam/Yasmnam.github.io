@@ -1,0 +1,135 @@
+/* Case study rows: stacked, full width, one per line. Each row is a single
+   link: number | text | small UI screenshot. Rows size to their content. */
+.case-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.case-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px clamp(20px, 3vw, 40px);
+  padding-top: 20px;
+  border-top: 1px solid var(--ink);
+  color: inherit;
+  text-decoration: none;
+}
+
+.case-row__num {
+  flex: 0 0 64px;
+  font-family: var(--f-serif);
+  font-size: 52px;
+  line-height: .9;
+  color: var(--accent);
+  transition: transform 450ms var(--ease-out);
+}
+
+.case-row__body {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 72ch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.case-row__meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
+.case-row__title {
+  font-family: var(--f-serif);
+  font-size: var(--fs-card);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: .32em;
+  text-underline-offset: -.18em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color 450ms var(--ease-out);
+}
+.case-row__summary {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.case-row__cta {
+  padding-top: 4px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.case-row__arrow { display: inline-block; transition: transform 450ms var(--ease-out); }
+
+/* Small screenshot from the case study */
+.case-row__thumb {
+  flex: 0 1 clamp(160px, 24%, 320px);
+  margin-left: auto;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--placeholder);
+}
+.case-row__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transition: transform var(--t-slow) var(--ease-out); }
+
+/* Hover and focus */
+.case-row:hover .case-row__num,
+.case-row:focus-visible .case-row__num { transform: translateY(-6px); }
+.case-row:hover .case-row__arrow,
+.case-row:focus-visible .case-row__arrow { transform: translateX(8px); }
+.case-row:hover .case-row__title,
+.case-row:focus-visible .case-row__title { text-decoration-color: var(--accent-highlight); }
+.case-row:hover .case-row__thumb img,
+.case-row:focus-visible .case-row__thumb img { transform: scale(1.03); }
+
+/* Compact rows (university projects) */
+.case-row--compact { border-top-color: var(--line); }
+.case-row--compact .case-row__num { font-size: 32px; color: var(--num-muted); }
+.case-row--compact .case-row__title { font-size: 21px; }
+.case-row--compact .case-row__summary { -webkit-line-clamp: 2; }
+.case-row--compact .case-row__thumb { flex-basis: clamp(140px, 18%, 240px); }
+
+/* Narrow screens: screenshot moves under the text */
+@media (max-width: 640px) {
+  .case-row { flex-wrap: wrap; }
+  .case-row__num { flex-basis: 48px; font-size: 40px; }
+  .case-row__body { flex-basis: calc(100% - 68px); }
+  .case-row__thumb { flex-basis: 100%; margin-left: 68px; }
+  .case-row--compact .case-row__thumb { display: none; }
+}
+
+/* Rows fade up 24px as they enter, staggered 80ms within a product */
+.case-list > :nth-child(2) { --i: 1; }
+.case-list > :nth-child(3) { --i: 2; }
+@keyframes row-in { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .js .case-row-item {
+      animation: row-in linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 8%) entry calc(60% + var(--i, 0) * 8%);
+    }
+  }
+  @supports not (animation-timeline: view()) {
+    .js .case-row-item {
+      opacity: 0;
+      translate: 0 24px;
+      transition: opacity 600ms var(--ease-out), translate 600ms var(--ease-out);
+      transition-delay: calc(var(--i, 0) * 80ms);
+    }
+    .js .case-row-item.is-in { opacity: 1; translate: 0 0; }
+  }
+}
