@@ -4,8 +4,8 @@
 @import url('base.css');
 @import url('components/buttons.css');
 @import url('components/topbar.css');
-@import url('components/masthead.css');
-@import url('components/intro.css');
+@import url('components/hero.css');
+@import url('components/scroll-roll.css');
 @import url('components/edition.css');
 @import url('components/product.css');
 @import url('components/case-card.css');

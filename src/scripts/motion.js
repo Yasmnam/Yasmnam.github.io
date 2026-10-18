@@ -1,32 +1,35 @@
-// Motion (DESIGN.md §6): intro control, scroll-reveal fallback, top bar,
+// Motion: intro control, scroll-reveal/unroll fallback, top bar,
 // contents highlighting and the reading-progress fallback. Most motion is CSS;
 // this only does what CSS can't. Loaded as a deferred module.
 const d = document, r = d.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const on = (t, e, f, o) => t.addEventListener(e, f, o);
 
-// Intro: once per session (decided in <head>); any input skips to the end
-const SKIP = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
-let introTimer;
-function runIntro() {
-  try { sessionStorage.setItem('intro-seen', '1'); } catch (e) {}
-  scrollTo(0, 0);
-  const end = () => { r.classList.remove('intro-play'); history.scrollRestoration = 'auto'; SKIP.forEach(e => removeEventListener(e, skip)); clearTimeout(introTimer); };
-  const skip = () => { end(); r.classList.remove('mast-play'); };
+// Intro (home): plays on the first visit per session. <head> adds .intro-done
+// on later visits; any input during the first 3.2s adds it too (skip to the end).
+const hero = d.querySelector('.hero');
+const SKIP = ['keydown', 'pointerdown', 'wheel', 'touchmove'];
+let skipTimer;
+function armSkip() {
+  try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+  const disarm = () => { SKIP.forEach(e => removeEventListener(e, skip)); clearTimeout(skipTimer); };
+  const skip = () => { r.classList.add('intro-done'); disarm(); };
   SKIP.forEach(e => on(window, e, skip, { passive: true }));
-  introTimer = setTimeout(end, 3600);
+  skipTimer = setTimeout(disarm, 3200);
 }
-if (r.classList.contains('intro-play')) runIntro();
+if (hero && !reduced && !r.classList.contains('intro-done')) armSkip();
 
+// Replay intro: clear the flag and restart the animations
 const replay = d.querySelector('[data-replay-intro]');
-if (replay && !reduced && window.CSS && CSS.registerProperty) {
+if (replay && hero && !reduced) {
   replay.hidden = false;
   on(replay, 'click', () => {
+    try { sessionStorage.removeItem('introSeen'); } catch (e) {}
     scrollTo({ top: 0, behavior: 'instant' });
-    r.classList.remove('intro-play', 'mast-play');
+    r.classList.add('intro-done');
     void r.offsetWidth;
-    r.classList.add('mast-play', 'intro-play');
-    setTimeout(runIntro, 0);
+    r.classList.remove('intro-done');
+    setTimeout(armSkip, 0);
   });
 }
 
@@ -41,12 +44,12 @@ if (bar) {
   }, { passive: true });
 }
 
-// Scroll reveals: IntersectionObserver fallback where view() timelines aren't supported
+// Scroll reveals / unroll: IntersectionObserver fallback where view() timelines aren't supported
 if (!reduced && !CSS.supports('animation-timeline: view()') && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   }), { threshold: .15 });
-  d.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  d.querySelectorAll('.reveal, .unroll').forEach(el => io.observe(el));
 }
 
 // Case study contents: highlight the section being read

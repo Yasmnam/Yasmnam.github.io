@@ -81,7 +81,7 @@
   right: 6%;
   bottom: -6%;
   width: min(62%, 720px);
-  box-shadow: 0 30px 60px var(--roll-shadow);
+  box-shadow: 0 30px 60px var(--shadow);
 }
 .thumb-mark--shot img { width: 100%; border: 1px solid var(--line); }
 

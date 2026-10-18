@@ -1,0 +1,58 @@
+/* Scrolling: the page rolls (home). The first screen rolls away as it exits;
+   each section unrolls as it enters. Max 22°, one effect per section, and
+   nothing moves once a section is fully in view.
+   Fallback without scroll-driven animations: motion.js adds .is-in
+   (IntersectionObserver, threshold .15) for a plain 600ms fade-up, once.
+   Only with JS running (.js), so content is never left hidden. */
+.unroll { position: relative; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .hero__inner {
+      transform-origin: 50% 100%;
+      animation: rollaway linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+    .unroll {
+      transform-origin: 50% 0;
+      animation: unroll linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+    /* Curl shade over the section while it unrolls */
+    .unroll::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom, var(--curl-shade), transparent 70%);
+      animation: shade linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+  }
+
+  @supports not (animation-timeline: view()) {
+    .js .unroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+    }
+    .js .unroll.is-in { opacity: 1; transform: none; }
+  }
+}
+
+@keyframes rollaway {
+  to { transform: perspective(1400px) rotateX(16deg) translateY(-4%) scale(.94); opacity: .2; }
+}
+@keyframes unroll {
+  from { transform: perspective(1400px) rotateX(-22deg) translateY(36px); opacity: .3; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes shade { to { opacity: 0; } }
+
+/* No progress bar under reduced motion on the home page */
+@media (prefers-reduced-motion: reduce) {
+  [data-page="home"] .progress { display: none; }
+}

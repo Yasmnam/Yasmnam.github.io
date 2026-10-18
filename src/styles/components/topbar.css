@@ -1,10 +1,10 @@
-/* Top bar (§5.1): name left, Work / About centred, inverted Contact right.
-   Sticky; motion.js hides it on scroll down and shows it on scroll up. */
+/* Top bar: Work / About and the inverted Contact button. Fixed over the
+   hero; motion.js hides it on scroll down and shows it on scroll up. */
 .topbar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 50;
-  background: var(--bg);
+  background: var(--hero);
   border-bottom: 1px solid var(--hair);
   transition: transform var(--t-base) var(--ease-out);
 }
@@ -12,29 +12,14 @@
 .topbar:focus-within { transform: none; }
 
 .topbar__inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   min-height: var(--topbar-h);
 }
 
-.topbar__name {
-  justify-self: start;
-  font-family: var(--f-mono);
-  font-size: var(--fs-label);
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 12px 0;
-}
-
-.topbar__links {
-  display: flex;
-  gap: clamp(16px, 3vw, 40px);
-}
+.topbar__links { display: flex; gap: clamp(20px, 3vw, 40px); }
 .topbar__links a {
   font-family: var(--f-mono);
   font-size: var(--fs-label);
@@ -46,10 +31,3 @@
 }
 .topbar__links a:hover,
 .topbar__links a:focus-visible { color: var(--ink); }
-
-.topbar__cta { justify-self: end; }
-
-@media (max-width: 520px) {
-  .topbar__inner { grid-template-columns: 1fr auto; }
-  .topbar__links { display: none; }
-}

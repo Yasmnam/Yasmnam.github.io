@@ -22,10 +22,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Playfair+Display:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
 <script>
-(function(r){r.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;r.classList.add('mast-play');try{if(r.dataset.page==='home'&&!sessionStorage.getItem('intro-seen')&&window.CSS&&CSS.registerProperty){r.classList.add('intro-play');history.scrollRestoration='manual';scrollTo(0,0)}}catch(e){}})(document.documentElement);
+(function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=dark1">
+  <link rel="stylesheet" href="src/styles/main.css?v=intro-roll">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -57,13 +57,12 @@ function imgFallback(img){
 
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="intro-roll" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 
 <div class="sheet">
 
 <header class="topbar">
   <nav class="container topbar__inner" aria-label="Primary">
-    <a class="topbar__name" href="#top">Yasaman Aminian</a>
     <div class="topbar__links">
       <a href="#work" data-ga-event="nav_click" data-ga-label="work"><span class="roll" data-text="Work"><span>Work</span></span></a>
       <a href="#about" data-ga-event="nav_click" data-ga-label="about"><span class="roll" data-text="About"><span>About</span></span></a>
@@ -72,24 +71,30 @@ function imgFallback(img){
   </nav>
 </header>
 
-<header class="container masthead">
-  <div class="mast-rules mast-rules--top" aria-hidden="true"><div class="mast-rule"></div><div class="mast-rule mast-rule--thin"></div></div>
-  <h1 class="masthead__title"><span class="masthead__line"><span>Product Design</span></span> <span class="masthead__line"><span>Portfolio</span></span></h1>
-  <div class="mast-rules mast-rules--bottom" aria-hidden="true"><div class="mast-rule mast-rule--thin mast-rule--rev"></div><div class="mast-rule mast-rule--rev"></div></div>
-  <div class="masthead__disciplines">
-    <span>UX design</span>
-    <span>Service design</span>
-    <span>UI design</span>
+<section class="hero" aria-labelledby="masthead-title">
+  <div class="container hero__inner">
+    <p class="hero__byline">Yasaman Aminian</p>
+    <div class="hero__rules hero__rules--top" aria-hidden="true"><span class="rule rule--5"></span><span class="rule rule--15"></span></div>
+    <h1 class="hero__title" id="masthead-title"><span class="mask"><span class="rise">Product Design</span></span> <span class="mask"><span class="rise">Portfolio</span></span></h1>
+    <div class="hero__rules hero__rules--bottom" aria-hidden="true"><span class="rule rule--15"></span><span class="rule rule--5"></span></div>
+    <div class="hero__disciplines">
+      <span>UX design</span>
+      <span>Service design</span>
+      <span>UI design</span>
+    </div>
+    <span class="hairline" aria-hidden="true"></span>
+    <dl class="hero__spec">
+      <div><dt>Location</dt><dd>United Kingdom</dd></div>
+      <div><dt>Status</dt><dd><span class="status-dot" aria-hidden="true"></span>Available</dd></div>
+    </dl>
+    <span class="hairline hairline--2" aria-hidden="true"></span>
+    <a class="scroll-cue" href="#edition">Scroll to unfold<span class="scroll-cue__line" aria-hidden="true"></span></a>
   </div>
-  <dl class="masthead__spec">
-    <div><dt>Location</dt><dd>United Kingdom</dd></div>
-    <div><dt>Status</dt><dd><span class="status-dot" aria-hidden="true"></span>Available</dd></div>
-  </dl>
-</header>
+</section>
 
 <main id="main">
 
-  <section class="container edition" aria-labelledby="tagline">
+  <section class="container edition unroll" id="edition" aria-labelledby="tagline">
     <div class="edition__note">
       <span class="label label--accent">Editor's note</span>
       <h2 class="tagline" id="tagline">Thinking in systems, <em>fascinated by design.</em></h2>
@@ -111,7 +116,7 @@ function imgFallback(img){
   <div class="container" id="work">
     <div class="work-head label"><h2 class="label">Selected case studies</h2><span>Five entries</span></div>
 
-    <section class="product" aria-labelledby="p-apodienste">
+    <section class="product unroll" aria-labelledby="p-apodienste">
       <div class="thumb thumb--apodienste">
         <span class="thumb__org">PharmaBits / apodienste</span>
         <span class="thumb__chip chip">2 case studies</span>
@@ -119,7 +124,7 @@ function imgFallback(img){
           <img src="public/images/drawer-redesign-photo.png" alt="apodienste's insight dashboard, showing service statistics, a revenue chart, and a kanban board of patient services by status" loading="lazy">
         </figure>
       </div>
-      <div class="product__overview reveal">
+      <div class="product__overview">
         <div class="product__id">
           <span class="label label--accent">PharmaBits</span>
           <h3 class="product__name" id="p-apodienste">apodienste</h3>
@@ -128,7 +133,7 @@ function imgFallback(img){
       </div>
       <p class="label product__studies-label">Case studies from apodienste</p>
       <ul class="case-grid" role="list">
-        <li class="reveal">
+        <li>
           <a class="case-card" href="drawerredesign/" aria-label="Case study 01: Improving usability of pharmacy service delivery through a modular patient drawer" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-01-num">01</span>
             <span class="case-card__body">
@@ -139,7 +144,7 @@ function imgFallback(img){
             </span>
           </a>
         </li>
-        <li class="reveal">
+        <li>
           <a class="case-card" href="patienthistory/" aria-label="Case study 02: Increasing tracking and auditability in patient case handling" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-02-num">02</span>
             <span class="case-card__body">
@@ -153,7 +158,7 @@ function imgFallback(img){
       </ul>
     </section>
 
-    <section class="product" aria-labelledby="p-arkk">
+    <section class="product unroll" aria-labelledby="p-arkk">
       <div class="thumb thumb--arkk">
         <span class="thumb__org">ARKK</span>
         <span class="thumb__chip chip">1 case study</span>
@@ -161,7 +166,7 @@ function imgFallback(img){
           <img src="public/images/workflowredesign/testing-panel-wireframe.png" alt="Wireframe of the workflow canvas with the activity configuration drawer open alongside a workflow testing panel" loading="lazy">
         </figure>
       </div>
-      <div class="product__overview reveal">
+      <div class="product__overview">
         <div class="product__id">
           <span class="label label--accent">ARKK</span>
           <h3 class="product__name" id="p-arkk">ARKK platform</h3>
@@ -169,7 +174,7 @@ function imgFallback(img){
         <p class="product__about">Enterprise data platform</p>
       </div>
       <ul class="case-grid" role="list">
-        <li class="reveal">
+        <li>
           <a class="case-card" href="workflowredesign/" aria-label="Case study 03: Increasing trust in a tax compliance automation platform" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="workflowredesign" data-ga-position="3">
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-03-num">03</span>
             <span class="case-card__body">
@@ -184,14 +189,14 @@ function imgFallback(img){
       </ul>
     </section>
 
-    <section class="product product--minor" aria-labelledby="p-uni">
-      <div class="product__overview reveal">
+    <section class="product product--minor unroll" aria-labelledby="p-uni">
+      <div class="product__overview">
         <div class="product__id">
           <h3 class="product__name" id="p-uni">University projects</h3>
         </div>
       </div>
       <ul class="case-grid" role="list">
-        <li class="reveal">
+        <li>
           <a class="case-card case-card--compact" href="sensecast/" aria-label="Case study 04: Turning ambient data into emotional predictability" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="sensecast" data-ga-position="4">
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-04-num">04</span>
             <span class="case-card__body">
@@ -202,7 +207,7 @@ function imgFallback(img){
             </span>
           </a>
         </li>
-        <li class="reveal">
+        <li>
           <a class="case-card case-card--compact" href="mml/" aria-label="Case study 05: Redesigning a historical archive for the digital age" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-position="5">
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-05-num">05</span>
             <span class="case-card__body">
@@ -217,20 +222,20 @@ function imgFallback(img){
     </section>
   </div>
 
-  <section class="container section" aria-labelledby="how">
+  <section class="container section unroll" aria-labelledby="how">
     <div class="section__head label"><h2 id="how">How I work</h2><span>Principles</span></div>
     <ol class="principles" role="list">
-      <li class="principle reveal">
+      <li class="principle">
         <span class="principle__num" aria-hidden="true">I</span>
         <h3>Complicated territory</h3>
         <p>I'm drawn to <em>complicated territory</em> — the difficulty is rarely visual. The rules are involved, the states are numerous, and the person on the other side of the screen is <em>accountable</em> for getting it right.</p>
       </li>
-      <li class="principle reveal">
+      <li class="principle">
         <span class="principle__num" aria-hidden="true">II</span>
         <h3>Good defaults</h3>
         <p><em>Good defaults</em> do more work than polish.</p>
       </li>
-      <li class="principle reveal">
+      <li class="principle">
         <span class="principle__num" aria-hidden="true">III</span>
         <h3>Research over assumptions</h3>
         <p>I work cross-functionally and trust <em>research over assumptions</em>.</p>
@@ -238,13 +243,13 @@ function imgFallback(img){
     </ol>
   </section>
 
-  <section class="container section" id="about" aria-labelledby="about-h">
+  <section class="container section unroll" id="about" aria-labelledby="about-h">
     <div class="section__head label"><h2 id="about-h">About the designer</h2><span>Profile</span></div>
     <div class="about">
-      <figure class="about__photo reveal">
+      <figure class="about__photo">
         <img src="https://framerusercontent.com//public/images/OlXkOOhYqtk9aH7CWxTDHvKSgs.jpeg" alt="Yasaman Aminian, product designer" referrerpolicy="no-referrer" data-fallback="public/images/portrait.jpg" onerror="imgFallback(this)" loading="lazy">
       </figure>
-      <div class="about__bio reveal">
+      <div class="about__bio">
         <p>I come at design from a technical view, but what holds my attention is <em>design's impact</em> — not how something looks, but what it does. Good design, to me, isn't visual: <em>it's a service</em>, something that quietly does its job for the person depending on it.</p>
         <p>Known for a big smile and a steady supply of coffee and tea. I paint occasionally, and I'm always chasing new music.</p>
         <p class="label">Yasaman Aminian</p>
@@ -252,9 +257,9 @@ function imgFallback(img){
     </div>
   </section>
 
-  <section class="container section" id="contact" aria-labelledby="contact-h">
+  <section class="container section unroll" id="contact" aria-labelledby="contact-h">
     <div class="section__head label"><h2 id="contact-h">Contact</h2></div>
-    <div class="contact reveal">
+    <div class="contact">
       <div class="contact__lead">
         <a class="btn btn--invert btn--lg" href="mailto:yasmn.aminian@gmail.com" data-ga-event="contact_click" data-ga-method="email"><span class="roll" data-text="Say hello →"><span>yasmn.aminian@gmail.com</span></span></a>
         <p>Open to product design roles and freelance work.<br>Based in the United Kingdom.</p>

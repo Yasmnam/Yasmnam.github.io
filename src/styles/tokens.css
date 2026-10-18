@@ -1,11 +1,5 @@
 /* Design tokens (DESIGN.md §3). The only place colours, type, space and
    motion values are defined; every component reads from here. */
-@property --unroll {
-  syntax: '<length>';
-  inherits: true;
-  initial-value: 0px;
-}
-
 :root {
   color-scheme: dark;
 
@@ -28,10 +22,10 @@
   --tint-neutral: #1C1B18;
   --danger: #F0A39B;
 
-  /* The paper roll (intro) */
-  --roll-dark: #2A2723;
-  --roll-light: #3A3631;
-  --roll-shadow: rgba(0, 0, 0, .55);
+  --hero: #0A0A09;
+  --accent-pulse: rgba(156, 200, 242, .55);
+  --shadow: rgba(0, 0, 0, .55);
+  --curl-shade: rgba(0, 0, 0, .55);
 
   /* Type */
   --f-display: 'Playfair Display', Georgia, serif;
@@ -69,8 +63,4 @@
   --t-fast: 200ms;
   --t-base: 400ms;
   --t-slow: 700ms;
-  --t-intro: 2300ms;
-  --t-roll: 550ms;
-  /* When the masthead sequence starts: 1750ms behind the intro roll, 0 without it */
-  --mast-delay: 0ms;
 }
