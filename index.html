@@ -25,7 +25,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=4">
+  <link rel="stylesheet" href="src/styles/main.css?v=6">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -130,33 +130,40 @@ function imgFallback(img){
       </div>
       <div class="product__overview">
         <div class="product__id">
-          <span class="label label--accent">PharmaBits</span>
-          <h3 class="product__name" id="p-apodienste">apodienste</h3>
+          <span class="label"><span class="label--accent">Product</span> · PharmaBits · 2024</span>
+          <h3 class="product__name" id="p-apodienste">Apodienste</h3>
         </div>
-        <p class="product__about">Pharmaceutical digital services</p>
+        <div class="product__about">
+          <p>A platform pharmacies use to run patient services, from booking appointments to documentation and follow-up.</p>
+          <dl class="product__meta">
+            <div><dt>Domain</dt><dd>Healthcare · Pharmacy SaaS</dd></div>
+            <div><dt>Used by</dt><dd>Pharmacists and pharmacy teams</dd></div>
+            <div><dt>My role</dt><dd>Product designer</dd></div>
+          </dl>
+        </div>
       </div>
-      <p class="label product__studies-label">Case studies from apodienste</p>
+      <p class="label product__studies-label">Case studies from Apodienste</p>
       <ul class="case-grid" role="list">
         <li>
-          <a class="case-card" href="drawerredesign/" aria-label="Case study 01: Improving usability of pharmacy service delivery through a modular patient drawer" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
+          <a class="case-card" href="drawerredesign/" aria-label="Case study 01: One drawer, built from blocks" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-position="1">
             <span class="case-card__thumb"><img src="public/images/drawer-redesign.png" alt="Wireframe of the apodienste patient management dashboard, with a sidebar list, patient detail panel and comment thread rendered as generic placeholder content." loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-01-num">01</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-01-title">Improving usability of pharmacy service delivery through a modular patient drawer</span>
-              <span class="case-card__summary">I redesigned it as a set of modules (appointments, documents and comments) held together by a guided service flow.</span>
+              <span class="case-card__title" style="view-transition-name:cs-01-title">One drawer, built from blocks</span>
+              <span class="case-card__summary">Pharmacy services redesigned as modules (appointments, documents, comments) held together by a guided service flow.</span>
               <span class="case-card__cta">Read the case study <span class="case-card__arrow" aria-hidden="true">→</span></span>
             </span>
           </a>
         </li>
         <li>
-          <a class="case-card" href="patienthistory/" aria-label="Case study 02: Increasing tracking and auditability in patient case handling" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
+          <a class="case-card" href="patienthistory/" aria-label="Case study 02: From comment thread to auditable patient record" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="patienthistory" data-ga-position="2">
             <span class="case-card__thumb"><img src="public/images/patient-history.png" alt="Wireframe of the apodienste patient history interface: a comment and action panel on the left with generic placeholder content, and a list of mentions on the right, each marked with a status icon." loading="lazy" onerror="imgFallback(this)"></span>
             <span class="case-card__num" aria-hidden="true" style="view-transition-name:cs-02-num">02</span>
             <span class="case-card__body">
               <span class="case-card__meta"><span class="label">Product design · 2024</span></span>
-              <span class="case-card__title" style="view-transition-name:cs-02-title">Increasing tracking and auditability in patient case handling</span>
-              <span class="case-card__summary">Over three releases, we turned the comment thread into actions the system could track.</span>
+              <span class="case-card__title" style="view-transition-name:cs-02-title">From comment thread to auditable patient record</span>
+              <span class="case-card__summary">Loose comments turned into trackable actions over three releases, designed in partnership with a fellow designer.</span>
               <span class="case-card__cta">Read the case study <span class="case-card__arrow" aria-hidden="true">→</span></span>
             </span>
           </a>

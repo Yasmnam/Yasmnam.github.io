@@ -110,7 +110,7 @@
   gap: 16px clamp(24px, 4vw, 64px);
   align-items: end;
 }
-.product__id { flex: 1 1 360px; }
+.product__id { flex: 1 1 300px; }
 .product__id .label { display: block; margin-bottom: 8px; }
 .product__name {
   font-family: var(--f-serif);
@@ -119,7 +119,18 @@
   line-height: 1.02;
   letter-spacing: -.015em;
 }
-.product__about { flex: 1 1 320px; color: var(--body); font-size: var(--fs-body); }
+.product__about { flex: 1.5 1 480px; color: var(--body); font-size: var(--fs-body-lg); line-height: 1.55; }
+.product__overview:has(.product__meta) { align-items: start; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.product__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 12px 24px;
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--hair);
+}
+.product__meta dt { font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.product__meta dd { margin: 0; color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
 
 .product__studies-label { padding-top: 6px; }
 

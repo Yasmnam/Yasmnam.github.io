@@ -51,7 +51,7 @@
 .case-card__title {
   font-family: var(--f-serif);
   font-size: var(--fs-card);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--ink);
   display: -webkit-box;
