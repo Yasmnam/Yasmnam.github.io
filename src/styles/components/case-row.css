@@ -133,3 +133,34 @@
     .js .case-row-item.is-in { opacity: 1; translate: 0 0; }
   }
 }
+
+/* Photos rest in greyscale and come into colour on hover or focus.
+   Only on devices that can hover, so touch screens keep full colour. */
+@media (hover: hover) {
+  .case-row__thumb img {
+    filter: grayscale(1) brightness(.85);
+    transition: filter 450ms var(--ease-out), transform var(--t-slow) var(--ease-out);
+  }
+  .case-row:hover .case-row__thumb img,
+  .case-row:focus-visible .case-row__thumb img { filter: none; }
+}
+
+/* As a photo loads into view, it is revealed by a gradient sweeping up from
+   the bottom (a mask, so nothing shifts). Fallback: plays once on .is-in. */
+@keyframes reveal-from-bottom { from { mask-position: 0 0; } to { mask-position: 0 100%; } }
+@media (prefers-reduced-motion: no-preference) {
+  .js .case-row__thumb {
+    -webkit-mask-image: linear-gradient(to top, #000 34%, transparent 66%);
+    mask-image: linear-gradient(to top, #000 34%, transparent 66%);
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+    mask-position: 0 100%;
+  }
+  @supports (animation-timeline: view()) {
+    .js .case-row__thumb { animation: reveal-from-bottom linear both; animation-timeline: view(); animation-range: entry 10% entry 90%; }
+  }
+  @supports not (animation-timeline: view()) {
+    .js .case-row-item .case-row__thumb { mask-position: 0 0; }
+    .js .case-row-item.is-in .case-row__thumb { animation: reveal-from-bottom 900ms var(--ease-out) both; }
+  }
+}

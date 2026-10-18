@@ -5,13 +5,12 @@ const d = document, r = d.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const on = (t, e, f, o) => t.addEventListener(e, f, o);
 
-// Intro (home): plays on the first visit per session. <head> adds .intro-done
-// on later visits; any input during the first 3.2s adds it too (skip to the end).
+// Intro (home): plays on every visit; any input during the first 3.2s adds
+// .intro-done (skip to the end).
 const hero = d.querySelector('.hero');
 const SKIP = ['keydown', 'pointerdown', 'wheel', 'touchmove'];
 let skipTimer;
 function armSkip() {
-  try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
   const disarm = () => { SKIP.forEach(e => removeEventListener(e, skip)); clearTimeout(skipTimer); };
   const skip = e => { r.classList.add('intro-done'); disarm(); window.gtag?.('event', 'intro_skip', { input: e.type }); };
   SKIP.forEach(e => on(window, e, skip, { passive: true }));
@@ -19,12 +18,11 @@ function armSkip() {
 }
 if (hero && !reduced && !r.classList.contains('intro-done')) armSkip();
 
-// Replay intro: clear the flag and restart the animations
+// Replay intro: restart the animations
 const replay = d.querySelector('[data-replay-intro]');
 if (replay && hero && !reduced) {
   replay.hidden = false;
   on(replay, 'click', () => {
-    try { sessionStorage.removeItem('introSeen'); } catch (e) {}
     scrollTo({ top: 0, behavior: 'instant' });
     r.classList.add('intro-done');
     void r.offsetWidth;

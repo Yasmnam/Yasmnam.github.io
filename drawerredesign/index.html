@@ -30,13 +30,13 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Playfair+Display:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
 
   <script>
-(function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
+document.documentElement.classList.add('js');
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="../src/styles/main.css?v=15">
+  <link rel="stylesheet" href="../src/styles/main.css?v=16">
   <script src="../src/scripts/main.js" defer></script>
   <script src="../src/scripts/analytics.js?v=2" defer></script>
-  <script type="module" src="../src/scripts/motion.js?v=2"></script>
+  <script type="module" src="../src/scripts/motion.js?v=3"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
   <script src="../src/scripts/carousel.js?v=2" defer></script>
   <script>
