@@ -119,7 +119,9 @@
   background: linear-gradient(to bottom, var(--scrim), transparent);
   pointer-events: none;
 }
-.thumb--carousel::before { display: none; }
+/* The dot texture is for tint-and-monogram thumbnails; not over real shots */
+.thumb--carousel::before,
+.thumb:has(.thumb-mark--fill)::before { display: none; }
 
 /* Overview */
 .product__overview > .label { display: block; margin-bottom: 8px; }
