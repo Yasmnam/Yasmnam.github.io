@@ -32,7 +32,7 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=10">
+  <link rel="stylesheet" href="src/styles/main.css?v=12">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
@@ -189,7 +189,7 @@ function imgFallback(img){
         <span class="thumb__org">ARKK</span>
         <span class="thumb__chip chip">1 case study</span>
         <figure class="thumb-mark thumb-mark--fill">
-          <img src="public/images/workflowredesign/testing-panel-wireframe.png" alt="Wireframe of the workflow canvas with the activity configuration drawer open alongside a workflow testing panel" loading="lazy">
+          <img class="thumb-img--arkk" src="public/images/arkk/workflow-canvas.webp" alt="ARKK's workflow builder on a desktop monitor: a tree of activity nodes on the canvas, with the activity configuration drawer open on its Runtime settings tab" width="2000" height="1398" loading="lazy">
         </figure>
       </div>
       <div class="product__overview">
