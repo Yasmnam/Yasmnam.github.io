@@ -27,6 +27,9 @@
   background-color: var(--tint-neutral);
 }
 .thumb--apodienste { background-color: var(--tint-apodienste); }
+/* The carousel's shots are 1.41:1; a slightly taller frame keeps the devices whole */
+.thumb--carousel { aspect-ratio: 2 / 1; }
+.thumb--carousel::before { display: none; }
 .thumb--arkk { background-color: var(--tint-arkk); }
 .thumb::before {
   content: '';

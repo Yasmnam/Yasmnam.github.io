@@ -36,3 +36,20 @@
 .cs-carousel-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 600px) { .cs-carousel-track { gap: 12px; padding: 0 6%; scroll-padding: 0 6%; } }
 @media (prefers-reduced-motion: no-preference) { .cs-carousel-track { scroll-behavior: smooth; } }
+
+/* Full-bleed variant: fills its container (e.g. a product thumbnail), one
+   slide at a time, controls laid over the bottom edge */
+.cs-carousel--bleed { position: absolute; inset: 0; margin: 0; z-index: 0; }
+.cs-carousel--bleed .cs-carousel-track { height: 100%; padding: 0; scroll-padding: 0; gap: 0; }
+.cs-carousel--bleed .cs-figure { height: 100%; margin: 0; }
+.cs-carousel--bleed .cs-figure img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; border: 0; background: none; }
+.cs-carousel--bleed .cs-carousel-controls {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 24px 16px 12px;
+  background: linear-gradient(to top, var(--scrim), transparent);
+}
+.cs-carousel--bleed .cs-carousel-arrow { background: var(--scrim); border-color: var(--line); }
+.cs-carousel--bleed .cs-carousel-dots button::before { border-color: var(--ink); }

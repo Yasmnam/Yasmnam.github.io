@@ -25,10 +25,11 @@
 (function(r){r.classList.add('js');try{if(sessionStorage.getItem('introSeen'))r.classList.add('intro-done')}catch(e){}})(document.documentElement);
 addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
 </script>
-  <link rel="stylesheet" href="src/styles/main.css?v=3">
+  <link rel="stylesheet" href="src/styles/main.css?v=4">
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/analytics.js" defer></script>
   <script type="module" src="src/scripts/motion.js"></script>
+  <script src="src/scripts/carousel.js" defer></script>
   <script>
 function imgFallback(img){
   var local = img.getAttribute('data-fallback');
@@ -116,12 +117,16 @@ function imgFallback(img){
     <div class="work-head label"><h2 class="label">Selected case studies</h2><span>Five entries</span></div>
 
     <section class="product unroll" aria-labelledby="p-apodienste">
-      <div class="thumb thumb--apodienste">
+      <div class="thumb thumb--apodienste thumb--carousel">
         <span class="thumb__org">PharmaBits / apodienste</span>
         <span class="thumb__chip chip">2 case studies</span>
-        <figure class="thumb-mark thumb-mark--fill">
-          <img src="public/images/drawer-redesign-photo.png" alt="apodienste's insight dashboard, showing service statistics, a revenue chart, and a kanban board of patient services by status" loading="lazy">
-        </figure>
+        <div class="cs-carousel cs-carousel--bleed" role="region" aria-roledescription="carousel" aria-label="apodienste product shots">
+          <div class="cs-carousel-track" tabindex="0">
+            <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="1 of 2"><img src="public/images/apodienste/insight-dashboard.webp" alt="apodienste's insight dashboard on a laptop, showing total and monthly service statistics, a revenue chart, and elderly-house visit stats by status" width="2000" height="1414"></figure>
+            <figure class="cs-figure" role="group" aria-roledescription="slide" aria-label="2 of 2"><img src="public/images/apodienste/receipt-signing.webp" alt="apodienste on a tablet: a receipt confirmation for four patients ('Quittung für 4 Patient(en)') being signed with a stylus" width="2000" height="1414" loading="lazy"></figure>
+          </div>
+          <div class="cs-carousel-controls" hidden></div>
+        </div>
       </div>
       <div class="product__overview">
         <div class="product__id">
@@ -230,21 +235,38 @@ function imgFallback(img){
     <div class="section__head label"><h2 id="how">How I work</h2><span>Principles</span></div>
     <ol class="principles" role="list">
       <li class="principle">
-        <span class="principle__num" aria-hidden="true">I</span>
-        <h3>Complicated territory</h3>
-        <p>I'm drawn to <em>complicated territory</em> — the difficulty is rarely visual. The rules are involved, the states are numerous, and the person on the other side of the screen is <em>accountable</em> for getting it right.</p>
-      </li>
-      <li class="principle">
-        <span class="principle__num" aria-hidden="true">II</span>
-        <h3>Good defaults</h3>
-        <p><em>Good defaults</em> do more work than polish.</p>
-      </li>
-      <li class="principle">
-        <span class="principle__num" aria-hidden="true">III</span>
+        <span class="principle__num" aria-hidden="true">I.</span>
         <h3>Research over assumptions</h3>
-        <p>I work cross-functionally and trust <em>research over assumptions</em>.</p>
+        <p>I test early with real users and let findings shape the direction, not the other way round.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__num" aria-hidden="true">II.</span>
+        <h3>Systems before screens</h3>
+        <p>I look for the reusable structure underneath a problem, such as a drawer that fits any activity, so the product scales.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__num" aria-hidden="true">III.</span>
+        <h3>Good defaults over polish</h3>
+        <p>In regulated work, the sensible default matters more than the decoration. I design for the day-to-day.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__num" aria-hidden="true">IV.</span>
+        <h3>Close to engineering</h3>
+        <p>I work cross-functionally, own design system decisions with engineers, and use AI to speed up the routine parts.</p>
       </li>
     </ol>
+  </section>
+
+  <section class="container section brief unroll" aria-labelledby="brief-h">
+    <h2 class="label brief__label" id="brief-h">Also in brief</h2>
+    <div class="brief__item">
+      <h3>Design systems</h3>
+      <p>Built the Apodienste design system and led its tokenisation after a brand update. Now own the design system at ARKK alongside engineering.</p>
+    </div>
+    <div class="brief__item">
+      <h3>AI in the workflow</h3>
+      <p>Created plugins and skills for internal design tasks such as documentation, and have shipped code to production using Claude and MCP.</p>
+    </div>
   </section>
 
   <section class="container section unroll" id="about" aria-labelledby="about-h">
@@ -256,6 +278,8 @@ function imgFallback(img){
       <div class="about__bio">
         <p>I come at design from a technical view, but what holds my attention is <em>design's impact</em> — not how something looks, but what it does. Good design, to me, isn't visual: <em>it's a service</em>, something that quietly does its job for the person depending on it.</p>
         <p>Known for a big smile and a steady supply of coffee and tea. I paint occasionally, and I'm always chasing new music.</p>
+        <p>I'm drawn to <em>complicated territory</em> — the difficulty is rarely visual. The rules are involved, the states are numerous, and the person on the other side of the screen is <em>accountable</em> for getting it right.</p>
+        <p><em>Good defaults</em> do more work than polish. I work cross-functionally and trust <em>research over assumptions</em>.</p>
         <p class="label">Yasaman Aminian</p>
       </div>
     </div>
