@@ -35,8 +35,8 @@ addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.ac
 </script>
   <link rel="stylesheet" href="../src/styles/main.css?v=15">
   <script src="../src/scripts/main.js" defer></script>
-  <script src="../src/scripts/analytics.js" defer></script>
-  <script type="module" src="../src/scripts/motion.js"></script>
+  <script src="../src/scripts/analytics.js?v=2" defer></script>
+  <script type="module" src="../src/scripts/motion.js?v=2"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
   <script>
 function imgFallback(img){
@@ -55,8 +55,8 @@ function imgFallback(img){
   <div class="container article-top__inner">
     <a class="article-top__name" href="../">Yasaman Aminian</a>
     <nav class="article-top__nav" aria-label="Case study">
-      <a href="../#work">← All work</a>
-      <a href="../drawerredesign/">Next story →</a>
+      <a href="../#work" data-ga-event="nav_click" data-ga-label="all_work">← All work</a>
+      <a href="../drawerredesign/" data-ga-event="nav_click" data-ga-label="next_story">Next story →</a>
     </nav>
   </div>
 </header>
@@ -81,19 +81,19 @@ function imgFallback(img){
     <nav class="toc" aria-label="Contents">
       <span class="label">Contents</span>
       <ol>
-        <li><a href="#context-my-role">Context &amp;amp; my role</a></li>
-        <li><a href="#problem-framing">Problem framing</a></li>
-        <li><a href="#insight-strategy">Insight &amp;amp; strategy</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#research-discovery">Research &amp;amp; discovery</a></li>
-        <li><a href="#define-and-synthesise">Define and synthesise</a></li>
-        <li><a href="#ideation-and-sitemapping">Ideation and sitemapping</a></li>
-        <li><a href="#wireframing-and-user-flows">Wireframing and user flows</a></li>
-        <li><a href="#ui-design-concept">UI design concept</a></li>
-        <li><a href="#special-pages-features-and-functionalities">Special pages, features and functionalities</a></li>
-        <li><a href="#style-component-library">Style &amp;amp; component library</a></li>
-        <li><a href="#solution-proposal-delivery">Solution proposal &amp;amp; delivery</a></li>
-        <li><a href="#next-time-i-would">Next time, I would…</a></li>
+        <li><a href="#context-my-role" data-ga-event="toc_click" data-ga-section="context-my-role" data-ga-case-study="mml">Context &amp;amp; my role</a></li>
+        <li><a href="#problem-framing" data-ga-event="toc_click" data-ga-section="problem-framing" data-ga-case-study="mml">Problem framing</a></li>
+        <li><a href="#insight-strategy" data-ga-event="toc_click" data-ga-section="insight-strategy" data-ga-case-study="mml">Insight &amp;amp; strategy</a></li>
+        <li><a href="#process" data-ga-event="toc_click" data-ga-section="process" data-ga-case-study="mml">Process</a></li>
+        <li><a href="#research-discovery" data-ga-event="toc_click" data-ga-section="research-discovery" data-ga-case-study="mml">Research &amp;amp; discovery</a></li>
+        <li><a href="#define-and-synthesise" data-ga-event="toc_click" data-ga-section="define-and-synthesise" data-ga-case-study="mml">Define and synthesise</a></li>
+        <li><a href="#ideation-and-sitemapping" data-ga-event="toc_click" data-ga-section="ideation-and-sitemapping" data-ga-case-study="mml">Ideation and sitemapping</a></li>
+        <li><a href="#wireframing-and-user-flows" data-ga-event="toc_click" data-ga-section="wireframing-and-user-flows" data-ga-case-study="mml">Wireframing and user flows</a></li>
+        <li><a href="#ui-design-concept" data-ga-event="toc_click" data-ga-section="ui-design-concept" data-ga-case-study="mml">UI design concept</a></li>
+        <li><a href="#special-pages-features-and-functionalities" data-ga-event="toc_click" data-ga-section="special-pages-features-and-functionalities" data-ga-case-study="mml">Special pages, features and functionalities</a></li>
+        <li><a href="#style-component-library" data-ga-event="toc_click" data-ga-section="style-component-library" data-ga-case-study="mml">Style &amp;amp; component library</a></li>
+        <li><a href="#solution-proposal-delivery" data-ga-event="toc_click" data-ga-section="solution-proposal-delivery" data-ga-case-study="mml">Solution proposal &amp;amp; delivery</a></li>
+        <li><a href="#next-time-i-would" data-ga-event="toc_click" data-ga-section="next-time-i-would" data-ga-case-study="mml">Next time, I would…</a></li>
       </ol>
     </nav>
   <main id="main" class="article-body">
@@ -406,7 +406,7 @@ function imgFallback(img){
   </main>
   </div>
 
-  <nav class="container next-story" aria-label="Next case studies">
+  <nav class="container next-story" aria-label="Next case studies" data-ga-view="next_stories">
     <span class="label">Next case studies</span>
     <a href="../drawerredesign/" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="drawerredesign" data-ga-location="next_case_study">
       <h3>Improving usability of pharmacy service delivery through a modular patient drawer</h3>
@@ -422,7 +422,7 @@ function imgFallback(img){
   <div class="container footer__inner">
     <p>Hand-coded, accessibility-first. London, 2026.</p>
     <div class="footer__links">
-      <a href="../#top">Back to the front page ↑</a>
+      <a href="../#top" data-ga-event="nav_click" data-ga-label="back_to_top">Back to the front page ↑</a>
     </div>
   </div>
 </footer>

@@ -13,7 +13,7 @@ let skipTimer;
 function armSkip() {
   try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
   const disarm = () => { SKIP.forEach(e => removeEventListener(e, skip)); clearTimeout(skipTimer); };
-  const skip = () => { r.classList.add('intro-done'); disarm(); };
+  const skip = e => { r.classList.add('intro-done'); disarm(); window.gtag?.('event', 'intro_skip', { input: e.type }); };
   SKIP.forEach(e => on(window, e, skip, { passive: true }));
   skipTimer = setTimeout(disarm, 3200);
 }

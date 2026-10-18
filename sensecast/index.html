@@ -35,8 +35,8 @@ addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.ac
 </script>
   <link rel="stylesheet" href="../src/styles/main.css?v=15">
   <script src="../src/scripts/main.js" defer></script>
-  <script src="../src/scripts/analytics.js" defer></script>
-  <script type="module" src="../src/scripts/motion.js"></script>
+  <script src="../src/scripts/analytics.js?v=2" defer></script>
+  <script type="module" src="../src/scripts/motion.js?v=2"></script>
   <script src="../src/scripts/hover-video.js" defer></script>
   <script>
 function imgFallback(img){
@@ -55,8 +55,8 @@ function imgFallback(img){
   <div class="container article-top__inner">
     <a class="article-top__name" href="../">Yasaman Aminian</a>
     <nav class="article-top__nav" aria-label="Case study">
-      <a href="../#work">← All work</a>
-      <a href="../mml/">Next story →</a>
+      <a href="../#work" data-ga-event="nav_click" data-ga-label="all_work">← All work</a>
+      <a href="../mml/" data-ga-event="nav_click" data-ga-label="next_story">Next story →</a>
     </nav>
   </div>
 </header>
@@ -81,13 +81,13 @@ function imgFallback(img){
     <nav class="toc" aria-label="Contents">
       <span class="label">Contents</span>
       <ol>
-        <li><a href="#problem">Problem</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#research-grounding-in-human-needs">Research — grounding in human needs</a></li>
-        <li><a href="#concept-development-from-idea-to-vision">Concept development — from idea to vision</a></li>
-        <li><a href="#design-prototyping-bringing-sensecast-to-life">Design &amp;amp; prototyping — bringing SenseCast to life</a></li>
-        <li><a href="#testing-future-steps">Testing &amp;amp; future steps</a></li>
-        <li><a href="#next-time-i-would">Next time, I would…</a></li>
+        <li><a href="#problem" data-ga-event="toc_click" data-ga-section="problem" data-ga-case-study="sensecast">Problem</a></li>
+        <li><a href="#process" data-ga-event="toc_click" data-ga-section="process" data-ga-case-study="sensecast">Process</a></li>
+        <li><a href="#research-grounding-in-human-needs" data-ga-event="toc_click" data-ga-section="research-grounding-in-human-needs" data-ga-case-study="sensecast">Research — grounding in human needs</a></li>
+        <li><a href="#concept-development-from-idea-to-vision" data-ga-event="toc_click" data-ga-section="concept-development-from-idea-to-vision" data-ga-case-study="sensecast">Concept development — from idea to vision</a></li>
+        <li><a href="#design-prototyping-bringing-sensecast-to-life" data-ga-event="toc_click" data-ga-section="design-prototyping-bringing-sensecast-to-life" data-ga-case-study="sensecast">Design &amp;amp; prototyping — bringing SenseCast to life</a></li>
+        <li><a href="#testing-future-steps" data-ga-event="toc_click" data-ga-section="testing-future-steps" data-ga-case-study="sensecast">Testing &amp;amp; future steps</a></li>
+        <li><a href="#next-time-i-would" data-ga-event="toc_click" data-ga-section="next-time-i-would" data-ga-case-study="sensecast">Next time, I would…</a></li>
       </ol>
     </nav>
   <main id="main" class="article-body">
@@ -277,7 +277,7 @@ function imgFallback(img){
   </main>
   </div>
 
-  <nav class="container next-story" aria-label="Next case studies">
+  <nav class="container next-story" aria-label="Next case studies" data-ga-view="next_stories">
     <span class="label">Next case studies</span>
     <a href="../mml/" data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id="mml" data-ga-location="next_case_study">
       <h3>Redesigning a historical archive for the digital age</h3>
@@ -293,7 +293,7 @@ function imgFallback(img){
   <div class="container footer__inner">
     <p>Hand-coded, accessibility-first. London, 2026.</p>
     <div class="footer__links">
-      <a href="../#top">Back to the front page ↑</a>
+      <a href="../#top" data-ga-event="nav_click" data-ga-label="back_to_top">Back to the front page ↑</a>
     </div>
   </div>
 </footer>

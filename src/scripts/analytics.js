@@ -21,4 +21,20 @@
     v.dataset.gaPlayed = '1';
     window.gtag('event', 'video_play', { video_src: (v.currentSrc || v.src).split('/').pop() });
   }, true);
+
+  // Section views: once per page view, when a key section's top passes the middle
+  // of the screen. Home sections carry data-ga-view; case study sections use their id.
+  if('IntersectionObserver' in window){
+    var page = document.documentElement.getAttribute('data-page') === 'home'
+      ? 'home' : location.pathname.split('/').filter(Boolean).pop() || 'home';
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        io.unobserve(e.target);
+        if(typeof window.gtag !== 'function') return;
+        window.gtag('event', 'section_view', { section: e.target.getAttribute('data-ga-view') || e.target.id, page: page });
+      });
+    }, { rootMargin: '0px 0px -50% 0px' });
+    document.querySelectorAll('[data-ga-view], .cs-section[id]').forEach(function(el){ io.observe(el); });
+  }
 })();

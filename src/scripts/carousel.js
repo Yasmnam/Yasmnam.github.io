@@ -9,6 +9,7 @@
     var controls = root.querySelector('.cs-carousel-controls');
     var slides = Array.prototype.slice.call(track.children);
     if(!controls || slides.length < 2) return;
+    var name = root.getAttribute('aria-label') || 'carousel';
 
     var counter = document.createElement('span');
     counter.className = 'cs-carousel-count';
@@ -20,6 +21,7 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.setAttribute('aria-label', 'Show slide ' + (i + 1) + ' of ' + slides.length);
+      b.dataset.gaEvent = 'carousel_nav'; b.dataset.gaCarousel = name; b.dataset.gaControl = 'segment_' + (i + 1);
       b.addEventListener('click', function(){ go(i); });
       bar.appendChild(b);
       return b;
@@ -30,6 +32,7 @@
       b.type = 'button';
       b.className = 'cs-carousel-arrow';
       b.setAttribute('aria-label', dir < 0 ? 'Previous slide' : 'Next slide');
+      b.dataset.gaEvent = 'carousel_nav'; b.dataset.gaCarousel = name; b.dataset.gaControl = dir < 0 ? 'prev' : 'next';
       b.innerHTML = '<span aria-hidden="true">' + (dir < 0 ? '←' : '→') + '</span>';
       b.addEventListener('click', function(){ go(current + dir); });
       return b;
