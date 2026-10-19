@@ -1,0 +1,17 @@
+---
+import type { CaseStudy } from '../../data/types';
+interface Props { study: CaseStudy }
+const { study: c } = Astro.props;
+---
+<li class="case-row-item">
+  <a class:list={['case-row', { 'case-row--compact': c.compact }]} href={`/${c.slug}/`} aria-label={`Case study ${c.num}: ${c.cardTitle}`} data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id={c.slug} data-ga-position={String(Number(c.num))} data-ga-location="work">
+    <span class="case-row__num" aria-hidden="true" style={`view-transition-name:cs-${c.num}-num`}>{c.num}</span>
+    <div class="case-row__body">
+      <div class="case-row__meta"><span class="label">{c.rowMeta}</span>{c.chip && <span class="chip">{c.chip}</span>}</div>
+      <h3 class="case-row__title" style={`view-transition-name:cs-${c.num}-title`}>{c.cardTitle}</h3>
+      <p class="case-row__summary">{c.summary}</p>
+      <span class="case-row__cta">{c.compact ? 'Read' : 'Read the case study'} <span class="case-row__arrow" aria-hidden="true">→</span></span>
+    </div>
+    <span class="case-row__thumb"><img src={c.thumb.src} alt={c.thumb.alt} loading="lazy" onerror="imgFallback(this)"></span>
+  </a>
+</li>

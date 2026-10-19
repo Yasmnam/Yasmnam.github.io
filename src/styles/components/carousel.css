@@ -1,8 +1,8 @@
 /* Carousel, minimal: one slide at a time, native scroll-snap (swipe works
-   without JS). carousel.js adds a quiet controls row: counter, a segmented
+   without JS). Carousel.tsx adds a quiet controls row: counter, a segmented
    progress line and bare arrows. */
 .cs-carousel { margin: 32px 0; }
-.cs-figure > .cs-carousel { margin: 0; }
+.cs-figure .cs-carousel { margin: 0; }
 
 .cs-carousel-track {
   position: relative;

@@ -1,0 +1,18 @@
+---
+interface Props {
+  /** Where "Back to the front page" points: "#top" on home, "/#top" elsewhere */
+  topHref?: string;
+  /** Show the Replay intro button (home only) */
+  replay?: boolean;
+}
+const { topHref = '#top', replay = false } = Astro.props;
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>Hand-coded, accessibility-first. London, 2026.</p>
+    <div class="footer__links">
+      <a href={topHref} data-ga-event="nav_click" data-ga-label="back_to_top">Back to the front page ↑</a>
+      {replay && <button class="text-btn" type="button" data-replay-intro data-ga-event="intro_replay" hidden>Replay intro</button>}
+    </div>
+  </div>
+</footer>

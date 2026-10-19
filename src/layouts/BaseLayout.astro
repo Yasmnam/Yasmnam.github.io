@@ -1,0 +1,90 @@
+---
+import '../styles/main.css';
+
+interface Props {
+  /** Page name; " — Yasaman Aminian" is appended unless it's already the full title */
+  title: string;
+  description: string;
+  /** Path of this page, e.g. "/" or "/drawerredesign/" */
+  path: string;
+  ogType?: 'website' | 'article';
+  ogImage: string;
+  page: 'home' | 'study';
+}
+
+const { title, description, path, ogType = 'article', ogImage, page } = Astro.props;
+const fullTitle = title.endsWith('Yasaman Aminian') || title.startsWith('Yasaman Aminian') ? title : `${title} — Yasaman Aminian`;
+const canonical = new URL(path, Astro.site).href;
+const favicon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A09'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='900' font-size='20' text-anchor='middle' fill='%23ECE7DD'%3EY%3C/text%3E%3C/svg%3E";
+---
+<!doctype html>
+<html lang="en-GB" data-page={page}>
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6YRJYG5M5F"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6YRJYG5M5F');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{fullTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<meta property="og:type" content={ogType}>
+<meta property="og:site_name" content="Yasaman Aminian — Product Design Portfolio">
+<meta property="og:url" content={canonical}>
+<meta property="og:title" content={fullTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={fullTitle}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImage}>
+<link rel="icon" href={favicon}>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Playfair+Display:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
+<!-- Before first paint: mark JS as available; reverse page transitions on Back -->
+<script is:inline>
+document.documentElement.classList.add('js');
+addEventListener('pagereveal',function(e){var a=window.navigation&&navigation.activation;if(e.viewTransition&&a&&a.navigationType==='traverse')e.viewTransition.types.add('back')});
+</script>
+<!-- Inline so it exists before any image onerror fires -->
+<script is:inline>
+function imgFallback(img){
+  var local = img.getAttribute('data-fallback');
+  if(local && img.src.indexOf(local) === -1){ img.src = local; return; }
+  var fig = img.closest ? img.closest('figure') : null;
+  if(fig) fig.style.display = 'none';
+}
+</script>
+<slot name="head" />
+</head>
+<body id={page === 'home' ? 'top' : undefined}>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<slot />
+
+<!-- Live contrast meter: measures whatever the cursor is over -->
+<div class="meter" id="meter" aria-hidden="true">
+  <div class="title">CONTRAST CHECK — WCAG 1.4.3</div>
+  <div class="row"><span class="lab">Ratio</span><span id="m-ratio">—</span></div>
+  <div class="row"><span class="lab">Required</span><span id="m-req">—</span></div>
+  <div class="row"><span class="lab">Text size</span><span id="m-size">—</span></div>
+  <div class="row"><span class="lab">Result</span><span class="verdict" id="m-verdict">—</span></div>
+  <div class="swatches"><span class="sw" id="m-fg"></span><span class="sw" id="m-bg"></span></div>
+  <div class="sample" id="m-sample"></div>
+</div>
+
+<script>
+  import '../scripts/meter.js';
+  import '../scripts/analytics.js';
+  import '../scripts/motion.js';
+</script>
+</body>
+</html>

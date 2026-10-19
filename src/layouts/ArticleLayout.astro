@@ -1,0 +1,78 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import HoverVideo from '../components/islands/HoverVideo';
+import { caseStudies } from '../data/caseStudies';
+import type { CaseStudy } from '../data/types';
+
+interface Props { study: CaseStudy }
+const { study } = Astro.props;
+const { page } = study;
+const i = caseStudies.findIndex((c) => c.slug === study.slug);
+const next = caseStudies[(i + 1) % caseStudies.length];
+const nextStories = page.nextStories.map((slug) => caseStudies.find((c) => c.slug === slug)!);
+---
+<BaseLayout page="study" path={`/${study.slug}/`} title={page.metaTitle} description={page.description} ogImage={page.ogImage}>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="article-top">
+    <div class="container article-top__inner">
+      <a class="article-top__name" href="/">Yasaman Aminian</a>
+      <nav class="article-top__nav" aria-label="Case study">
+        <a href="/#work" data-ga-event="nav_click" data-ga-label="all_work">← All work</a>
+        <a href={`/${next.slug}/`} data-ga-event="nav_click" data-ga-label="next_story">Next story →</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="story-bar" aria-label="Story navigation" inert>
+    <div class="container story-bar__inner">
+      <a href="/#work" data-ga-event="nav_click" data-ga-label="all_work_sticky">← All work</a>
+      <a href={`/${next.slug}/`} data-ga-event="nav_click" data-ga-label="next_story_sticky">Next story →</a>
+    </div>
+  </nav>
+
+  <header class="container article-head" id="top">
+    <p class="kicker"><span class="kicker__num" style={`view-transition-name:cs-${study.num}-num`}>{study.num}</span><span aria-hidden="true">·</span><span>{page.kicker.discipline}</span><span aria-hidden="true">·</span><span>{page.kicker.org}</span><span aria-hidden="true">·</span><span>{page.kicker.year}</span></p>
+    <h1 style={`view-transition-name:cs-${study.num}-title`}>{page.title}</h1>
+    {page.standfirst && <p class="standfirst">{page.standfirst}</p>}
+    <dl class="meta-strip">
+      {page.meta.map((m) => <div><dt>{m.label}</dt><dd>{m.value}</dd></div>)}
+    </dl>
+  </header>
+
+  {page.heroVideo && (
+    <div class="container article-hero">
+      <figure class="cs-figure article-hero__figure">
+        <HoverVideo client:visible src={page.heroVideo.src} poster={page.heroVideo.poster} ariaLabel={page.heroVideo.ariaLabel} />
+        <figcaption>{page.heroVideo.caption}</figcaption>
+      </figure>
+    </div>
+  )}
+
+  <div class="container article-layout">
+    <nav class="toc" aria-label="Contents">
+      <span class="label">Contents</span>
+      <ol>
+        {page.sections.map((s) => (
+          <li><a href={`#${s.id}`} data-ga-event="toc_click" data-ga-section={s.id} data-ga-case-study={study.slug}>{s.label}</a></li>
+        ))}
+      </ol>
+    </nav>
+    <main id="main" class="article-body">
+      <slot />
+    </main>
+  </div>
+
+  <nav class="container next-story" aria-label="Next case studies" data-ga-view="next_stories">
+    <span class="label">Next case studies</span>
+    {nextStories.map((c) => (
+      <a href={`/${c.slug}/`} data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id={c.slug} data-ga-location="next_case_study">
+        <h3>{c.page.title}</h3>
+        <span class="jump">Read →</span>
+      </a>
+    ))}
+  </nav>
+
+  <Footer topHref="/#top" />
+</BaseLayout>

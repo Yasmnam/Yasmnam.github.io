@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/home/Hero.astro';
+import EditorsNote from '../components/home/EditorsNote.astro';
+import ProductSection from '../components/home/ProductSection.astro';
+import AlsoInBrief from '../components/home/AlsoInBrief.astro';
+import AboutPrinciples from '../components/home/AboutPrinciples.astro';
+import Contact from '../components/home/Contact.astro';
+import { products } from '../data/products';
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Yasaman Aminian',
+  jobTitle: 'Product Designer',
+  email: 'yasmn.aminian@gmail.com',
+  url: 'https://yasmnam.github.io/',
+  sameAs: ['https://www.linkedin.com/in/yasaman-aminian/'],
+  address: { '@type': 'PostalAddress', addressCountry: 'GB' },
+};
+---
+<BaseLayout
+  page="home"
+  path="/"
+  ogType="website"
+  title="Yasaman Aminian — Product Design Portfolio"
+  description="Product design portfolio of Yasaman Aminian — five case studies in pharmacy platforms, enterprise workflow tools and historical archives, built as a hand-coded, accessibility-first newspaper."
+  ogImage="https://yasmnam.github.io/public/images/drawer-redesign-photo.png"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(person)} />
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="sheet">
+    <TopBar />
+    <Hero />
+
+    <main id="main">
+      <EditorsNote />
+
+      <div class="container work" id="work">
+        <div class="work-head">
+          <div class="work-head__rules" aria-hidden="true"><span class="rule rule--15"></span><span class="rule rule--5"></span></div>
+          <div class="work-head__row">
+            <p class="work-head__title">Selected work</p>
+            <p class="work-head__note">Grouped by product: an overview first, then the case studies.</p>
+          </div>
+        </div>
+        <div class="products">
+          {products.map((p) => <ProductSection product={p} />)}
+        </div>
+      </div>
+
+      <AlsoInBrief />
+      <AboutPrinciples />
+      <Contact />
+    </main>
+
+    <Footer replay />
+  </div>
+</BaseLayout>

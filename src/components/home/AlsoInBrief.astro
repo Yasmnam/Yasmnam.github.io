@@ -1,0 +1,12 @@
+---
+import { brief } from '../../data/principles';
+---
+<section class="container section brief unroll" data-ga-view="also_in_brief" aria-labelledby="brief-h">
+  <h2 class="label brief__label" id="brief-h">Also in brief</h2>
+  {brief.map((b) => (
+    <div class="brief__item">
+      <h3>{b.title}</h3>
+      <p>{b.body}</p>
+    </div>
+  ))}
+</section>

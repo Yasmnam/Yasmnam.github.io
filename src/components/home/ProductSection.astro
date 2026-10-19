@@ -1,0 +1,17 @@
+---
+import type { Product } from '../../data/types';
+import { caseStudies } from '../../data/caseStudies';
+import ProductHeader from './ProductHeader.astro';
+import CaseRow from './CaseRow.astro';
+interface Props { product: Product }
+const { product: p } = Astro.props;
+const studies = caseStudies.filter((c) => c.product === p.key);
+const id = `p-${p.key === 'university' ? 'uni' : p.key}`;
+---
+<section class:list={['product', { 'product--minor': p.minor }]} aria-labelledby={id} data-ga-view={p.analyticsName}>
+  <ProductHeader product={p} count={studies.length} />
+  {!p.minor && <p class="label product__studies-label">Case studies from {p.name}</p>}
+  <ol class="case-list" role="list">
+    {studies.map((c) => <CaseRow study={c} />)}
+  </ol>
+</section>

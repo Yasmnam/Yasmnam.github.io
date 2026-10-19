@@ -1,0 +1,18 @@
+---
+import { caseStudies } from '../../data/caseStudies';
+---
+<section class="container edition unroll" id="edition" data-ga-view="editors_note" aria-labelledby="tagline">
+  <div class="edition__note">
+    <span class="label label--accent">Editor's note</span>
+    <h2 class="tagline" id="tagline">Thinking in systems, <em>fascinated by design.</em></h2>
+    <p class="edition__intro">I create trust and reliability by design: usable, accessible, and easy to work with.</p>
+  </div>
+  <nav class="contents" aria-label="In this edition">
+    <span class="label">In this edition</span>
+    <ol>
+      {caseStudies.map((c) => (
+        <li class={c.compact ? 'contents__minor' : undefined}><a href={`/${c.slug}/`} data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id={c.slug} data-ga-location="in_this_edition"><span class="contents__num" aria-hidden="true">{c.num}</span><span class="contents__title">{c.shortTitle}</span></a></li>
+      ))}
+    </ol>
+  </nav>
+</section>

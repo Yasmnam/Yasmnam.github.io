@@ -1,0 +1,26 @@
+---
+import type { Product } from '../../data/types';
+import Thumbnail from './Thumbnail.astro';
+interface Props { product: Product; count: number }
+const { product: p, count } = Astro.props;
+const id = `p-${p.key === 'university' ? 'uni' : p.key}`;
+---
+<div class="product__header">
+  {p.minor ? (
+    <h2 class="product__name" id={id}>{p.name}</h2>
+  ) : (
+    <Fragment>
+      {p.thumb && <Thumbnail thumb={p.thumb} count={count} />}
+      <div class="product__overview">
+        <span class="label"><span class="label--accent">Product</span> · {p.kicker}</span>
+        <h2 class="product__name" id={id}>{p.name}</h2>
+        {p.about && <p class="product__about">{p.about}</p>}
+        {p.meta && (
+          <dl class="product__meta">
+            {p.meta.map((m) => <div><dt>{m.label}</dt><dd>{m.value}</dd></div>)}
+          </dl>
+        )}
+      </div>
+    </Fragment>
+  )}
+</div>

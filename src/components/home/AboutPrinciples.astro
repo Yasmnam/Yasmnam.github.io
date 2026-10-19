@@ -1,0 +1,15 @@
+---
+import { principles } from '../../data/principles';
+---
+<section class="container section unroll" id="about" data-ga-view="about" aria-labelledby="about-h">
+  <div class="section__head label"><h2 id="about-h">About me</h2><span>How I work</span></div>
+  <ol class="principles" role="list">
+    {principles.map((p) => (
+      <li class="principle">
+        <span class="principle__num" aria-hidden="true">{p.numeral}</span>
+        <h3>{p.title}</h3>
+        <p>{p.body}</p>
+      </li>
+    ))}
+  </ol>
+</section>

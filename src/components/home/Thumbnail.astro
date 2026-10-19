@@ -1,0 +1,16 @@
+---
+import type { Product } from '../../data/types';
+import Carousel from '../islands/Carousel';
+interface Props { thumb: NonNullable<Product['thumb']>; count: number }
+const { thumb, count } = Astro.props;
+---
+<div class:list={['thumb', `thumb--${thumb.tint}`, { 'thumb--carousel': thumb.carousel }]}>
+  <span class="thumb__org">{thumb.org}</span>
+  <span class="thumb__chip chip">{count} case {count === 1 ? 'study' : 'studies'}</span>
+  {thumb.carousel && <Carousel client:visible label={thumb.carousel.label} slides={thumb.carousel.slides} variant="bleed" />}
+  {thumb.image && (
+    <figure class="thumb-mark thumb-mark--fill">
+      <img class={thumb.image.className} src={thumb.image.src} alt={thumb.image.alt} width={thumb.image.width} height={thumb.image.height} loading="lazy">
+    </figure>
+  )}
+</div>

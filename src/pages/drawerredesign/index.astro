@@ -1,0 +1,165 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCaseStudy } from '../../data/caseStudies';
+import HoverVideo from '../../components/islands/HoverVideo';
+import Carousel from '../../components/islands/Carousel';
+
+const study = getCaseStudy('drawerredesign');
+---
+<ArticleLayout study={study}>
+
+    <section id="overview" class="cs-section cs-metrics" aria-labelledby="overview-heading">
+      <h2 class="reveal">Overview</h2>
+      <p class="lede">apodienste helps German pharmacies run services such as polymedication analysis, blood pressure measurement and inhalation training. The patient drawer was originally built for call centres booking appointments, and the pharmacists who delivered the services found it hard to use. I redesigned it as a set of modules (appointments, documents and comments) held together by a guided service flow.</p>
+
+      <h3>Results</h3>
+      <ul class="cs-metric-grid" role="list">
+        <li class="cs-metric reveal-target">
+          <span class="cs-metric-figure">80<small>%</small></span>
+          <p>of core tasks completed on the first attempt in pre-launch testing (32 of 40 attempts: 5 participants, 8 tasks)</p>
+        </li>
+        <li class="cs-metric reveal-target">
+          <span class="cs-metric-figure">30<small>%</small></span>
+          <p>faster task completion, measured through timed task analysis of the old and new flows</p>
+        </li>
+        <li class="cs-metric reveal-target">
+          <span class="cs-metric-figure">Fewer</span>
+          <p>process-related support tickets after release, according to the support team's report</p>
+        </li>
+      </ul>
+
+      <div class="cs-figure-pair reveal">
+        <figure class="cs-figure">
+          <img src="/public/images/drawerredesign/fig1-before.png" alt="The patient drawer before the redesign: a single flat 'Case 1' card showing case status, PQ and AG appointments listed one after another, and an open comment thread below." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Before — the patient drawer before the redesign.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="/public/images/drawerredesign/fig2-redesign.png" alt="The redesigned patient drawer: a 'Nächste Aktion' action bar, service buttons for Polymedikation, Blutdruck messen and inhalativa Schulung, and a five-step progress tracker for the active service." loading="lazy" onerror="imgFallback(this)">
+          <figcaption>Redesign — the patient drawer after the redesign.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="the-problem" class="cs-section">
+      <h2 class="reveal">The problem</h2>
+      <p>Stakeholder feedback and a heuristic evaluation of the existing drawer pointed to three issues:</p>
+      <ol class="cs-numbered">
+        <li><strong>A confusing model.</strong> <span>Pharmacists did not relate to the idea of "cases", and could not see why patient documents and case documents sat in different places.</span></li>
+        <li><strong>Too much at once.</strong> <span>The drawer showed information that was not needed for the task in hand. Pharmacists searched for documents rather than being guided through a session.</span></li>
+        <li><strong>No room to grow.</strong> <span>Every new service needed structural changes to the UI.</span></li>
+      </ol>
+    </section>
+
+    <section id="opportunity" class="cs-section">
+      <h2 class="reveal">Opportunity</h2>
+      <p>apodienste was adding new pharmacy services, and the drawer had to carry them all. If pharmacists, analysts and call-centre users could each follow a clear path through the same drawer, and new services could be added without restructuring the UI, the platform could grow its service range without retraining users each time.</p>
+    </section>
+
+    <section id="users" class="cs-section">
+      <h2 class="reveal">Users</h2>
+      <p>Three roles shared the drawer, each with different goals and time pressures:</p>
+      <ul class="cs-numbered cs-list">
+        <li><strong>Call-centre users</strong> <span>create services and book appointments. They needed confirmation that their work had been saved and handed on.</span></li>
+        <li><strong>Analysts</strong> <span>prepare medication data before a session. They needed a structured overview of each patient.</span></li>
+        <li><strong>Pharmacists</strong> <span>run the session with the patient. They needed a step-by-step flow for tasks and signatures.</span></li>
+      </ul>
+
+      <Carousel client:visible label="Personas" variant="default" slides={[{"src": "/public/images/drawerredesign/fig3-persona-callcenter.png", "alt": "Persona card for Lorina, the Call Center User — 'The Service Initiator', age 32 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her wearing a headset at her desk.", "caption": "Call-centre user (Lorina)"}, {"src": "/public/images/drawerredesign/fig4-persona-analyst.png", "alt": "Persona card for Elena, the Analyst — 'The Pre-Session Specialist', age 36 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her reviewing medication records.", "caption": "Analyst (Elena)"}, {"src": "/public/images/drawerredesign/fig5-persona-pharmacist.png", "alt": "Persona card for Christina, the Pharmacist — 'The Service Provider', age 46 — with her goal, work environment, responsibilities, pain points and needs, next to a photo of her consulting a patient at the pharmacy counter.", "caption": "Pharmacist (Christina)"}]} />
+      <div class="cs-quote">
+        <p>"I can't tell where to find the right documents for each patient — and I'm not even sure what a 'case' is supposed to mean here."</p>
+        <cite>Pharmacist</cite>
+      </div>
+    </section>
+
+    <section id="constraints" class="cs-section">
+      <h2 class="reveal">Constraints</h2>
+      <ul class="cs-numbered cs-list">
+        <li><span>Access to pharmacists was limited, so I worked with a small group rather than running large-scale interviews.</span></li>
+        <li><span>The design had to fit the existing backend with minimal changes.</span></li>
+        <li><span>Existing users already knew the old drawer, so the new one had to be learnable without retraining.</span></li>
+        <li><span>There was no established industry pattern to benchmark against.</span></li>
+      </ul>
+    </section>
+
+    <section id="process" class="cs-section">
+      <h2 class="reveal">Process</h2>
+      <h3><span class="cs-stage">01 Discover</span>Research</h3>
+      <p>I combined stakeholder interviews, feedback from early pharmacy adopters, analysis of call-centre workflows and a heuristic evaluation of the existing drawer.</p>
+
+      <h3><span class="cs-stage">02 Define</span>Problem definition</h3>
+      <p>I synthesised the research findings to identify the core pain points, and defined design goals focused on usability and flexibility.</p>
+      <div class="cs-quote">
+        <p>"How might we improve the pharmacy service workflow in a scalable and intuitive way that accommodates the needs of multiple user groups — while ensuring efficiency, clarity and ease of use across different service types?"</p>
+        <cite>Problem statement</cite>
+      </div>
+
+      <h3><span class="cs-stage">03 Develop</span>Iterations</h3>
+      <p>I explored four directions, reviewing each with stakeholders:</p>
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr><th scope="col">Iteration</th><th scope="col">Idea</th><th scope="col">Why it did not hold</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1. A case per service</th><td data-label="Idea">Tie each case to one service</td><td data-label="Why it did not hold">Confusing when a patient needed several services</td></tr>
+            <tr><th scope="row">2. Documentation modal</th><td data-label="Idea">Move signing and uploads into their own window</td><td data-label="Why it did not hold">Separated documents from the case and felt like a temporary fix</td></tr>
+            <tr><th scope="row">3. Documentation tab by service state</th><td data-label="Idea">Show only the documents needed at each step</td><td data-label="Why it did not hold">High cognitive load, and it did not scale beyond a few services</td></tr>
+            <tr><th scope="row">4. Service modules</th><td data-label="Idea">Appointments, documents and comments as independent modules</td><td data-label="Why it did not hold">Flexible, but it lacked hierarchy and guidance</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="cs-figure reveal">
+      <Carousel client:visible label="Iterations 1–4" variant="fit" slides={[{"src": "/public/images/drawerredesign/fig7a-iteration1-case1.png", "alt": "Iteration 1: a collapsed 'Case 1' card with empty PDL and case type dropdowns, and Cancel/Confirm actions.", "caption": "1. A case per service"}, {"src": "/public/images/drawerredesign/fig8-iteration2-modal.png", "alt": "Iteration 2: a 'Fast track case' modal for patient Tony Kroos, with general documentation checkboxes (data security consent, pDL agreement) on the left and a timestamped activity log on the right.", "caption": "2. Documentation modal"}, {"src": "/public/images/drawerredesign/fig9-iteration3-tab.png", "alt": "Iteration 3: a two-panel view, with service status, Medicheck status and scheduled appointments on the left and an active documentation panel with pDL agreement, blood pressure measurement and inhalation procedure steps on the right.", "caption": "3. Documentation tab by service state"}, {"src": "/public/images/drawerredesign/fig11-iteration4-drawer.png", "alt": "Iteration 4: the patient drawer showing Document and Service Archive buttons, quick-action buttons for Appointment, Document and Comment, and a Polymedication Service and Blood Pressure Measurement Service each with their own checklist.", "caption": "4. Service modules"}]} />
+        <figcaption>Iterations 1–4</figcaption>
+      </figure>
+
+      <h3>The shift</h3>
+      <p>Iteration 4 showed that modules were the right building blocks, but they needed structure around them. I combined the modules with a guided flow: each service carries its own step tracker, and a "next action" bar tells the user what to do next. Users can still complete or revisit any step without losing context. Further rounds of detailed refinement with stakeholders led to the final design.</p>
+      <figure class="cs-figure reveal">
+        <img src="/public/images/drawerredesign/fig12-design-decision.png" alt="The final drawer design: a Polymedication Service module with a five-step progress tracker (telefonische Datenschutzeinwilligung, Multi-pDL steps), a Blutdruck (blood pressure) module, and a scheduled Termin für Abschlussgespräch appointment." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>The final design.</figcaption>
+      </figure>
+    </section>
+
+    <section id="testing" class="cs-section">
+      <h2 class="reveal">Testing</h2>
+      <p>I ran discount usability testing on a high-fidelity prototype with 5 participants, a mix of pharmacists and call-centre users. Each completed 8 core tasks, including creating a service, setting an appointment, reviewing documentation and completing a patient session.</p>
+      <p>32 of 40 attempts succeeded first time (80%). Testing also showed three things to improve:</p>
+      <ol class="cs-numbered">
+        <li><strong>Archive discoverability.</strong> <span>Participants struggled to find and understand the document and service archives.</span></li>
+        <li><strong>Appointment confidence.</strong> <span>Participants were unsure whether an appointment had been saved and linked to the right service.</span></li>
+        <li><strong>Progress clarity.</strong> <span>The progress tracker needed stronger contrast and clearer step labels.</span></li>
+      </ol>
+    </section>
+
+    <section id="handoff-and-onboarding" class="cs-section">
+      <h2 class="reveal">Handoff and onboarding</h2>
+      <p>Over four grooming sessions with engineering, we worked through interaction details, API dependencies and system behaviour so the design fitted the existing backend. I handed off in two sprints with Figma specifications and component documentation. To support adoption, I created a Notion onboarding guide comparing the old and new workflows, and a Synthesia video walking through real scenarios.</p>
+      <figure class="cs-figure reveal">
+        <img src="/public/images/drawerredesign/fig15-onboarding-notion.png" alt="A Notion onboarding document titled 'Einführung', comparing the old and new service structure side by side under 'Vorher' (before) and 'Jetzt' (now), with a table of contents listing six sections of changes." loading="lazy" onerror="imgFallback(this)">
+        <figcaption>Onboarding Notion document.</figcaption>
+      </figure>
+      <figure class="cs-figure reveal">
+        <HoverVideo client:visible src="/public/images/drawerredesign/fig16-onboarding-video.mp4" ariaLabel="Onboarding video tutorial for the new service workflow, recorded with Synthesia" preload="metadata" />
+        <figcaption>Onboarding video guideline, recorded with Synthesia.</figcaption>
+      </figure>
+    </section>
+
+    <section id="outcomes" class="cs-section">
+      <h2 class="reveal">Outcomes</h2>
+      <ul class="cs-numbered cs-list">
+        <li><span>Task completion during patient sessions was 30% faster, measured through timed task analysis.</span></li>
+        <li><span>The support team reported fewer process-related tickets after release.</span></li>
+        <li><span>Pilot pharmacies described the new flow as "logical", "well-organised" and "finally practical for daily use".</span></li>
+        <li><span>Because each part of a service is a module, new services can be added without major UI or backend changes.</span></li>
+      </ul>
+    </section>
+
+    <section id="what-i-would-do-differently" class="cs-section">
+      <h2 class="reveal">What I would do differently</h2>
+      <ul class="cs-numbered cs-list">
+        <li><span>Spend more time understanding needs and defining the problem before moving into design.</span></li>
+        <li><span>Stay in low fidelity for longer, to explore and set aside more directions with stakeholders before committing to detailed designs.</span></li>
+      </ul>
+    </section>
+</ArticleLayout>

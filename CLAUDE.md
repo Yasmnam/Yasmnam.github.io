@@ -1,15 +1,39 @@
-# Live site: dark editorial redesign (2026-10-18)
+# Stack: Astro + React (migrated 2026-10-19)
 
-The dark, component-based redesign built in `~/Documents/portfolio-redesign`
-(DESIGN.md / PROMPT.md briefs in her Downloads) went live on 2026-10-18.
-Styles now live in `src/styles/tokens.css`, `base.css` and one file per
-component in `src/styles/components/`, pulled in by `src/styles/main.css`;
-bump the `?v=` on those imports and on `main.css` in each page when a
-component changes, or browsers keep serving the old file. All URLs are
-relative. Much of the history below describes the earlier light newsprint
-theme and its old class names.
+The site is an **Astro 6** project with **React 19** islands and TypeScript,
+static output, deployed by GitHub Actions to GitHub Pages. See README.md for
+run/build and how to add a case study. Key points:
+
+- **Content is data.** `src/data/caseStudies.ts`, `products.ts` and
+  `principles.ts` drive the home page rows, "In this edition", the case study
+  kicker / meta strip / contents list / next stories, and page meta tags.
+  Case study bodies are `.astro` pages under `src/pages/<slug>/`, moved over
+  verbatim from the hand-coded HTML.
+- **Static by default.** Only `Carousel` and `HoverVideo`
+  (`src/components/islands/*.tsx`) are React islands, hydrated `client:visible`.
+  They render the same markup server-side, so content is in the HTML before JS.
+  React adds ~67 KB gz to pages with an island (home, drawer); pages without
+  islands ship ~2 KB. The intro skip/replay, top bar, story bar, reveals
+  fallback and analytics stay as small plain scripts (`src/scripts/`), bundled
+  by Astro from `BaseLayout`.
+- **CSS unchanged.** `src/styles/tokens.css`, `base.css` and the per-component
+  files, imported once via `main.css` in `BaseLayout`. Astro fingerprints
+  assets, so the old `?v=` cache-busting is gone. Islands are wrapped in
+  `<astro-island style="display:contents">`, so avoid child selectors (`>`)
+  that cross an island boundary.
+- **URLs unchanged.** `build.format: 'directory'` keeps `/drawerredesign/` etc.
+  `publicDir` is `./static`, and images sit in `static/public/images/` so their
+  URLs stay `/public/images/...` (used in og:image).
+- **Page transitions** stay native CSS `@view-transition` (cross-document);
+  Astro's ClientRouter is deliberately not used.
+- **Node:** Astro 7 needs Node 22.22+; this Mac has 22.18, so the project is on
+  Astro 6.4 (needs 22.12+). Moving to 7 is a version bump once Node is updated.
+
+Much of the history below predates the dark redesign and the migration, and
+describes old class names and files.
 
 ---
+
 
 
 # Yasaman Aminian — Portfolio
