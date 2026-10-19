@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import { caseStudies } from '../data/caseStudies';
+---
+<BaseLayout
+  page="study"
+  path="/404.html"
+  title="Page not found"
+  description="This page isn't in this edition. Head back to the front page or pick a case study."
+  ogImage="https://yasmnam.github.io/public/images/drawer-redesign-photo.png"
+>
+  <meta slot="head" name="robots" content="noindex">
+
+  <header class="article-top">
+    <div class="container article-top__inner">
+      <a class="article-top__name" href="/">Yasaman Aminian</a>
+      <nav class="article-top__nav" aria-label="Site">
+        <a href="/#work" data-ga-event="nav_click" data-ga-label="404_all_work">← All work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container article-head not-found">
+    <p class="kicker"><span class="kicker__num">404</span><span aria-hidden="true">·</span><span>Page not found</span></p>
+    <h1>This page isn't in this edition.</h1>
+    <p class="standfirst">The link may be out of date, or the page has moved. Try the front page, or one of the case studies below.</p>
+    <a class="btn btn--invert btn--lg not-found__home" href="/" data-ga-event="nav_click" data-ga-label="404_home"><span class="roll" data-text="Back to the front page"><span>Back to the front page</span></span></a>
+
+    <nav class="contents not-found__list" aria-label="Case studies">
+      <span class="label">In this edition</span>
+      <ol>
+        {caseStudies.map((c) => (
+          <li class={c.compact ? 'contents__minor' : undefined}><a href={`/${c.slug}/`} data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id={c.slug} data-ga-location="404"><span class="contents__num" aria-hidden="true">{c.num}</span><span class="contents__title">{c.shortTitle}</span></a></li>
+        ))}
+      </ol>
+    </nav>
+  </main>
+
+  <Footer topHref="/" />
+</BaseLayout>

@@ -191,7 +191,7 @@ export const caseStudies: CaseStudy[] = [
       "title": "Increasing trust in a tax compliance automation platform",
       "metaTitle": "Increasing trust in a tax compliance automation platform",
       "description": "The workflow canvas is the core of ARKK's enterprise data platform. Tax and finance data moves through it as a chain of activities: imports, transformations, checks, approvals and publishing.",
-      "ogImage": "https://yasmnam.github.io/public/images/workflowredesign/testing-panel-wireframe.png",
+      "ogImage": "https://yasmnam.github.io/public/images/arkk/workflow-canvas.webp",
       "kicker": {
         "discipline": "Workflow design",
         "org": "ARKK, enterprise data platform",

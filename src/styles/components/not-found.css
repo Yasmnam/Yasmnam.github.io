@@ -1,0 +1,4 @@
+/* 404 page: reuses the case study headline styles (.article-head) */
+.not-found { min-height: 60vh; border-bottom: 0; padding-bottom: var(--section-y); }
+.not-found__home { margin-top: 32px; }
+.not-found__list { max-width: 420px; margin-top: clamp(40px, 6vw, 72px); }

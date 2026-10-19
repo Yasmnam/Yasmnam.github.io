@@ -127,7 +127,6 @@
 .cs-pull p { font-size: 19px; }
 .cs-aside { padding: 18px 20px; border: 1px solid var(--line); background: var(--surface); }
 .cs-aside-label { display: block; font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.cs-aside-figure { display: block; font-family: var(--f-serif); font-size: 40px; line-height: 1.1; color: var(--accent); margin-bottom: 4px; }
 .cs-aside p { margin: 0; font-size: 14px; line-height: 1.55; max-width: none; }
 @media (max-width: 900px) { .cs-pull, .cs-aside { float: none; width: auto; margin: 24px 0; } }
 
@@ -188,5 +187,3 @@
 .cs-ideas h3 { margin: 0 0 12px; font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .cs-ideas ul { padding-left: 18px; color: var(--body); font-size: 14px; line-height: 1.6; }
 
-/* Placeholder for content still to come */
-.cs-gap { border: 1px dashed var(--line); padding: 14px 18px; font-family: var(--f-mono); font-size: 13px; color: var(--muted); max-width: var(--measure); }
