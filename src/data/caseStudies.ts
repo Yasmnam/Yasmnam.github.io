@@ -182,7 +182,6 @@ export const caseStudies: CaseStudy[] = [
     "shortTitle": "Workflow canvas at ARKK",
     "cardTitle": "Increasing trust in a tax compliance automation platform",
     "rowMeta": "Workflow design · 2026",
-    "chip": "In pilot with ~40% of internal users",
     "summary": "The workflow canvas is the core of ARKK's enterprise data platform.",
     "thumb": {
       "src": "/public/images/workflowredesign/drawer-wireframe.png",
