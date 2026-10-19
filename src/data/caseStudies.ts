@@ -201,7 +201,7 @@ export const caseStudies: CaseStudy[] = [
       "meta": [
         {
           "label": "My role",
-          "value": "Product designer. I led the convergence phase of the canvas redesign and owned the activity configuration drawer redesign and the MVP design for a new test suite end to end."
+          "value": "Product designer. I designed the convergence phase of the canvas redesign, the activity configuration drawer redesign and the MVP for a new test suite, in collaboration with the design lead."
         },
         {
           "label": "Team",
