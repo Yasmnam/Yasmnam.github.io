@@ -5,8 +5,8 @@ const d = document, r = d.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const on = (t, e, f, o) => t.addEventListener(e, f, o);
 
-// Intro (home): plays on every visit; any input during the first 3.2s adds
-// .intro-done (skip to the end).
+// Intro (home): plays on every visit; any input while it runs (about 5.6s,
+// including the typewriter) adds .intro-done (skip to the end).
 const hero = d.querySelector('.hero');
 const SKIP = ['keydown', 'pointerdown', 'wheel', 'touchmove'];
 let skipTimer;
@@ -14,9 +14,46 @@ function armSkip() {
   const disarm = () => { SKIP.forEach(e => removeEventListener(e, skip)); clearTimeout(skipTimer); };
   const skip = e => { r.classList.add('intro-done'); disarm(); window.gtag?.('event', 'intro_skip', { input: e.type }); };
   SKIP.forEach(e => on(window, e, skip, { passive: true }));
-  skipTimer = setTimeout(disarm, 3200);
+  skipTimer = setTimeout(disarm, 5600);
 }
-if (hero && !reduced && !r.classList.contains('intro-done')) armSkip();
+
+// Typewriter on the masthead's first word: Product → UX → UI → Interface →
+// Brand → Product. It types into a fixed slot the width of "Product" (the
+// real, accessible word stays in place, just transparent), so nothing around
+// it moves; longer words are scaled down to fit. Stops if the intro is skipped.
+const slot = d.querySelector('.type-slot');
+let typeRun = 0;
+async function typewriter() {
+  if (!slot || reduced) return;
+  const run = ++typeRun;
+  const ghost = slot.querySelector('.type-slot__ghost'), out = slot.querySelector('.type-word');
+  const alive = () => run === typeRun && !r.classList.contains('intro-done');
+  const wait = ms => new Promise(res => setTimeout(res, ms));
+  await d.fonts?.ready;
+  if (!alive()) return;
+  const slotW = ghost.getBoundingClientRect().width;
+  r.classList.add('is-typing');
+  await wait(300);
+  const words = ['Product', 'UX', 'UI', 'Interface', 'Brand', 'Product'];
+  for (let i = 0; i < words.length && alive(); i++) {
+    const w = words[i];
+    out.style.transform = 'none';
+    out.textContent = w;
+    const full = out.getBoundingClientRect().width, fit = Math.min(1, slotW / full);
+    // end each word right next to "Design"; shorter words leave the gap on the left
+    out.style.transform = `translateX(${(slotW - full * fit).toFixed(1)}px) scale(${fit.toFixed(3)})`;
+    out.textContent = '';
+    for (const ch of w) { if (!alive()) break; out.textContent += ch; await wait(62); }
+    if (i === words.length - 1) break;
+    await wait(420);
+    while (out.textContent && alive()) { out.textContent = out.textContent.slice(0, -1); await wait(34); }
+    await wait(140);
+  }
+  if (run !== typeRun) return;
+  await wait(alive() ? 700 : 0);
+  if (run === typeRun) r.classList.remove('is-typing');
+}
+if (hero && !reduced && !r.classList.contains('intro-done')) { armSkip(); typewriter(); }
 
 // Replay intro: restart the animations
 const replay = d.querySelector('[data-replay-intro]');
@@ -27,7 +64,7 @@ if (replay && hero && !reduced) {
     r.classList.add('intro-done');
     void r.offsetWidth;
     r.classList.remove('intro-done');
-    setTimeout(armSkip, 0);
+    setTimeout(() => { armSkip(); typewriter(); }, 0);
   });
 }
 
