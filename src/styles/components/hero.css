@@ -113,44 +113,51 @@
   .hero__spec > div { flex-direction: column; gap: 4px; }
 }
 
-/* Typewriter slot for the first word (motion.js). The ghost is the real word:
-   it holds the width and stays in the accessibility tree; while typing it goes
-   transparent and the typed copy sits on top of it. */
-.type-slot { position: relative; display: inline-block; }
-.type-word {
-  display: none;
-  position: absolute;
-  left: 0; top: 0;
-  white-space: nowrap;
-  transform-origin: 0 50%;
-  color: var(--ink);
+/* Typewriter on the first word (motion.js). While typing, the slot reserves
+   the width of its widest word ("Interface", invisible generated text in the
+   same grid cell), so "Design" and everything else stay still on every screen; the
+   word is real text at full size, centred in that space. Without JS, under reduced motion or once done, it's plain text. */
+html.is-typing:not(.intro-done) .type-slot {
+  display: inline-grid;
+  justify-items: center;
+  position: relative;
 }
-.type-word::after {
+/* The width reserve is CSS-generated text, so it's never part of the page's
+   content (copy/paste, search, screen readers). Padding covers the caret. */
+html.is-typing:not(.intro-done) .type-slot::before {
+  content: 'Interface';
+  visibility: hidden;
+  padding-inline: .06em;
+}
+html.is-typing:not(.intro-done) .type-slot::before,
+html.is-typing:not(.intro-done) .type-slot__word { grid-area: 1 / 1; }
+/* "Design" is its own box so it alone can glide when the slot shrinks back */
+.type-rest { display: inline-block; }
+/* Caret hangs just after the word, outside the layout, so it never nudges the
+   centred word (and "Product" lands exactly where it rests afterwards) */
+html.is-typing:not(.intro-done) .type-slot__word { position: relative; }
+html.is-typing:not(.intro-done) .type-slot__word::after {
   content: '';
-  display: inline-block;
+  position: absolute;
+  left: calc(100% + .04em);
+  bottom: .16em;
   width: .07em;
   height: .78em;
-  margin-left: .05em;
   background: var(--accent);
-  vertical-align: -.02em;
   animation: caret 1s steps(1) infinite;
 }
-@keyframes caret { 50% { opacity: 0; } }
-html.is-typing:not(.intro-done) .type-slot__ghost { color: transparent; }
-html.is-typing:not(.intro-done) .type-word { display: block; }
-/* Placeholder underline: the blank waiting to be typed into */
-.type-slot::after {
+/* Faint placeholder line: the blank waiting to be typed into */
+html.is-typing:not(.intro-done) .type-slot::after {
   content: '';
   position: absolute;
   left: 0; right: 0;
-  bottom: .06em;
-  height: max(2px, .035em);
+  bottom: .08em;
+  height: 1px;
   background: var(--muted);
-  opacity: 0;
-  transition: opacity var(--t-base) var(--ease-out);
+  opacity: .28;
   pointer-events: none;
 }
-html.is-typing:not(.intro-done) .type-slot::after { opacity: .7; }
+@keyframes caret { 50% { opacity: 0; } }
 
 /* ---- Intro timeline ---- */
 @keyframes byline-in { from { opacity: 0; letter-spacing: .42em; } to { opacity: 1; letter-spacing: .18em; } }
