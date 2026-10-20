@@ -138,6 +138,19 @@
 @keyframes caret { 50% { opacity: 0; } }
 html.is-typing:not(.intro-done) .type-slot__ghost { color: transparent; }
 html.is-typing:not(.intro-done) .type-word { display: block; }
+/* Placeholder underline: the blank waiting to be typed into */
+.type-slot::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: .06em;
+  height: max(2px, .035em);
+  background: var(--muted);
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease-out);
+  pointer-events: none;
+}
+html.is-typing:not(.intro-done) .type-slot::after { opacity: .7; }
 
 /* ---- Intro timeline ---- */
 @keyframes byline-in { from { opacity: 0; letter-spacing: .42em; } to { opacity: 1; letter-spacing: .18em; } }

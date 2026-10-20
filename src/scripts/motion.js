@@ -18,9 +18,10 @@ function armSkip() {
 }
 
 // Typewriter on the masthead's first word: Product → UX → UI → Interface →
-// Brand → Product. It types into a fixed slot the width of "Product" (the
-// real, accessible word stays in place, just transparent), so nothing around
-// it moves; longer words are scaled down to fit. Stops if the intro is skipped.
+// Brand → Product, starting from a blank slot with a grey underline. It types
+// into a fixed slot the width of "Product" (the real, accessible word stays in
+// place, just transparent), so nothing around it moves; longer words are
+// scaled down to fit. Stops if the intro is skipped.
 const slot = d.querySelector('.type-slot');
 let typeRun = 0;
 async function typewriter() {
@@ -29,11 +30,13 @@ async function typewriter() {
   const ghost = slot.querySelector('.type-slot__ghost'), out = slot.querySelector('.type-word');
   const alive = () => run === typeRun && !r.classList.contains('intro-done');
   const wait = ms => new Promise(res => setTimeout(res, ms));
+  // Blank slot with a grey underline straight away; typing starts once fonts are in
+  out.textContent = '';
+  r.classList.add('is-typing');
   await d.fonts?.ready;
   if (!alive()) return;
   const slotW = ghost.getBoundingClientRect().width;
-  r.classList.add('is-typing');
-  await wait(300);
+  await wait(650);
   const words = ['Product', 'UX', 'UI', 'Interface', 'Brand', 'Product'];
   for (let i = 0; i < words.length && alive(); i++) {
     const w = words[i];
