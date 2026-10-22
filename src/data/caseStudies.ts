@@ -215,6 +215,12 @@ export const caseStudies: CaseStudy[] = [
           "value": "Figma, FigJam"
         }
       ],
+      "heroVideo": {
+        "src": "/public/images/workflowredesign/hero-motion.mp4",
+        "poster": "/public/images/workflowredesign/hero-motion-poster.png",
+        "ariaLabel": "Motion overview of the workflow canvas redesign: activity states, the configuration drawer and its three sizes, the workflow test suite, and the pilot results",
+        "caption": "Motion overview — the workflow canvas, activity configuration drawer and test suite."
+      },
       "sections": [
         {
           "id": "impact",
