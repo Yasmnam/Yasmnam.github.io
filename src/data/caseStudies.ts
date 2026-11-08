@@ -4,8 +4,103 @@ import type { CaseStudy } from './types';
  *  src/pages/<slug>/index.astro that wraps its body in <ArticleLayout>. */
 export const caseStudies: CaseStudy[] = [
   {
-    "slug": "drawerredesign",
+    "slug": "workflowredesign",
     "num": "01",
+    "product": "arkk",
+    "shortTitle": "Workflow canvas at ARKK",
+    "cardTitle": "Increasing trust in a tax compliance automation platform",
+    "rowMeta": "Workflow design · 2026",
+    "summary": "The workflow canvas is the core of ARKK's enterprise data platform.",
+    "thumb": {
+      "src": "/public/images/workflowredesign/drawer-wireframe.png",
+      "alt": "Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields."
+    },
+    "cover": {
+      "src": "/public/images/covers/workflowredesign-cover.webp",
+      "alt": "ARKK's workflow builder on a desktop monitor: a tree of activity nodes on the canvas, with the activity configuration drawer open on its Runtime settings tab",
+      "width": 2000,
+      "height": 960
+    },
+    "page": {
+      "title": "Increasing trust in a tax compliance automation platform",
+      "metaTitle": "Increasing trust in a tax compliance automation platform",
+      "description": "The workflow canvas is the core of ARKK's enterprise data platform. Tax and finance data moves through it as a chain of activities: imports, transformations, checks, approvals and publishing.",
+      "ogImage": "https://yasmnam.github.io/public/images/arkk/workflow-canvas.webp",
+      "kicker": {
+        "discipline": "Workflow design",
+        "org": "ARKK, enterprise data platform",
+        "year": "2026"
+      },
+      "meta": [
+        {
+          "label": "My role",
+          "value": "Product designer. I designed the convergence phase of the canvas redesign, the activity configuration drawer redesign and the MVP for a new test suite, in collaboration with the design lead."
+        },
+        {
+          "label": "Team",
+          "value": "Product manager and an engineering team, with the engineering lead joining design sessions. Stakeholders included the design lead, head of product, CPO and CTO."
+        },
+        {
+          "label": "Timeline",
+          "value": "April – July 2026, across three initiatives and more than fifteen design review cycles"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, FigJam"
+        }
+      ],
+      "sections": [
+        {
+          "id": "impact",
+          "label": "Impact"
+        },
+        {
+          "id": "overview",
+          "label": "Overview"
+        },
+        {
+          "id": "the-problem",
+          "label": "The problem"
+        },
+        {
+          "id": "opportunity",
+          "label": "Opportunity"
+        },
+        {
+          "id": "users",
+          "label": "Users"
+        },
+        {
+          "id": "constraints",
+          "label": "Constraints"
+        },
+        {
+          "id": "initiative-one-canvas-redesign",
+          "label": "Initiative one: canvas redesign"
+        },
+        {
+          "id": "initiative-two-activity-configuration-drawer",
+          "label": "Initiative two: activity configuration drawer"
+        },
+        {
+          "id": "initiative-three-mvp-design-for-a-workflow-test-",
+          "label": "Initiative three: MVP design for a workflow test suite"
+        },
+        {
+          "id": "handoff-and-pilot",
+          "label": "Handoff and pilot"
+        }
+      ],
+      "nextStories": [
+        "drawerredesign",
+        "mml"
+      ],
+      "standfirst": "Redesigning the canvas and activity configuration, and designing an MVP test suite, in ARKK's workflow builder"
+    }
+  },
+  {
+    "slug": "drawerredesign",
+    "num": "02",
     "product": "apodienste",
     "shortTitle": "Modular patient drawer",
     "cardTitle": "One drawer, built from blocks",
@@ -14,6 +109,12 @@ export const caseStudies: CaseStudy[] = [
     "thumb": {
       "src": "/public/images/drawer-redesign.png",
       "alt": "Wireframe of the apodienste patient management dashboard, with a sidebar list, patient detail panel and comment thread rendered as generic placeholder content."
+    },
+    "cover": {
+      "src": "/public/images/covers/drawerredesign-cover.webp",
+      "alt": "apodienste's insight dashboard on a laptop, showing total and monthly service statistics, a revenue chart, and elderly-house visit stats by status",
+      "width": 2000,
+      "height": 960
     },
     "page": {
       "title": "Improving usability of pharmacy service delivery through a modular patient drawer",
@@ -100,7 +201,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     "slug": "patienthistory",
-    "num": "02",
+    "num": "03",
     "product": "apodienste",
     "shortTitle": "Patient case tracking",
     "cardTitle": "From comment thread to auditable patient record",
@@ -109,6 +210,12 @@ export const caseStudies: CaseStudy[] = [
     "thumb": {
       "src": "/public/images/patient-history.png",
       "alt": "Wireframe of the apodienste patient history interface: a comment and action panel on the left with generic placeholder content, and a list of mentions on the right, each marked with a status icon."
+    },
+    "cover": {
+      "src": "/public/images/covers/patienthistory-cover.webp",
+      "alt": "apodienste on a tablet: a receipt confirmation for four patients ('Quittung für 4 Patient(en)') being signed with a stylus",
+      "width": 2000,
+      "height": 960
     },
     "page": {
       "title": "Increasing tracking and auditability in patient case handling",
@@ -173,101 +280,6 @@ export const caseStudies: CaseStudy[] = [
         "mml"
       ],
       "standfirst": "Designing apodienste's patient history feature in three acts"
-    }
-  },
-  {
-    "slug": "workflowredesign",
-    "num": "03",
-    "product": "arkk",
-    "shortTitle": "Workflow canvas at ARKK",
-    "cardTitle": "Increasing trust in a tax compliance automation platform",
-    "rowMeta": "Workflow design · 2026",
-    "summary": "The workflow canvas is the core of ARKK's enterprise data platform.",
-    "thumb": {
-      "src": "/public/images/workflowredesign/drawer-wireframe.png",
-      "alt": "Wireframe of the activity configuration drawer, open on its Runtime Settings tab, showing generic placeholder content in place of an ordering field, a description textarea, view-access radio options, and assignee/manager tag fields."
-    },
-    "page": {
-      "title": "Increasing trust in a tax compliance automation platform",
-      "metaTitle": "Increasing trust in a tax compliance automation platform",
-      "description": "The workflow canvas is the core of ARKK's enterprise data platform. Tax and finance data moves through it as a chain of activities: imports, transformations, checks, approvals and publishing.",
-      "ogImage": "https://yasmnam.github.io/public/images/arkk/workflow-canvas.webp",
-      "kicker": {
-        "discipline": "Workflow design",
-        "org": "ARKK, enterprise data platform",
-        "year": "2026"
-      },
-      "meta": [
-        {
-          "label": "My role",
-          "value": "Product designer. I designed the convergence phase of the canvas redesign, the activity configuration drawer redesign and the MVP for a new test suite, in collaboration with the design lead."
-        },
-        {
-          "label": "Team",
-          "value": "Product manager and an engineering team, with the engineering lead joining design sessions. Stakeholders included the design lead, head of product, CPO and CTO."
-        },
-        {
-          "label": "Timeline",
-          "value": "April – July 2026, across three initiatives and more than fifteen design review cycles"
-        },
-        {
-          "label": "Tools",
-          "value": "Figma, FigJam"
-        }
-      ],
-      "heroVideo": {
-        "src": "/public/images/workflowredesign/hero-motion.mp4",
-        "poster": "/public/images/workflowredesign/hero-motion-poster.png",
-        "ariaLabel": "Motion overview of the workflow canvas redesign: activity states, the configuration drawer and its three sizes, the workflow test suite, and the pilot results",
-        "caption": "Motion overview — the workflow canvas, activity configuration drawer and test suite."
-      },
-      "sections": [
-        {
-          "id": "impact",
-          "label": "Impact"
-        },
-        {
-          "id": "overview",
-          "label": "Overview"
-        },
-        {
-          "id": "the-problem",
-          "label": "The problem"
-        },
-        {
-          "id": "opportunity",
-          "label": "Opportunity"
-        },
-        {
-          "id": "users",
-          "label": "Users"
-        },
-        {
-          "id": "constraints",
-          "label": "Constraints"
-        },
-        {
-          "id": "initiative-one-canvas-redesign",
-          "label": "Initiative one: canvas redesign"
-        },
-        {
-          "id": "initiative-two-activity-configuration-drawer",
-          "label": "Initiative two: activity configuration drawer"
-        },
-        {
-          "id": "initiative-three-mvp-design-for-a-workflow-test-",
-          "label": "Initiative three: MVP design for a workflow test suite"
-        },
-        {
-          "id": "handoff-and-pilot",
-          "label": "Handoff and pilot"
-        }
-      ],
-      "nextStories": [
-        "drawerredesign",
-        "mml"
-      ],
-      "standfirst": "Redesigning the canvas and activity configuration, and designing an MVP test suite, in ARKK's workflow builder"
     }
   },
   {

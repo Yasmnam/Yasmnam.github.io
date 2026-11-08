@@ -65,7 +65,6 @@
   overflow: hidden;
 }
 .case-row__cta {
-  padding-top: 4px;
   font-family: var(--f-mono);
   font-size: var(--fs-label);
   letter-spacing: .08em;
@@ -76,7 +75,7 @@
 
 /* Small screenshot from the case study */
 .case-row__thumb {
-  flex: 0 1 clamp(160px, 24%, 320px);
+  flex: 0 1 clamp(150px, 19%, 240px);
   margin-left: auto;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -100,7 +99,7 @@
 .case-row--compact .case-row__num { font-size: 32px; color: var(--num-muted); }
 .case-row--compact .case-row__title { font-size: 21px; }
 .case-row--compact .case-row__summary { -webkit-line-clamp: 2; }
-.case-row--compact .case-row__thumb { flex-basis: clamp(140px, 18%, 240px); }
+.case-row--compact .case-row__thumb { flex-basis: clamp(130px, 15%, 190px); }
 
 /* Narrow screens: screenshot moves under the text */
 @media (max-width: 640px) {

@@ -10,12 +10,15 @@
 @import url('components/edition.css');
 @import url('components/product.css');
 @import url('components/case-row.css');
+@import url('components/work-card.css');
 @import url('components/sections.css');
 @import url('components/footer.css');
 @import url('components/article.css');
 @import url('components/not-found.css');
 @import url('components/content.css');
 @import url('components/carousel.css');
+@import url('components/hover-reveal.css');
+@import url('components/paint-bg.css');
 @import url('components/reveal.css');
 @import url('components/meter.css');
 @import url('components/transitions.css');

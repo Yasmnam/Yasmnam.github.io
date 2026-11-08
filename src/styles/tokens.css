@@ -30,10 +30,12 @@
   --scrim: rgba(10, 10, 9, .7);
 
   /* Type */
-  --f-display: 'Playfair Display', Georgia, serif;
-  --f-serif: 'Newsreader', Georgia, serif;
+  /* IBM Plex Sans everywhere; the four roles stay so components can still
+     tell display, heading, body and label type apart */
   --f-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --f-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --f-display: var(--f-sans);
+  --f-serif: var(--f-sans);
+  --f-mono: var(--f-sans);
 
   /* Sized so the typewriter's widest line, "Interface Design" (~9.8em plus the
      caret), fits on one line at every width: content is 92vw below 1280px and

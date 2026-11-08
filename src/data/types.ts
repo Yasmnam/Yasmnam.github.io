@@ -32,6 +32,8 @@ export interface CaseStudy {
   chip?: string;
   summary: string;
   thumb: Image;
+  /** Wide product mockup for the home page card (client work). Without one, the card is text only. */
+  cover?: Image;
   /** Compact row (university projects) */
   compact?: boolean;
 

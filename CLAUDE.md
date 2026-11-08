@@ -29,6 +29,29 @@ run/build and how to add a case study. Key points:
 - **Node:** Astro 7 needs Node 22.22+; this Mac has 22.18, so the project is on
   Astro 6.4 (needs 22.12+). Moving to 7 is a version bump once Node is updated.
 
+**Home page and type (2026-11-08)** — supersedes older notes below:
+
+- **Type:** IBM Plex Sans everywhere. The four font tokens (`--f-display`,
+  `--f-serif`, `--f-sans`, `--f-mono`) all point at it, so components keep
+  their roles; only Plex Sans is loaded from Google Fonts.
+- **Selected work:** one large `WorkCard` per case study. Client work uses a
+  wide product mockup (`cover` in `caseStudies.ts`, files in
+  `static/public/images/covers/`, cropped from the apodienste/ARKK mockups)
+  with number, source and title on a gradient; summary and link appear on
+  hover/focus (always shown on touch). University projects are text-only
+  cards whose screenshot fades in on hover. The Editor's note / "In this
+  edition" block and the product overview blocks are no longer on the page
+  (components kept).
+- **Order:** ARKK is case study 01, then the two apodienste studies, then
+  SenseCast and MML. Order and numbers come from `caseStudies.ts` only.
+- **ARKK has no hero video** any more (removed at her request; the
+  `hero-motion` files in `workflowredesign/` are unused).
+- **Tulip background (home only):** her own watercolour, very faint, with a
+  pointer "wet trail" that reveals more of it and dries away
+  (`paint-bg.css`, `paint-trail.js`). Asked for explicitly, despite the
+  older "watercolour cursor trails" rejection below. Off for reduced motion
+  and touch.
+
 Much of the history below predates the dark redesign and the migration, and
 describes old class names and files.
 

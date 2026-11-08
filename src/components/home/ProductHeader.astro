@@ -12,14 +12,16 @@ const id = `p-${p.key === 'university' ? 'uni' : p.key}`;
     <Fragment>
       {p.thumb && <Thumbnail thumb={p.thumb} count={count} />}
       <div class="product__overview">
-        <span class="label"><span class="label--accent">Product</span> · {p.kicker}</span>
         <h2 class="product__name" id={id}>{p.name}</h2>
         {p.about && <p class="product__about">{p.about}</p>}
-        {p.meta && (
-          <dl class="product__meta">
-            {p.meta.map((m) => <div><dt>{m.label}</dt><dd>{m.value}</dd></div>)}
-          </dl>
-        )}
+        <div class="product__facts">
+          <span class="label"><span class="label--accent">Product</span> · {p.kicker}</span>
+          {p.meta && (
+            <dl class="product__meta">
+              {p.meta.map((m) => <div><dt>{m.label}</dt><dd>{m.value}</dd></div>)}
+            </dl>
+          )}
+        </div>
       </div>
     </Fragment>
   )}

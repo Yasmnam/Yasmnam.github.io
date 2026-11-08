@@ -1,0 +1,25 @@
+/* Painted background: a very faint wash of the tulip watercolour over every
+   page, plus a canvas where the pointer leaves a "wet trail" that reveals more
+   of the painting and then dries away (src/scripts/paint-trail.js).
+   Screen-blended, so it can only lift the dark page a touch, never darken
+   text. Never catches the pointer; sits below the top bar (50). */
+.paint-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.paint-bg__wash,
+.paint-bg__trail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.paint-bg__wash {
+  background: url('/public/images/background/tulips.jpg') center 40% / cover no-repeat;
+  opacity: .04;
+  filter: saturate(.5);
+}
+.paint-bg__trail { opacity: .14; }

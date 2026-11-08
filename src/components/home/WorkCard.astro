@@ -1,0 +1,27 @@
+---
+import type { CaseStudy } from '../../data/types';
+import { products } from '../../data/products';
+interface Props { study: CaseStudy }
+const { study: c } = Astro.props;
+const product = products.find((p) => p.key === c.product);
+const source = product?.minor ? 'University project' : product?.name;
+---
+<li class="work-card-item">
+  <a class:list={['work-card', { 'work-card--text': !c.cover }]} href={`/${c.slug}/`} aria-label={`Case study ${c.num}: ${c.cardTitle}`} data-ga-event="select_content" data-ga-content-type="case_study" data-ga-item-id={c.slug} data-ga-position={String(Number(c.num))} data-ga-location="work">
+    {c.cover ? (
+      <img class="work-card__img" src={c.cover.src} alt={c.cover.alt} width={c.cover.width} height={c.cover.height} loading="lazy">
+    ) : (
+      <img class="work-card__img" src={c.thumb.src} alt="" loading="lazy" onerror="imgFallback(this)">
+    )}
+    <div class="work-card__body">
+      <p class="work-card__kicker"><span class="work-card__num" style={`view-transition-name:cs-${c.num}-num`}>{c.num}</span>{source} · {c.rowMeta}</p>
+      <h3 class="work-card__title" style={`view-transition-name:cs-${c.num}-title`}>{c.cardTitle}</h3>
+      <div class="work-card__more">
+        <div>
+          <p class="work-card__summary">{c.summary}</p>
+          <span class="work-card__cta">{c.compact ? 'Read' : 'Read the case study'} <span class="work-card__arrow" aria-hidden="true">→</span></span>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>

@@ -10,7 +10,7 @@ const id = `p-${p.key === 'university' ? 'uni' : p.key}`;
 ---
 <section class:list={['product', { 'product--minor': p.minor }]} aria-labelledby={id} data-ga-view={p.analyticsName}>
   <ProductHeader product={p} count={studies.length} />
-  {!p.minor && <p class="label product__studies-label">Case studies from {p.name}</p>}
+  {!p.minor && <p class="visually-hidden">Case studies from {p.name}</p>}
   <ol class="case-list" role="list">
     {studies.map((c) => <CaseRow study={c} />)}
   </ol>

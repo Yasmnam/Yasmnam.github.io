@@ -3,12 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/home/Hero.astro';
-import EditorsNote from '../components/home/EditorsNote.astro';
-import ProductSection from '../components/home/ProductSection.astro';
+import WorkCard from '../components/home/WorkCard.astro';
 import AlsoInBrief from '../components/home/AlsoInBrief.astro';
 import AboutPrinciples from '../components/home/AboutPrinciples.astro';
 import Contact from '../components/home/Contact.astro';
-import { products } from '../data/products';
+import { caseStudies } from '../data/caseStudies';
 
 const person = {
   '@context': 'https://schema.org',
@@ -38,19 +37,22 @@ const person = {
     <Hero />
 
     <main id="main">
-      <EditorsNote />
-
       <div class="container work" id="work">
         <div class="work-head">
           <div class="work-head__rules" aria-hidden="true"><span class="rule rule--15"></span><span class="rule rule--5"></span></div>
           <div class="work-head__row">
             <p class="work-head__title">Selected work</p>
-            <p class="work-head__note">Grouped by product: an overview first, then the case studies.</p>
+            <p class="work-head__note">Client work first, then university projects.</p>
           </div>
         </div>
-        <div class="products">
-          {products.map((p) => <ProductSection product={p} />)}
-        </div>
+        <h2 class="visually-hidden">Client work</h2>
+        <ol class="work-list" role="list">
+          {caseStudies.filter((c) => !c.compact).map((c) => <WorkCard study={c} />)}
+        </ol>
+        <h2 class="work-sub">University projects</h2>
+        <ol class="work-list work-list--text" role="list">
+          {caseStudies.filter((c) => c.compact).map((c) => <WorkCard study={c} />)}
+        </ol>
       </div>
 
       <AlsoInBrief />

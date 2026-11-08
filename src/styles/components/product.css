@@ -124,7 +124,9 @@
 .thumb:has(.thumb-mark--fill)::before { display: none; }
 
 /* Overview */
-.product__overview > .label { display: block; margin-bottom: 8px; }
+/* Kicker and facts sit together under the description (revealed on hover) */
+.product__facts { margin-top: 24px; }
+.product__facts > .label { display: block; }
 .product__name {
   font-family: var(--f-serif);
   font-size: var(--fs-product);
@@ -137,14 +139,14 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 12px 24px;
-  margin: 20px 0 0;
-  padding-top: 16px;
+  margin: 14px 0 0;
+  padding-top: 14px;
   border-top: 1px solid var(--hair);
 }
 .product__meta dt { font-family: var(--f-mono); font-size: var(--fs-label-sm); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .product__meta dd { margin: 0; color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
 
-.product__studies-label { margin: 28px 0 20px; font-size: var(--fs-label); }
+.product:not(.product--minor) .case-list { margin-top: clamp(32px, 4vw, 48px); }
 
 /* University projects: no thumbnail, smaller italic heading */
 .product--minor .product__header { align-items: baseline; }

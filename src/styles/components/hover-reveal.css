@@ -1,0 +1,32 @@
+/* Supporting text rests hidden and fades in on hover or keyboard focus, so the
+   page at rest shows only names, titles and images. Only on devices that can
+   hover: touch screens keep everything visible. Opacity only, so the text keeps
+   its space (nothing shifts) and stays in the accessibility tree. */
+@media (hover: hover) {
+  .case-row__meta,
+  .case-row__summary,
+  .product__facts,
+  .thumb__org,
+  .thumb__chip,
+  .thumb .cs-carousel-controls,
+  .thumb:has(.thumb-mark--fill, .cs-carousel)::after {
+    opacity: 0;
+    transition: opacity 350ms var(--ease-out);
+  }
+
+  /* Case rows: number, title and screenshot at rest */
+  .case-row:hover :is(.case-row__meta, .case-row__summary),
+  .case-row:focus-visible :is(.case-row__meta, .case-row__summary),
+
+  /* Product overview: name and description at rest; facts on hover */
+  .product__header:hover .product__facts,
+  .product__header:focus-within .product__facts,
+
+  /* Thumbnail: clean image at rest; label, count and carousel controls on hover */
+  .thumb:hover :is(.thumb__org, .thumb__chip, .cs-carousel-controls),
+  .thumb:focus-within :is(.thumb__org, .thumb__chip, .cs-carousel-controls),
+  .thumb:hover:has(.thumb-mark--fill, .cs-carousel)::after,
+  .thumb:focus-within:has(.thumb-mark--fill, .cs-carousel)::after {
+    opacity: 1;
+  }
+}
